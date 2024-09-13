@@ -1,0 +1,42 @@
+{%- liquid
+  assign empty_cart_buttons = settings.empty_cart_buttons
+  assign empty_cart_button_text = settings.empty_cart_button_text
+  assign empty_cart_button_link = settings.empty_cart_button_link | default: routes.all_products_collection_url
+  assign collection_button_style = settings.collection_button_style
+  assign collection_button_color = settings.collection_button_color
+  assign animation_order = animation_order | default: 1
+-%}
+
+{%- if empty_cart_button_text != blank or linklists[empty_cart_buttons].links.size > 0 -%}
+  <div class="cart-empty-buttons{%- render 'button-fallback-classes', primary_color: collection_button_color, bg_color_secondary: bg_color_secondary -%}">
+    {%- if empty_cart_button_text != blank -%}
+      <div class="cart-empty-buttons__item{% if collection_button_style == 'btn--text' %} cart-empty-buttons__item--text{% endif %}"
+        {% if animations_enabled %}
+          data-aos="hero"
+          data-aos-anchor="{{ aos_anchor }}"
+          data-aos-order="{{ animation_order }}"
+          {%- assign animation_order = animation_order | plus: 1 -%}
+        {% endif %}>
+        <a href="{{ empty_cart_button_link }}" class="btn {{ collection_button_style }} {{ collection_button_color }}">
+          {{ empty_cart_button_text }}
+        </a>
+      </div>
+    {%- endif -%}
+
+    {%- if linklists[empty_cart_buttons].links.size > 0 -%}
+      {%- for link in linklists[empty_cart_buttons].links limit: 3 -%}
+        <div class="cart-empty-buttons__item{% if collection_button_style == 'btn--text' %} cart-empty-buttons__item--text{% endif %}"
+          {% if animations_enabled %}
+            data-aos="hero"
+            data-aos-anchor="{{ aos_anchor }}"
+            data-aos-order="{{ animation_order }}"
+            {%- assign animation_order = animation_order | plus: 1 -%}
+          {% endif %}>
+          <a href="{{ link.url }}" class="btn {{ collection_button_style }} {{ collection_button_color }}">
+            {{ link.title | strip_html | escape }}
+          </a>
+        </div>
+      {%- endfor -%}
+    {%- endif -%}
+  </div>
+{%- endif -%}
