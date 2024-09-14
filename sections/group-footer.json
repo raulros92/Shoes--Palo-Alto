@@ -1,1 +1,67 @@
-{"type":"footer","name":"Footer","sections":{"footer":{"type":"footer","blocks":{"footer-block-0":{"type":"link","settings":{"menu":"main-menu","title":"Shop"}},"footer-block-1":{"type":"link","settings":{"menu":"footer","title":"Helpful Links"}},"footer-block-2":{"type":"text","settings":{"title":"Our Mission","footer_text":"<p>Leave your customers with a final message about your brand in this rich text block.<\/p>"}},"footer-block-3":{"type":"newsletter","settings":{"title":"Newsletter","text":"<p>Stay up to date with the new collections, products and exclusive offers.<\/p>"}}},"block_order":["footer-block-0","footer-block-1","footer-block-2","footer-block-3"],"settings":{"show_footer_wave":false,"show_social_links":true,"show_payment_icons":true,"bottom_menu":"","color_text":"#ffffff","color_bg":"#000000","color_border":"#ffffff","show_locale_selector":true,"show_country_selector":true,"width":"wrapper"}}},"order":["footer"]}
+{
+  "type": "footer",
+  "name": "Footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "logo_Ea4eGP": {
+          "type": "logo",
+          "settings": {
+            "alignment": "text-left",
+            "image": "shopify:\/\/shop_images\/peacockLogo.png",
+            "logo_width": 100,
+            "show_shop_name": false,
+            "text": "<p>Estilo y variedad. Moda actual. Zapatos para todos. Desde calzado casual y deportivo hasta elegante y formal, tenemos zapatos para cada ocasion.<\/p>",
+            "column_width": "50"
+          }
+        },
+        "footer-block-0": {
+          "type": "link",
+          "settings": {
+            "alignment": "text-left",
+            "menu": "main-menu",
+            "title": "Shop",
+            "column_width": "25"
+          }
+        },
+        "footer-block-1": {
+          "type": "link",
+          "settings": {
+            "alignment": "text-left",
+            "menu": "footer",
+            "title": "Helpful Links",
+            "column_width": "25"
+          }
+        }
+      },
+      "block_order": [
+        "logo_Ea4eGP",
+        "footer-block-0",
+        "footer-block-1"
+      ],
+      "settings": {
+        "show_footer_wave": false,
+        "enable_footer_parallax": false,
+        "increase_border_radius": false,
+        "bottom_bar_alignment": "text-center",
+        "show_social_links": true,
+        "enable_follow_on_shop": false,
+        "show_payment_icons": true,
+        "bottom_menu": "",
+        "color_text": "#ffffff",
+        "color_bg": "#000000",
+        "color_border": "#ffffff",
+        "show_locale_selector": true,
+        "show_country_selector": true,
+        "show_country_flag": false,
+        "width": "wrapper",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}
