@@ -39,6 +39,7 @@
     "product_grid_hover": "none",
     "cutline_color": "body",
     "variants_style": "auto",
+    "atc_button_color": "btn--primary",
     "quick_buy": "quick_buy",
     "quick_buy_image_layout": "large",
     "show_labels": true,
@@ -55,7 +56,8 @@
     "enable_accept_terms": false,
     "upsells_height": 100,
     "upsells_image_width": 30,
-    "upsells_bg_color": "#fff7f2",
+    "upsells_bg_color": "#ffffff",
+    "upsells_text_color": "#222223",
     "loading_image_width": 150,
     "loading_appearance": "once",
     "show_spacer_lines": false,
@@ -97,7 +99,15 @@
     "checkout_error_color": "#d02e2e",
     "content_for_index": [
 
-    ]
+    ],
+    "blocks": {
+      "14060646107696862457": {
+        "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/judgeme_core\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "disabled": false,
+        "settings": {
+        }
+      }
+    }
   },
   "presets": {
     "Vibrant": {
