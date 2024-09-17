@@ -331,6 +331,14 @@
     {%- render 'search-popdown', unique: 'mobile', in_header: true, classes: 'mobile-menu__button caps' -%}
   {%- endif -%}
 
+      {%- if shop.customer_accounts_enabled -%}
+        <div class="menu__item menu__item--icon">
+          <a href="{{ routes.account_url }}" class="navlink navlink--icon{% if settings.nav_caps_toplevel %} caps{% endif %}{% if link_hover_dot %} navlink--dot{% endif %}">
+            {%- render 'icon-user-mobile' -%}
+          </a>
+        </div>
+      {%endif%}
+
   <a href="{{ routes.cart_url }}"
     class="mobile-menu__button cart__toggle{% if cart.item_count > 0 %} cart__toggle--has-items{% endif %}{% if cart_animation %} cart__toggle--animation{% endif %}"
     aria-controls="cart-drawer"

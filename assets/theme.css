@@ -10763,7 +10763,6 @@ section:hover
   color: var(--text);
   overflow: initial;
   -webkit-overflow-scrolling: touch;
-  transition: color 0.2s ease, background 0.3s ease;
 }
 .no-js .site-header > .wrapper[data-aos],
 .site-header > .wrapper:not(.aos-initialized) {
@@ -10928,7 +10927,6 @@ section:hover
 
 .logo__text-link {
   color: var(--text);
-  transition: color 0.2s ease;
 }
 
 .logo__image-push {
@@ -11886,7 +11884,6 @@ body:has(.site-header[data-transparent="true"]):has(
   align-items: center;
   padding: var(--inner);
   font-size: calc(0.625rem * var(--adjust-nav-top-level));
-  transition: color 0.2s ease;
 }
 
 .navlink--toplevel > .navtext,
@@ -12027,16 +12024,10 @@ body:has(.site-header[data-transparent="true"]):has(
   background: var(--highlight) !important;
 }
 
-.navlink--child,
-.navlink--grandchild {
-  transition: color 0.25s ease;
-}
-
 .navlink--icon {
   padding: 8px;
   display: flex;
   align-items: center;
-  transition: color 0.2s ease;
 }
 
 .menu__item--texts .navlink--icon {

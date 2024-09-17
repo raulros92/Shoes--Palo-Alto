@@ -128,8 +128,9 @@
       "settings": {
         "sticky_header": false,
         "header_border": false,
+        "home_icon": true,
         "link_hover_effect": "dot",
-        "logo_not_home": "shopify:\/\/shop_images\/logoPeacock.png",
+        "logo_not_home": "shopify:\/\/shop_images\/LogoPeacockAlt.png",
         "logo_max_width": 200,
         "main-menu": "main-menu",
         "main_menu_secondary": "",
@@ -140,6 +141,7 @@
         "highlight_item": "Ofertas",
         "highlight_item_color": "#e94949",
         "header_transparent": true,
+        "logo": "shopify:\/\/shop_images\/logoPeacock.png",
         "header_text_color": "white",
         "header_gradient": true
       }
