@@ -4578,7 +4578,6 @@ input.shopify-payment-button__button--unbranded
   background: var(--bg);
   transform: scaleY(0);
   transform-origin: center top;
-  transition: transform 0.4s ease-out, visibility 0s 0.5s;
 }
 .no-js .menu__item.parent:focus-within .header__dropdown,
 .no-js .menu__item.grandparent:focus-within .header__dropdown,
@@ -4586,7 +4585,6 @@ input.shopify-payment-button__button--unbranded
 .no-js .menu__item.grandparent:hover .header__dropdown {
   visibility: visible;
   transform: scaleY(1);
-  transition: transform 0.4s ease 0.1s, visibility 0s;
   pointer-events: all;
 }
 .no-js .menu__item.parent:focus-within .header__dropdown__wrapper,
@@ -4595,7 +4593,6 @@ input.shopify-payment-button__button--unbranded
 .no-js .menu__item.grandparent:hover .header__dropdown__wrapper {
   transform: translateY(0);
   opacity: 1;
-  transition-delay: 0.3s;
 }
 .no-js .menu__item.parent:focus-within .navlink > .navtext:after,
 .no-js .menu__item.grandparent:focus-within .navlink > .navtext:after,
@@ -4606,7 +4603,6 @@ input.shopify-payment-button__button--unbranded
 .no-js .navlink--toplevel:focus + .header__dropdown {
   visibility: visible;
   transform: scaleY(1);
-  transition: transform 0.4s 0.1s, visibility 0s;
   pointer-events: all;
 }
 .no-js .navlink--image .image-fill,
@@ -10782,12 +10778,23 @@ section:hover
   min-height: var(--header-sticky-height);
   height: inherit;
 }
+
+@media only screen and (min-width: 768px) {
+  .site-header {
+    padding: 0 42px;
+  }
+}
+
 @media (pointer: coarse) {
   .site-header > .wrapper {
     justify-content: center;
   }
 }
 @media only screen and (max-width: 767px) {
+  .site-header {
+    padding: 0 8px;
+  }
+
   .site-header[data-header-in-editor] > .wrapper {
     justify-content: center;
   }
@@ -10802,7 +10809,6 @@ section:hover
   left: 0;
   width: 100%;
   height: 0;
-  transition: height 0.25s ease;
   pointer-events: none;
   background: inherit;
 }
@@ -10909,7 +10915,6 @@ section:hover
   top: 0;
   left: 0;
   opacity: 0;
-  transition: opacity 0.4s ease;
 }
 .site-header--nav-left:not(.site-header--compress)
   .logo__image-link--home:not(.logo__image-link--single) {
@@ -11157,7 +11162,6 @@ body:has(.site-header[data-transparent="true"]):has(
   .site-header--transparent
   .logo__image-link--other {
   opacity: 0;
-  transition: opacity 0.4s ease;
 }
 body:has(.site-header[data-transparent="true"]):has(
     .main-content > .supports-transparent-header:first-child
@@ -11881,7 +11885,7 @@ body:has(.site-header[data-transparent="true"]):has(
   display: flex;
   align-items: center;
   padding: var(--inner);
-  font-size: calc(1rem * var(--adjust-nav-top-level));
+  font-size: calc(0.625rem * var(--adjust-nav-top-level));
   transition: color 0.2s ease;
 }
 
@@ -12034,6 +12038,7 @@ body:has(.site-header[data-transparent="true"]):has(
   align-items: center;
   transition: color 0.2s ease;
 }
+
 .menu__item--texts .navlink--icon {
   font-family: var(--FONT-STACK-NAV);
   font-style: var(--FONT-STYLE-NAV);

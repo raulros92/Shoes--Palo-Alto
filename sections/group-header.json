@@ -97,6 +97,7 @@
           "settings": {
             "position": "1",
             "image_second_menu": false,
+            "image": "shopify:\/\/shop_images\/Menu1.png",
             "aspect_ratio": 1,
             "wide_image": false,
             "title": "",
@@ -110,6 +111,7 @@
           "settings": {
             "position": "1",
             "image_second_menu": false,
+            "image": "shopify:\/\/shop_images\/Menu2.png",
             "aspect_ratio": 1,
             "wide_image": false,
             "title": "",

@@ -292,6 +292,14 @@
       {%- render 'search-popdown', unique: 'desktop', in_header: true, classes: 'menu__item menu__item--icon', summary_classes: summary_classes, header_icons_as_text: header_icons_as_text -%}
     {%- endif -%}
 
+    {%- if section.settings.home_icon -%}
+      <div class="menu__item menu__item--icon">
+        <a href="{{ routes.home_url }}" class="navlink navlink--icon{% if settings.nav_caps_toplevel %} caps{% endif %}{% if link_hover_dot %} navlink--dot{% endif %}">
+            {%- render 'icon-home' -%}
+        </a>
+      </div>
+    {%- endif -%}
+
     {%- if shop.customer_accounts_enabled -%}
       <div class="menu__item menu__item--icon">
         <a href="{{ routes.account_url }}" class="navlink navlink--icon{% if settings.nav_caps_toplevel %} caps{% endif %}{% if link_hover_dot %} navlink--dot{% endif %}">
@@ -400,6 +408,12 @@
       "id": "header_border",
       "label": "Show bottom border",
       "default": false
+    },
+      {
+      "type": "checkbox",
+      "id": "home_icon",
+      "label": "Display Home Icon",
+      "default": true
     },
     {
       "type": "select",
