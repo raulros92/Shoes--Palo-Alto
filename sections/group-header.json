@@ -20,28 +20,69 @@
             "target_url": "",
             "target_referrer_enabled": false,
             "target_referrer": "",
-            "target_device_enabled": false,
+            "target_device_enabled": true,
+            "target_device": "desktop"
+          }
+        },
+        "text_cYPcdh": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Mensaje de promoción<\/p>",
+            "text_color": "",
+            "heading_highlight_type": "circle",
+            "highlight_color": "#d43747",
+            "highlight_text_color": "#000000",
+            "icon_name": "none",
+            "icon_color": "",
+            "icon_width": 20,
+            "target_url_enabled": false,
+            "target_url": "",
+            "target_referrer_enabled": false,
+            "target_referrer": "",
+            "target_device_enabled": true,
+            "target_device": "mobile"
+          }
+        },
+        "text_rKF8my": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Mensaje de promoción 2<\/p>",
+            "text_color": "",
+            "heading_highlight_type": "circle",
+            "highlight_color": "#d43747",
+            "highlight_text_color": "#000000",
+            "icon_name": "none",
+            "icon_color": "",
+            "icon_width": 20,
+            "target_url_enabled": false,
+            "target_url": "",
+            "target_referrer_enabled": false,
+            "target_referrer": "",
+            "target_device_enabled": true,
             "target_device": "mobile"
           }
         }
       },
       "block_order": [
-        "announcement-0"
+        "announcement-0",
+        "text_cYPcdh",
+        "text_rKF8my"
       ],
       "settings": {
         "layout": "marquee",
         "show_top_border": false,
         "show_bottom_border": false,
-        "padding": 10,
+        "changeBGColor": "#d3cee5",
+        "padding": 0,
         "slider_speed": 7,
-        "show_arrows": false,
+        "show_arrows": true,
         "marquee_speed": 100,
         "direction": "ticker-ltr",
         "text_caps": false,
         "type_style": "font-body",
-        "text_size": 125,
+        "text_size": 140,
         "letter_spacing": 0,
-        "message_spacing": 25,
+        "message_spacing": 125,
         "bg_color": "#ffffff",
         "gradient": "",
         "color": "#000000",
@@ -56,7 +97,6 @@
           "settings": {
             "position": "1",
             "image_second_menu": false,
-            "image": "shopify:\/\/shop_images\/mujerTest1.png",
             "aspect_ratio": 1,
             "wide_image": false,
             "title": "",
@@ -70,7 +110,6 @@
           "settings": {
             "position": "1",
             "image_second_menu": false,
-            "image": "shopify:\/\/shop_images\/mujerTest2.png",
             "aspect_ratio": 1,
             "wide_image": false,
             "title": "",
@@ -88,7 +127,7 @@
         "sticky_header": false,
         "header_border": false,
         "link_hover_effect": "dot",
-        "logo_not_home": "shopify:\/\/shop_images\/peacockLogo.png",
+        "logo_not_home": "shopify:\/\/shop_images\/logoPeacock.png",
         "logo_max_width": 200,
         "main-menu": "main-menu",
         "main_menu_secondary": "",

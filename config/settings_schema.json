@@ -4,8 +4,8 @@
     "theme_name": "Palo Alto",
     "theme_author": "Presidio Creative",
     "theme_version": "5.9.0",
-    "theme_support_url": "https:\/\/presidiocreative.com\/link\/palo-alto\/contact",
-    "theme_documentation_url": "https:\/\/presidiocreative.com\/link\/palo-alto\/docs"
+    "theme_support_url": "https://presidiocreative.com/link/palo-alto/contact",
+    "theme_documentation_url": "https://presidiocreative.com/link/palo-alto/docs"
   },
   {
     "name": "Colors",
@@ -322,9 +322,9 @@
         "id": "button_style",
         "label": "Style",
         "options": [
-          {"label": "Square", "value": "square"},
-          {"label": "Rounded", "value": "rounded"},
-          {"label": "Pill", "value": "pill"}
+          { "label": "Square", "value": "square" },
+          { "label": "Rounded", "value": "rounded" },
+          { "label": "Pill", "value": "pill" }
         ],
         "default": "square",
         "info": "Affects buttons and form elements"
@@ -532,7 +532,7 @@
       },
       {
         "type": "paragraph",
-        "content": "Use the metafield 'theme.cutline' to show a short description under product titles. [Learn more](https:\/\/presidiocreative.com\/link\/palo-alto\/docs\/cutline)"
+        "content": "Use the metafield 'theme.cutline' to show a short description under product titles. [Learn more](https://presidiocreative.com/link/palo-alto/docs/cutline)"
       },
       {
         "type": "select",
@@ -584,7 +584,7 @@
       {
         "type": "header",
         "content": "Variant image",
-        "info":  "Applies to size variant by default. [Learn more](https:\/\/presidiodev.com\/link\/palo-alto\/docs\/variant-images) about using other variants."
+        "info": "Applies to size variant by default. [Learn more](https://presidiodev.com/link/palo-alto/docs/variant-images) about using other variants."
       },
       {
         "type": "checkbox",
@@ -605,7 +605,7 @@
       {
         "type": "header",
         "content": "Media",
-        "info": "Learn more about [media types](https:\/\/help.shopify.com\/manual\/products\/product-media)"
+        "info": "Learn more about [media types](https://help.shopify.com/manual/products/product-media)"
       },
       {
         "type": "checkbox",
@@ -762,7 +762,7 @@
         "type": "checkbox",
         "id": "show_payment_button",
         "label": "Show dynamic checkout button in Quick View",
-        "info": "Lets customers check out directly using a familiar payment method. [Learn more](https:\/\/help.shopify.com\/manual\/using-themes\/change-the-layout\/dynamic-checkout)",
+        "info": "Lets customers check out directly using a familiar payment method. [Learn more](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
         "default": true
       },
       {
@@ -787,7 +787,7 @@
       {
         "type": "header",
         "content": "Subscriptions",
-        "info": "Learn more about [subscriptions](https:\/\/help.shopify.com\/en\/manual\/products\/subscriptions)"
+        "info": "Learn more about [subscriptions](https://help.shopify.com/en/manual/products/subscriptions)"
       },
       {
         "type": "checkbox",
@@ -802,7 +802,7 @@
       },
       {
         "type": "paragraph",
-        "content": "Use the metafield 'theme.cutline' to show a short description under product titles. [Learn more](https:\/\/presidiocreative.com\/link\/palo-alto\/docs\/cutline)"
+        "content": "Use the metafield 'theme.cutline' to show a short description under product titles. [Learn more](https://presidiocreative.com/link/palo-alto/docs/cutline)"
       },
       {
         "type": "select",
@@ -921,7 +921,7 @@
       },
       {
         "type": "paragraph",
-        "content": "Collections will display their featured image by default. Use the metafield 'theme.empty_cart_collection_image' with the type set to 'File' to show an alternate image. [Learn more](https:\/\/help.shopify.com\/en\/manual\/custom-data\/metafields\/metafield-definitions\/creating-custom-metafield-definitions)"
+        "content": "Collections will display their featured image by default. Use the metafield 'theme.empty_cart_collection_image' with the type set to 'File' to show an alternate image. [Learn more](https://help.shopify.com/en/manual/custom-data/metafields/metafield-definitions/creating-custom-metafield-definitions)"
       },
       {
         "type": "select",
@@ -986,7 +986,7 @@
         "type": "url",
         "id": "empty_cart_button_link",
         "label": "Button link",
-        "info": "Default is [Collection all](\/collections\/all) page"
+        "info": "Default is [Collection all](/collections/all) page"
       },
       {
         "type": "select",
@@ -1046,7 +1046,7 @@
         "id": "free_shipping_limit",
         "label": "Minimum spend for free shipping",
         "default": "100",
-        "info": "Use round numbers. Exclude currency, symbols, and letters. [Learn more](https:\/\/presidiocreative.com\/link\/palo-alto\/docs\/free-shipping-message)"
+        "info": "Use round numbers. Exclude currency, symbols, and letters. [Learn more](https://presidiocreative.com/link/palo-alto/docs/free-shipping-message)"
       },
       {
         "type": "header",
@@ -1056,7 +1056,7 @@
         "type": "richtext",
         "id": "cart_custom_message_text",
         "label": "Text",
-        "default": "<p>New customers save 10% with code <strong>WELCOME10<\/strong><\/p>"
+        "default": "<p>New customers save 10% with code <strong>WELCOME10</strong></p>"
       },
       {
         "type": "select",
@@ -1089,7 +1089,7 @@
         "type": "richtext",
         "id": "accept_terms_text",
         "label": "Checkbox label",
-        "default": "<p>I agree to the terms and conditions<\/p>"
+        "default": "<p>I agree to the terms and conditions</p>"
       }
     ]
   },
@@ -1316,7 +1316,7 @@
     "settings": [
       {
         "type": "paragraph",
-        "content": "Add custom badges to the Product grid for a unique experience. [Learn more](https:\/\/presidiocreative.com\/link\/palo-alto\/docs\/badges)"
+        "content": "Add custom badges to the Product grid for a unique experience. [Learn more](https://presidiocreative.com/link/palo-alto/docs/badges)"
       },
       {
         "type": "range",
@@ -1457,7 +1457,7 @@
         "id": "color_swatches_product_style",
         "label": "Style",
         "default": "rectangle",
-        "info": "Set up swatches for your product color variant options. [Learn more](https:\/\/presidiocreative.com\/link\/palo-alto\/docs\/swatches)",
+        "info": "Set up swatches for your product color variant options. [Learn more](https://presidiocreative.com/link/palo-alto/docs/swatches)",
         "options": [
           {
             "label": "Circle",
@@ -1580,55 +1580,55 @@
         "type": "text",
         "id": "social_instagram_link",
         "label": "Instagram",
-        "info": "https:\/\/www.instagram.com\/shopify"
+        "info": "https://www.instagram.com/shopify"
       },
       {
         "type": "text",
         "id": "social_tiktok_link",
         "label": "TikTok",
-        "info": "https:\/\/tiktok.com\/@shopify"
+        "info": "https://tiktok.com/@shopify"
       },
       {
         "type": "text",
         "id": "social_facebook_link",
         "label": "Facebook",
-        "info": "https:\/\/www.facebook.com\/shopify"
+        "info": "https://www.facebook.com/shopify"
       },
       {
         "type": "text",
         "id": "social_twitter_link",
         "label": "Twitter",
-        "info": "https:\/\/www.twitter.com\/shopify"
+        "info": "https://www.twitter.com/shopify"
       },
       {
         "type": "text",
         "id": "social_snapchat_link",
         "label": "Snapchat",
-        "info": "https:\/\/snapchat.com\/add\/shopify"
+        "info": "https://snapchat.com/add/shopify"
       },
       {
         "type": "text",
         "id": "social_pinterest_link",
         "label": "Pinterest",
-        "info": "https:\/\/www.pinterest.com\/shopify"
+        "info": "https://www.pinterest.com/shopify"
       },
       {
         "type": "text",
         "id": "social_tumblr_link",
         "label": "Tumblr",
-        "info": "https:\/\/shopify.tumblr.com"
+        "info": "https://shopify.tumblr.com"
       },
       {
         "type": "text",
         "id": "social_youtube_link",
         "label": "Youtube",
-        "info": "https:\/\/youtube.com\/user\/shopify"
+        "info": "https://youtube.com/user/shopify"
       },
       {
         "type": "text",
         "id": "social_rss_link",
         "label": "RSS Blog Feed",
-        "info": "https:\/\/store.myshopify.com\/blogs\/news.atom"
+        "info": "https://store.myshopify.com/blogs/news.atom"
       }
     ]
   },

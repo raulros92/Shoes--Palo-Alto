@@ -176,7 +176,6 @@
       {%- endif -%}
       {{ block.shopify_attributes }}
     {%- endcapture -%}
-
     {%- if show_announcement -%}
       {%- capture announcement_html -%}
         {%- case block.type -%}
@@ -685,148 +684,164 @@
             {%- endif -%}
         {%- endcase -%}
       {%- endcapture -%}
-
       {%- assign announcement_markup = announcement_markup | append: announcement_html -%}
     {%- endif -%}
   {%- endfor -%}
 {%- endif -%}
 
 {% if is_top_bar %}
-<div data-announcement-bar>
+  <div data-announcement-bar>
 {% endif %}
-  <div id="{{ section_id }}"
-    class="section-padding section-marquee"
-    data-section-type="{{ section_type }}"
-    data-section-id="{{ section.id }}"
-    {% if is_top_bar %}
-      data-announcement-wrapper
-      {% if settings.animations_enabled %}
-        data-aos-intersection="0"
-      {% endif %}
-    {% endif %}
-    {% if settings.animations_enabled %}
-      data-aos="fade"
-      data-aos-anchor="{{ animation_anchor }}"
-      data-aos-delay="{{ animation_delay }}"
-      data-aos-duration="{{ animation_duration }}"
-    {% endif %}>
-    {% if is_top_bar %}
-      <div class="ie11-error-message">
-        <p>{{- 'general.ie11_support_message' | t -}}</p>
-      </div>
-    {% endif %}
+<div
+  id="{{ section_id }}"
+  class="section-padding section-marquee"
+  data-section-type="{{ section_type }}"
+  data-section-id="{{ section.id }}"
+  {% if is_top_bar %}
+  data-announcement-wrapper
+  {% if settings.animations_enabled %}
+  data-aos-intersection="0"
+  {% endif %}
+  {% endif %}
+  {% if settings.animations_enabled %}
+  data-aos="fade"
+  data-aos-anchor="{{ animation_anchor }}"
+  data-aos-delay="{{ animation_delay }}"
+  data-aos-duration="{{ animation_duration }}"
+  {% endif %}>
+  {% if is_top_bar %}
+    <div class="ie11-error-message">
+      <p>{{- 'general.ie11_support_message' | t -}}</p>
+    </div>
+  {% endif %}
 
-    {%- if announcement_markup != blank -%}
-      {%- liquid
-        assign line_height = 1.5
+  {%- if announcement_markup != blank -%}
+    {%- liquid
+      assign line_height = 1.5
 
-        capture type_adjustment
-          case type_style
-            when 'font-heading'
-              echo 'var(--FONT-ADJUST-HEADING)'
-            when 'font-body'
-              echo 'var(--FONT-ADJUST-BODY)'
-            when 'subheading-text'
-              echo 'var(--FONT-ADJUST-SUBHEADING)'
-          endcase
-        endcapture
+      capture type_adjustment
+        case type_style
+          when 'font-heading'
+            echo 'var(--FONT-ADJUST-HEADING)'
+          when 'font-body'
+            echo 'var(--FONT-ADJUST-BODY)'
+          when 'subheading-text'
+            echo 'var(--FONT-ADJUST-SUBHEADING)'
+        endcase
+      endcapture
 
-        capture borders_px
-          if show_top_border
-            echo ' + var(--BORDER-WIDTH)'
-          endif
-          if show_bottom_border
-            echo ' + var(--BORDER-WIDTH)'
-          endif
-        endcapture
-      -%}
+      capture borders_px
+        if show_top_border
+          echo ' + var(--BORDER-WIDTH)'
+        endif
+        if show_bottom_border
+          echo ' + var(--BORDER-WIDTH)'
+        endif
+      endcapture
+    -%}
 
-      {%- style -%}
-        {%- if is_top_bar -%}
-          /* Prevent CLS on page load */
-          :root {
-            --announcement-height: calc(0.75rem * {{ type_adjustment }} * {{ text_size }} * {{ line_height }} + {{ padding }} * 2{{ borders_px }});
-          }
-          @media screen and (max-width: 767px) {
-            :root {
-              --announcement-height: calc(0.75rem * {{ type_adjustment }} * {{ text_size_mobile }} * {{ line_height }} + {{ padding }} * 2{{ borders_px }});
-            }
-          }
-        {%- else -%}
-          {{ section_selector_id }} {
-            --PT: {{ section.settings.padding_top }}px;
-            --PB: {{ section.settings.padding_bottom }}px;
-          }
-        {%- endif -%}
-
-        {{ section_selector_id }} .announcement {
-          --adjust-body: calc(var(--FONT-ADJUST-BODY) * {{ text_size }});
-          --adjust-heading: calc(var(--FONT-ADJUST-HEADING) * {{ text_size }});
-          --adjust-accent: calc(var(--FONT-ADJUST-SUBHEADING) * {{ text_size }});
-          --padding: {{ padding }};
-          --letter-spacing: {{ letter_spacing }};
-          --line-height: {{ line_height }};
-          --type-adjustment: {{ type_adjustment }};
-
-          {%- if bg_color_set -%}
-            {%- if gradient != 'none' -%}
-              --bg: {{ gradient }};
-            {%- else -%}
-              --bg: {{ bg_color }};
-            {%- endif -%}
-          {%- endif %}
-
-          {%- if color != 'rgba(0,0,0,0)' and color != '' -%}
-            --text: {{ color }};
-          {%- endif -%}
-
-          {%- if border_color != 'rgba(0,0,0,0)' and border_color != '' -%}
-            --border: {{ border_color }};
-          {%- endif -%}
+    {%- style -%}
+      {%- if is_top_bar -%}
+        /* Prevent CLS on page load */
+        :root {
+          --announcement-height: calc(0.75rem * {{ type_adjustment }} * {{ text_size }} * {{ line_height }} + {{ padding }} * 2{{ borders_px }});
         }
-
-        {{ section_selector_id }} .flickity-enabled .ticker--animated,
-        {{ section_selector_id }} .announcement__ticker { padding: 0 {{ message_spacing }}; }
-
         @media screen and (max-width: 767px) {
-          {{ section_selector_id }} .announcement {
-            --adjust-body: calc(var(--FONT-ADJUST-BODY) * {{ text_size_mobile }});
-            --adjust-heading: calc(var(--FONT-ADJUST-HEADING) * {{ text_size_mobile }});
-            --adjust-accent: calc(var(--FONT-ADJUST-SUBHEADING) * {{ text_size_mobile }});
+          :root {
+            --announcement-height: calc(0.75rem * {{ type_adjustment }} * {{ text_size_mobile }} * {{ line_height }} + {{ padding }} * 2{{ borders_px }});
           }
         }
-      {%- endstyle -%}
+      {%- else -%}
+      {{ section_selector_id }} {
+        --PT: {{ section.settings.padding_top }}px;
+        --PB: {{ section.settings.padding_bottom }}px;
+      }
+    {%- endif -%}
 
-      <div class="announcement {{ type_style }}{% if text_caps %} caps{% endif %}{% if show_top_border %} announcement--top-border{% endif %}{% if show_bottom_border %} announcement--bottom-border{% endif %}" data-announcement>
-        {%- if bg_image != blank -%}
-          {%- render 'image-fill', is_background: true, img_object: bg_image, sizes: '100vw' -%}
-        {%- endif -%}
+    {{ section_selector_id }}
+    .announcement {
+      --adjust-body: calc(var(--FONT-ADJUST-BODY) * {{ text_size }});
+      --adjust-heading: calc(var(--FONT-ADJUST-HEADING) * {{ text_size }});
+      --adjust-accent: calc(var(--FONT-ADJUST-SUBHEADING) * {{ text_size }});
+      --padding: {{ padding }};
+      --letter-spacing: {{ letter_spacing }};
+      --line-height: {{ line_height }};
+      --type-adjustment: {{ type_adjustment }};
 
-        {%- if layout == 'slider' -%}
-          <div class="announcement__slider"
-            data-slider
-            {% if show_arrows %}data-slider-arrows{% endif %}
-            data-slider-speed="{{ section.settings.slider_speed | times: 1000 }}">
-            {{ announcement_markup }}
-          </div>
-        {%- endif -%}
+      {%- if section.settings.changeBGColor -%}
+        --bg: {{ section.settings.changeBGColor }};
+      {%- endif -%}
 
-        {%- if layout == 'marquee' or layout == 'parallax' or layout == 'marquee-with-parallax' -%}
-          <div class="announcement__slider"{% if layout == 'parallax' or layout == 'marquee-with-parallax' %} {{ parallax_attributes }}{% endif %}{% if layout == 'parallax' %} data-static{% endif %}>
-            <div class="announcement__slide" data-announcement-slide>
-              <div data-ticker-frame data-marquee-speed="{{ marquee_speed }}" class="announcement__message">
-                <div data-ticker-scale class="ticker--unloaded announcement__scale">
-                  <div data-ticker-text class="announcement__text {{ direction }}">
-                    {{ announcement_markup }}
-                  </div>
+      {%- if color != 'rgba(0,0,0,0)' and color != '' -%}
+        --text: {{ color }};
+      {%- endif -%}
+
+      {%- if border_color != 'rgba(0,0,0,0)' and border_color != '' -%}
+        --border: {{ border_color }};
+      {%- endif -%}
+    }
+
+    {{ section_selector_id }}
+    .flickity-enabled .ticker--animated, 
+    {{ section_selector_id }}
+    .announcement__ticker {
+      padding: 0 {{ message_spacing }};
+    }
+
+    @media screen and (max-width: 767px) {
+      {{ section_selector_id }}
+      .announcement {
+        --adjust-body: calc(var(--FONT-ADJUST-BODY) * {{ text_size_mobile }});
+        --adjust-heading: calc(var(--FONT-ADJUST-HEADING) * {{ text_size_mobile }});
+        --adjust-accent: calc(var(--FONT-ADJUST-SUBHEADING) * {{ text_size_mobile }});
+      }
+    }
+    {%- endstyle -%}
+
+    <div class="announcement {{ type_style }}{% if text_caps %} caps{% endif %}{% if show_top_border %} announcement--top-border{% endif %}{% if show_bottom_border %} announcement--bottom-border{% endif %}" data-announcement>
+      {%- if bg_image != blank -%}
+        {%- render 'image-fill'
+          , is_background: true
+          , img_object: bg_image
+          , sizes: '100vw' -%}
+      {%- endif -%}
+
+      {%- if layout == 'slider' -%}
+        <div
+          class="announcement__slider"
+          data-slider
+          {% if show_arrows %}
+          data-slider-arrows{% endif %}
+          data-slider-speed="{{ section.settings.slider_speed | times: 1000 }}">
+          {{ announcement_markup }}
+        </div>
+      {%- endif -%}
+
+      {%- if layout == 'marquee' or layout == 'parallax' or layout == 'marquee-with-parallax' -%}
+        <div
+          class="announcement__slider"
+          {% if layout == 'parallax' or layout == 'marquee-with-parallax' %}
+          {{ parallax_attributes }}
+          {% endif %}
+          {% if layout == 'parallax' %}
+          data-static{% endif %}>
+          <div class="announcement__slide" data-announcement-slide>
+            <div
+              data-ticker-frame
+              data-marquee-speed="{{ marquee_speed }}"
+              class="announcement__message">
+              <div data-ticker-scale class="ticker--unloaded announcement__scale">
+                <div data-ticker-text class="announcement__text {{ direction }}">
+                  {{ announcement_markup }}
                 </div>
               </div>
             </div>
           </div>
-        {%- endif -%}
-      </div>
-    {%- endif -%}
-  </div>
-{% if is_top_bar %}
+        </div>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
 </div>
+{% if is_top_bar %}
+  </div>
 {% endif %}
