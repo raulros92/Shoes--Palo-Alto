@@ -147,10 +147,16 @@
     {% endif %}
     data-wrapper>
 
-    <button type="button" class="mobile-menu__button mobile-menu__button--burger js-drawer-open" aria-controls="nav-drawer" data-drawer-toggle>
-      <span class="visually-hidden">{{ 'general.accessibility.mobile_menu_toggle' | t }}</span>
-      {%- render 'icon-hamburger' -%}
-    </button>{%- if logo != blank or logo_not_home != blank -%}
+        <button type="button" class="mobile-menu__button mobile-menu__button--burger js-drawer-open" aria-controls="nav-drawer" data-drawer-toggle>
+        <span class="visually-hidden">{{ 'general.accessibility.mobile_menu_toggle' | t }}</span>
+        {%- render 'icon-hamburger' -%}
+      </button>
+
+      {%- if settings.show_header_search -%}
+        {%- render 'search-popdown', unique: 'mobile', in_header: true, classes: 'mobile-menu__button caps' -%}
+      {%- endif -%}
+    
+    {%- if logo or logo_not_home -%}
   {%- capture sizes -%}(max-width: {{ logo_width | times: 2 }}px) 50vw, {{ logo_width }}px{%- endcapture -%}
   {%- capture widths -%}{{ logo_width }}, {{ logo_width | times: 1.5 | round }}, {{ logo_width | times: 2 }}{%- endcapture -%}
 
@@ -327,29 +333,27 @@
 </nav>
 
 <div class="mobile-menu" data-mobile-menu>
-  {%- if settings.show_header_search -%}
-    {%- render 'search-popdown', unique: 'mobile', in_header: true, classes: 'mobile-menu__button caps' -%}
-  {%- endif -%}
+  
+    {%- if shop.customer_accounts_enabled -%}
+      <div class="menu__item menu__item--icon icon__user-mobile">
+        <a href="{{ routes.account_url }}" class="navlink navlink--icon{% if settings.nav_caps_toplevel %} caps{% endif %}{% if link_hover_dot %} navlink--dot{% endif %}">
+          {%- render 'icon-user-mobile' -%}
+        </a>
+      </div>
+    {%endif%}
 
-      {%- if shop.customer_accounts_enabled -%}
-        <div class="menu__item menu__item--icon">
-          <a href="{{ routes.account_url }}" class="navlink navlink--icon{% if settings.nav_caps_toplevel %} caps{% endif %}{% if link_hover_dot %} navlink--dot{% endif %}">
-            {%- render 'icon-user-mobile' -%}
-          </a>
-        </div>
-      {%endif%}
+    <a href="{{ routes.cart_url }}"
+      class="mobile-menu__button cart__toggle{% if cart.item_count > 0 %} cart__toggle--has-items{% endif %}{% if cart_animation %} cart__toggle--animation{% endif %}"
+      aria-controls="cart-drawer"
+      aria-expanded="false"
+      {% unless template.name == 'cart' or settings.cart_type == 'page' %}
+        data-cart-drawer-toggle
+      {% endunless %}
+    >
+      <span class="visually-hidden">{{ 'general.accessibility.open_cart' | t }}</span>
+      {{ cart_icon }}
+    </a>
 
-  <a href="{{ routes.cart_url }}"
-    class="mobile-menu__button cart__toggle{% if cart.item_count > 0 %} cart__toggle--has-items{% endif %}{% if cart_animation %} cart__toggle--animation{% endif %}"
-    aria-controls="cart-drawer"
-    aria-expanded="false"
-    {% unless template.name == 'cart' or settings.cart_type == 'page' %}
-      data-cart-drawer-toggle
-    {% endunless %}
-  >
-    <span class="visually-hidden">{{ 'general.accessibility.open_cart' | t }}</span>
-    {{ cart_icon }}
-  </a>
 </div></div>
 
   <div class="drawer__overlay"></div>
