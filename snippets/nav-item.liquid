@@ -109,14 +109,32 @@
                     <div class="dropdown__family">
                       {%- assign link_title = link.title | strip_html | escape -%}
                       {%- assign link_title_lowercase = link.title | downcase | strip_html | escape -%}
-                      <a href="{{ link.url }}" class="navlink navlink--child{{ link_hover_dot_class }}{% if link_image_markup != blank %} navlink--image hover-scale{% endif %}{% if link.active %} navlink--active{% endif %}{% if highlight_item == link_title_lowercase %} navlink--highlight{% endif %}">
+                      <a href="{{ link.url }}" class="navlink navlink--child-underupper{% if link_image_markup != blank %} navlink--image hover-scale{% endif %}{% if link.active %} navlink--active{% endif %}{% if highlight_item == link_title_lowercase %} navlink--highlight{% endif %}">
                         {{- link_image_markup -}}
                         <span class="navtext">{{ link_title }}</span>
                       </a>
                       {%- for link in link.links -%}
                         {%- assign link_title = link.title | strip_html | escape -%}
                         {%- assign link_title_lowercase = link.title | downcase | strip_html | escape -%}
-                        <a href="{{ link.url }}" class="navlink navlink--grandchild{% if link.active %} navlink--active{% endif %}{% if highlight_item == link_title_lowercase %} navlink--highlight{% endif %}">
+                        <a href="{{ link.url }}" class="navlink navlink--grandchild{% if link.active %} navlink--active{% endif %}{% if highlight_item == link_title_lowercase %} navlink--highlight{% endif %}{% if link_title_lowercase == 'ver todas' %} navlink--grandchild-special{% endif %}">
+                          {%- case link_title_lowercase -%}
+                            {%- when 'alpargatas' -%}
+                              {% render 'icon-alpargata' %}
+                            {%- when 'zuecos' -%}
+                              {% render 'icon-zueco' %}
+                            {%- when 'mocasines' -%}
+                              {% render 'icon-mocasin' %}
+                            {%- when 'sandalias' -%}
+                              {% render 'icon-sandalia' %}
+                            {%- when 'náuticos' -%}
+                              {% render 'icon-nautico' %}
+                            {%- when 'sneakers' -%}
+                              {% render 'icon-sneaker' %}
+                            {%- when 'zapatillas' -%}
+                              {% render 'icon-zapatilla' %}
+                            {%- else -%}
+                              <!-- No icon available -->
+                          {%- endcase -%}
                           <span class="navtext">{{ link_title }}</span>
                         </a>
                       {%- endfor -%}
