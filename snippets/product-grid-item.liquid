@@ -446,7 +446,8 @@
 
     if settings.saving_badge_type == 'percentage'
       assign percent_off = price_difference | times: 1.00 | divided_by: price_compare | times: 100
-      assign discount = percent_off | floor | append: '%'
+      assign discount = percent_off | floor
+      assign discount = '-' | append: discount | append: '%'
     endif
 
     if product.variants.size == 1 and price_difference > 0

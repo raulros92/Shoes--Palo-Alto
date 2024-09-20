@@ -274,7 +274,7 @@
   <div class="section__header featured-collection__top__wrapper">
     {%- if title != blank -%}
       {%- capture title_attributes -%}
-        class="section__heading h2{% if has_text_highlight %} {{ text_highlight_wrapper_class }}{% endif %}"
+        class="section__heading h2{% if has_text_highlight %} {{ text_highlight_wrapper_class }}{% endif %} {% unless section.settings.title_mobile %}hide-on-mobile{% endunless %}"
         {% if animations_enabled %}
           data-aos="fade-up"
           data-aos-delay="{{ animation_delay }}"
@@ -1364,6 +1364,12 @@
       "label": "Heading",
       "default": "<p>Best Sellers</p>",
       "info": "Highlight one or two key words in your heading by italicizing them, then choose the highlight option below"
+    },
+    {
+      "type": "checkbox",
+      "id": "title_mobile",
+      "label": "Show title of collection on mobile",
+      "default": true
     },
     {
       "type": "header",

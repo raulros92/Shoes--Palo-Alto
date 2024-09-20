@@ -68,15 +68,17 @@
   {{- 'products.general.from_text_html' | t: price: product_price_min -}}
 {%- else -%}
   {%- if on_sale -%}
-    <span class="{{ price_class }}">{{ product_price }}</span>
 
-    <s>
+     <s class="body-12-regular product__price--compare">
       {%- if settings.currency_code_enable -%}
         {{- product_compare_at_price | money_with_currency -}}
       {%- else -%}
         {{- product_compare_at_price | money -}}
       {%- endif -%}
     </s>
+
+    <span class="{{ price_class }}">{{ product_price }}</span>
+
   {%- else -%}
     {{- product_price -}}
   {%- endif -%}

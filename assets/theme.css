@@ -6941,7 +6941,8 @@ body:has(.section-footer--visible) .parallax-rounded-corners {
   border-radius: var(--radius) var(--radius) 0 0;
 }
 .body--rounded-corners .product__badge__item {
-  border-radius: var(--radius-small);
+  /* border-radius: var(--radius-small); */
+  border-radius: 2px;
 }
 .body--rounded-corners .custom-scrollbar {
   --radius-scrollbar: 3px;
@@ -18127,7 +18128,15 @@ body:has(.card-scrolling-effect):has([data-header-sticky])
   position: relative;
   text-align: center;
   white-space: normal;
+  border-radius: var(--Spacers-8, 8px);
+  border: var(--Quantity, 1px) solid var(--base-neutral-200, #ebebec);
+  padding: var(--Spacers-8, 0.5rem);
 }
+
+.product-grid-item:hover {
+  border: var(--Quantity, 1px) solid var(--base-neutral-900, #222223);
+}
+
 .product-grid-item shopify-payment-terms,
 .product-grid-item .shopify-installments {
   display: none;
@@ -19139,6 +19148,7 @@ body:has(.card-scrolling-effect):has([data-header-sticky])
 
 .product-grid-item__price-new {
   margin-right: 5px;
+  color: var(--base-red-500, #e94949);
 }
 .product-grid-item__price-new:last-child {
   margin-right: 0;
@@ -19503,7 +19513,8 @@ body:not(.no-outline)
   position: absolute;
   z-index: 1;
   top: 0;
-  left: 0;
+  right: 0;
+  /* left: 0; */
   max-width: 100%;
   margin: 10px;
   display: grid;
@@ -19519,9 +19530,10 @@ body:not(.no-outline)
   color: var(--sale-text);
   text-align: left;
   font-size: calc(0.6875rem * var(--adjust-badges));
-  line-height: 1.2;
+  line-height: 100%;
   transition: opacity 0.15s ease;
-  padding: 6px 8px;
+  /* padding: 6px 8px; */
+  padding: 0.25rem 0.5rem;
   height: auto;
 }
 @media only screen and (max-width: 479px) {
@@ -19540,8 +19552,15 @@ body:not(.no-outline)
 }
 
 .product__badge__item--custom {
-  background-color: var(--custom-bg);
-  color: var(--custom-text);
+  /* background-color: var(--custom-bg);
+  color: var(--custom-text); */
+  border-radius: 2px !important;
+  background-color: var(--base-black, #000000);
+  color: var(--base-white, #ffffff);
+  font-family: Inter;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 100%;
 }
 
 .product__badge__item--saving {
@@ -21989,6 +22008,13 @@ body:not(.no-outline)
 }
 
 /*================ Featured Collection ================*/
+
+@media (max-width: 768px) {
+  .hide-on-mobile {
+    display: none;
+  }
+}
+
 .featured-collection {
   position: relative;
   text-align: center;
@@ -28373,7 +28399,9 @@ search-form mark {
 .product__price--compare {
   text-decoration: line-through;
   opacity: 0.5;
-  margin: 0 12px 8px 0;
+  margin: 0 3px 3px 0;
+  color: var(--base-neutral-600, #878789);
+  text-decoration-line: strikethrough;
 }
 
 .product__price--off {

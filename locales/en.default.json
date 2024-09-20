@@ -16,7 +16,7 @@
     },
     "accessibility": {
       "skip_to_content": "Skip to content",
-      "select_variant":  "Select variant dropdown",
+      "select_variant": "Select variant dropdown",
       "show_submenu": "Show submenu",
       "product": "Product",
       "show_products": "Show products",
@@ -297,7 +297,7 @@
       "city": "City",
       "country": "Country",
       "province": "Province",
-      "zip": "Postal\/Zip Code",
+      "zip": "Postal/Zip Code",
       "phone": "Phone",
       "set_default": "Set as default address",
       "add": "Add Address",
@@ -399,7 +399,7 @@
       "add_product": "Add a Product",
       "product_title": "Product Title",
       "vendor": "Shopify",
-      "no_collections_html": "You don't have any collections to show here. <a href=\"\/admin\/custom_collections\">Add some collections<\/a> to go along with the default Frontpage.",
+      "no_collections_html": "You don't have any collections to show here. <a href=\"/admin/custom_collections\">Add some collections</a> to go along with the default Frontpage.",
       "add_collection": "Add a Collection",
       "collection_title": "Collection",
       "single_product_title": "Showcase a single product",
@@ -519,8 +519,8 @@
       "remaining_html": "Only {{ inventory }} left in stock",
       "remaining_no_count": "Hurry! Low inventory",
       "on_sale": "Sale",
-      "save_badge_html" : "Save {{ discount }}",
-      "save_badge_up_to_html" : "Save up to {{ discount }}",
+      "save_badge_html": "{{ discount }}",
+      "save_badge_up_to_html": "{ discount }}",
       "quick_view": "Quick Buy",
       "checkout": "Checkout",
       "view_in_space": "View in Your Space",
@@ -576,9 +576,9 @@
     "month_day_year": "%B %d, %Y"
   },
   "footer": {
-    "socials" : {
-      "title":"View {{ shop_name }} on {{ social }}",
-      "rss":"RSS"
+    "socials": {
+      "title": "View {{ shop_name }} on {{ social }}",
+      "rss": "RSS"
     },
     "country": "Country",
     "language": "Language",
@@ -591,8 +591,8 @@
       "check_other_stores": "Check availability at other stores",
       "pick_up_available": "Pickup available",
       "pick_up_currently_unavailable": "Pickup currently unavailable",
-      "pick_up_available_at_html": "Pickup available at <strong>{{ location_name }}<\/strong>",
-      "pick_up_unavailable_at_html": "Pickup currently unavailable at <strong>{{ location_name }}<\/strong>",
+      "pick_up_available_at_html": "Pickup available at <strong>{{ location_name }}</strong>",
+      "pick_up_unavailable_at_html": "Pickup currently unavailable at <strong>{{ location_name }}</strong>",
       "kilometers": "km",
       "miles": "mi"
     }

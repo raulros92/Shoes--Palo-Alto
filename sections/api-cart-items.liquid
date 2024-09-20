@@ -50,7 +50,7 @@
       {%- for discount in cart.cart_level_discount_applications -%}
         {%- liquid
           if currency_code_enable
-            assign total_allocated_discount = discount.total_allocated_amount | money_with_currency
+            assign total_allocated_discount = discount.total_allocated_amount | money_without_currency
           else
             assign total_allocated_discount = discount.total_allocated_amount | money
           endif
