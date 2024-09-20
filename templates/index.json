@@ -105,7 +105,7 @@
       "settings": {
         "slide_height": "original-height",
         "enable_mobile_height": true,
-        "mobile_slide_height": "five-fifty-height-mobile",
+        "mobile_slide_height": "original-height-mobile",
         "show_nav_dots": true,
         "show_nav_arrows": false,
         "show_arrow_down": false,

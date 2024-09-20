@@ -153,7 +153,7 @@
 -%}
 
 {%- capture product_title -%}
-  <a class="product-grid-item__title {{ heading_style }}" href="{{ product.url | within: collection }}" aria-label="{{ product.title | strip_html | escape }}"{% if index > 1 %} tabindex="-1"{% endif %} data-grid-link>
+  <a class="body-14-regular product-grid-item__title {{ heading_style }}" href="{{ product.url | within: collection }}" aria-label="{{ product.title | strip_html | escape }}"{% if index > 1 %} tabindex="-1"{% endif %} data-grid-link>
     {{- product.title | strip_html | escape -}}
   </a>
 {%- endcapture -%}
@@ -575,37 +575,6 @@
       data-aos-delay="{{ aos_delay }}"
     {% endif %}>
 
-    {%- unless alignment_inline -%}
-      {% comment %} Title {% endcomment %}
-      {{ product_title }}
-    {%- else -%}
-      {% comment %} Title - Price {% endcomment %}
-      <div class="product-grid-item__info-content">
-        {{ product_title }} {{ info_separator }} {{ product_info_price }}
-      </div>
-    {%- endunless -%}
-
-    {%- comment -%} Product tagline {%- endcomment -%}
-    {%- assign cutline_color = settings.cutline_color -%}{%- if product.metafields.theme.cutline != blank and product.metafields.theme.cutline.type == 'single_line_text_field' -%}
-
-{%- liquid
-  capture style
-    case cutline_color
-      when 'body'
-        echo 'color: var(--text);'
-      when 'accent'
-        echo 'color: var(--accent);'
-    endcase
-  endcapture
--%}
-
-  <p class="product-cutline" style="{{ style }}">{{ product.metafields.theme.cutline.value }}</p>
-{%- endif -%}
-{%- unless alignment_inline -%}
-      {%- comment -%} Price {%- endcomment -%}
-      {{ product_info_price }}
-    {%- endunless -%}
-
     {%- if has_colors -%}
       <product-grid-item-swatch class="product-grid-item__swatch
         {%- if settings.color_swatches_product_style == 'rectangle' %} product-grid__swatch--rectangle{% endif %}"
@@ -661,6 +630,39 @@
           <button type="button" class="swatch__text-more" data-swatches-more>{{ 'general.swatches.more_colors' | t: number: more_colors }}</button>
         {%- endif -%}
       </product-grid-item-swatch>
+    {% else %}
+      <div class="product-grid-item__swatch-empty"></div>
     {%- endif -%}
+
+    {%- unless alignment_inline -%}
+      {% comment %} Title {% endcomment %}
+      {{ product_title }}
+    {%- else -%}
+      {% comment %} Title - Price {% endcomment %}
+      <div class="product-grid-item__info-content">
+        {{ product_title }} {{ info_separator }} {{ product_info_price }}
+      </div>
+    {%- endunless -%}
+
+    {%- comment -%} Product tagline {%- endcomment -%}
+    {%- assign cutline_color = settings.cutline_color -%}{%- if product.metafields.theme.cutline != blank and product.metafields.theme.cutline.type == 'single_line_text_field' -%}
+
+{%- liquid
+  capture style
+    case cutline_color
+      when 'body'
+        echo 'color: var(--text);'
+      when 'accent'
+        echo 'color: var(--accent);'
+    endcase
+  endcapture
+-%}
+
+  <p class="product-cutline" style="{{ style }}">{{ product.metafields.theme.cutline.value }}</p>
+{%- endif -%}
+{%- unless alignment_inline -%}
+      {%- comment -%} Price {%- endcomment -%}
+      {{ product_info_price }}
+    {%- endunless -%}
   </div>
 </div>

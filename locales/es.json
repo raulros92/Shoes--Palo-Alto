@@ -16,7 +16,7 @@
     },
     "accessibility": {
       "skip_to_content": "Saltar al contenido",
-      "select_variant":  "Seleccionar menú desplegable de variantes",
+      "select_variant": "Seleccionar menú desplegable de variantes",
       "show_submenu": "Mostrar submenú",
       "product": "Producto",
       "show_products": "Mostrar productos",
@@ -405,7 +405,7 @@
       "single_product_description": "Una vez que elijes un producto, su descripción se completará aquí automáticamente.",
       "single_collection_description": "Una vez que elijes una colección, su descripción se completará aquí automáticamente.",
       "single_collection_products_description": "Una vez que elija una colección, las descripciones de sus productos se completarán aquí automáticamente.",
-      "no_collections_html": "No tienes ninguna colección para mostrar aquí. <a href=\"\/admin\/custom_collections\">Add some collections<\/a> to go along with the default Frontpage.",
+      "no_collections_html": "No tienes ninguna colección para mostrar aquí. <a href=\"/admin/custom_collections\">Add some collections</a> to go along with the default Frontpage.",
       "no_content": "Esta sección no tiene actualmente ningún contenido. Agregue contenido a esta sección usando la barra lateral.",
       "no_page_content": "Esta página actualmente no incluye ningún contenido.",
       "slideshow": {
@@ -518,9 +518,9 @@
       "add_to_cart": "Añadir al carrito",
       "buy_it_now": "Cómpralo ahora",
       "on_sale": "Venta",
-      "save_badge_html" : "Ahorre {{ discount }}",
-      "save_badge_up_to_html" : "Ahorre hasta {{ discount }}",
-      "quick_view": "Compra rápida",
+      "save_badge_html": "Ahorre {{ discount }}",
+      "save_badge_up_to_html": "Ahorre hasta {{ discount }}",
+      "quick_view": "Añadir al carrito",
       "checkout": "Checkout",
       "view_in_space": "Ver en tu espacio",
       "view_in_space_label": "Visualiza en tu espacio, carga elementos en la ventana de realidad aumentada",
@@ -565,9 +565,9 @@
     }
   },
   "footer": {
-    "socials" : {
-      "title":"Ver {{ shop_name }} en {{ social }}",
-      "rss":"RSS"
+    "socials": {
+      "title": "Ver {{ shop_name }} en {{ social }}",
+      "rss": "RSS"
     },
     "country": "País",
     "language": "Idioma",
@@ -591,8 +591,8 @@
       "check_other_stores": "Verificar disponibilidad en otras tiendas",
       "pick_up_available": "Retiro disponible",
       "pick_up_currently_unavailable": "Retiro no disponible actualmente",
-      "pick_up_available_at_html": "Retiro disponible en <strong>{{ location_name }}<\/strong>",
-      "pick_up_unavailable_at_html": "Retiro no disponible actualmente en <strong>{{ location_name }}<\/strong>",
+      "pick_up_available_at_html": "Retiro disponible en <strong>{{ location_name }}</strong>",
+      "pick_up_unavailable_at_html": "Retiro no disponible actualmente en <strong>{{ location_name }}</strong>",
       "kilometers": "km",
       "miles": "mi"
     }
