@@ -218,7 +218,7 @@
             "title": "Sobre Nosotros",
             "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             "button_1_text": "Leer más",
-            "button_1_link": "",
+            "button_1_link": "shopify:\/\/pages\/sobre-nosotros",
             "button_2_text": "",
             "button_2_link": "",
             "overlay_text_color": "text-light"
@@ -235,7 +235,7 @@
             "title": "Tienda",
             "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
             "button_1_text": "Leer más",
-            "button_1_link": "",
+            "button_1_link": "shopify:\/\/pages\/sobre-nosotros",
             "button_2_text": "",
             "button_2_link": "",
             "overlay_text_color": "text-light"
@@ -252,7 +252,7 @@
             "title": "Instagram",
             "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
             "button_1_text": "Leer más",
-            "button_1_link": "",
+            "button_1_link": "shopify:\/\/pages\/sobre-nosotros",
             "button_2_text": "",
             "button_2_link": "",
             "overlay_text_color": "text-light"
@@ -269,7 +269,7 @@
             "title": "Blog",
             "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
             "button_1_text": "Leer más",
-            "button_1_link": "",
+            "button_1_link": "shopify:\/\/blogs\/news",
             "button_2_text": "",
             "button_2_link": "",
             "overlay_text_color": "text-light"
@@ -286,7 +286,7 @@
         "desktop_height": "original-height",
         "enable_mobile_height": true,
         "mobile_height": "six-fifty-height-mobile",
-        "heading_size": 130,
+        "heading_size": 120,
         "button_1_color": "btn--white",
         "button_1_style": "btn--text",
         "button_1_size": "btn--small",

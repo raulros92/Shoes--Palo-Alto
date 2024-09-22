@@ -138,7 +138,7 @@
       <div class="mosaic__grid{% if mobile_slider %} carousel--mobile{% else %} grid--mobile{% endif %}" data-grid>
         {%- for block in section.blocks -%}
           {%- liquid
-            assign image = ''
+            assign image_desktop = block.settings.image
             assign block_width = block.settings.width
             assign text_position = block.settings.text_position
             assign subheading = block.settings.subheading
@@ -248,6 +248,7 @@
 
               when 'image'
                 assign image = block.settings.image
+                assign image_mobile = block.settings.image_mobile
 
                 if button_1_link != blank or button_1_text != blank or button_2_text != blank
                   assign hover_scale = ' hover-scale'
@@ -268,6 +269,8 @@
             endcapture
 
             assign image_aspect_ratio = image.aspect_ratio | default: 1
+            assign image_mobile_aspect_ratio = image_mobile.aspect_ratio | default: image_aspect_ratio | default: 0.66
+
 
             capture img_in_classes
               echo 'image-in image-in--zoom-out'
@@ -307,8 +310,8 @@
                 {{ block_selector_id }} {
                   --image-ratio: 0;
 
-                  {%- if mobile_height == 'original-height-mobile' -%}
-                    --image-ratio: {{ 1 | divided_by: image_aspect_ratio | times: 100 | round: 2 | append: '%' }};
+                  {%- if mobile_height == 'original-height-mobile'-%}
+                    --image-ratio: {{ 1 | divided_by: image_mobile_aspect_ratio | times: 100 | round: 2 | append: '%' }};
                   {%- endif -%}
                 }
               {%- else -%}
@@ -367,7 +370,7 @@
 
                 assign sizes = '(min-width: 1024px) ' | append: img_width_lg | append: ', (min-width: 768px) ' | append: img_width_md | append: ', ' | append: img_width_sm
 
-                render 'image-fill', is_background: true, img_object: image, sizes: sizes, placeholder_svg: placeholder_svg, cover: true
+                render 'image-fill', is_background: true, img_object: image, sizes: sizes, placeholder_svg: placeholder_svg, cover: true, image_mobile: image_mobile, image_desktop: image_desktop
               -%}
             </div>
           {%- endcapture -%}

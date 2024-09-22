@@ -609,6 +609,7 @@
             endif
           -%}
 
+          {% comment %} <div class="swatch__button{%- if forloop.index > 4 and color_option.size > 5 %} is-hidden{% endif -%}" data-swatch-button data-value="{{ option }}" data-tooltip="{{ option | escape_once | capitalize }}"> {% endcomment %}
           <div class="swatch__button{%- if forloop.index > 4 and color_option.size > 5 %} is-hidden{% endif -%}" data-swatch-button data-value="{{ option }}" data-tooltip="{{ option | escape_once | capitalize }}">
             <div id="{{ product.id }}-{{ swatch_variant.id }}-{{ option | handle }}"
               class="swatch__label"
