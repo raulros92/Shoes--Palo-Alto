@@ -111,6 +111,7 @@
           {% if form.errors contains 'email' %}
             aria-invalid="true"
           {% endif %}
+          required
         >
       </div>
     </div>
@@ -137,6 +138,17 @@
       </div>
     {%- endif -%}
   </div>
+
+<div class="newsletter-check-conditions">
+  <input type="checkbox" id="accept-conditions" required>
+  <label for="accept-conditions"></label>
+  <p class="body-14-regular">
+    He llegit i accepto la 
+    <span onclick="window.location.href='{{ pages['politica-de-privacidad'].url }}'">Política de privacitat</span> 
+    i les 
+    <span onclick="window.location.href='{{ pages['condiciones-de-uso'].url }}'">Condicions d'ús</span>
+  </p>
+</div>
 
   {%- if form.posted_successfully? -%}
     <div class="note form-success">

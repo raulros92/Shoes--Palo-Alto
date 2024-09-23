@@ -58,7 +58,7 @@
       "name": "Tu nombre",
       "first_name": "Nombre",
       "last_name": "Apellido",
-      "email": "Tu email",
+      "email": "Correo electrónico",
       "email_label": "Ingrese su correo electrónico y le informaremos cuando el artículo seleccionado esté disponible.",
       "sign_up": "Regístrate",
       "notify": "Notificarme",
