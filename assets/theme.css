@@ -5888,6 +5888,16 @@ label.error {
   margin: 10px 0;
 }
 
+.input-group__field .input-group__field--email {
+  display: flex;
+  width: 364px;
+  padding: var(--Spacers-8, 0.5rem) 1.5rem;
+  align-items: center;
+  gap: var(--Spacers-8, 0.5rem);
+  border-radius: var(--font-size-4032, 2.5rem);
+  border: var(--Quantity, 1px) solid #000;
+}
+
 .input-group__item {
   position: relative;
   padding: calc(var(--form-margin) / 2);
