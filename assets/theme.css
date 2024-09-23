@@ -4239,7 +4239,7 @@ search-form[loading] .predictive-search__loader {
   width: calc(var(--wrapper-width) - var(--grid-gutter));
   display: block;
   white-space: normal;
-  flex: 0 0 auto;
+  /* flex: 0 0 auto; Default value*/
 }
 @media only screen and (min-width: 768px) {
   .carousel__item {
@@ -23017,7 +23017,8 @@ search-popdown details > summary:first-of-type {
 
 @media only screen and (min-width: 768px) {
   .icons-row__slider {
-    display: grid;
+    /* display: grid; Default value*/
+    width: 69.125rem;
   }
 }
 @media only screen and (max-width: 767px) {
@@ -23102,6 +23103,8 @@ search-popdown details > summary:first-of-type {
 
 .icons-row__wrapper {
   position: relative;
+  display: flex;
+  justify-content: space-around;
 }
 @media only screen and (max-width: 767px) {
   .icons-row--spaced .icons-row__wrapper {
@@ -23115,6 +23118,7 @@ search-popdown details > summary:first-of-type {
 @media only screen and (min-width: 768px) {
   .icons-row__slider.text-center,
   .icons-row__slider.text-inline-center {
+    display: flex;
     justify-content: center;
   }
 }
@@ -23169,9 +23173,11 @@ search-popdown details > summary:first-of-type {
 }
 @media only screen and (min-width: 768px) {
   .icons-row-item {
-    padding: calc(var(--gutter) / 4);
+    /* padding: calc(var(--gutter) / 4); Default value*/
     width: var(--item-width);
     margin: 0;
+    display: flex;
+    justify-content: center;
   }
   .icons-row--borders-vertical .icons-row-item {
     padding: calc(var(--gutter) / 2);
@@ -23190,7 +23196,7 @@ search-popdown details > summary:first-of-type {
     display: inline-block;
     min-width: var(--item-width);
     scroll-snap-align: start;
-    padding: calc(var(--grid-gutter) / 2);
+    /* padding: calc(var(--grid-gutter) / 2); Default value*/
   }
 }
 @media only screen and (min-width: 768px) {
@@ -23461,7 +23467,16 @@ search-popdown details > summary:first-of-type {
 }
 
 .icons-row-item__wrapper {
-  height: 100%;
+  /* height: 100%; Default value*/
+  height: 170px;
+  width: 170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 200px;
+  background: var(--primary-primary-500, #5d1265);
+  padding: 0 1rem;
 }
 .text-inline-center .icons-row-item__wrapper,
 .text-inline-left .icons-row-item__wrapper {
@@ -23485,8 +23500,9 @@ search-popdown details > summary:first-of-type {
 .icons-row-item__icon {
   position: relative;
   display: inline-block;
-  margin-bottom: 14px;
-  width: min(var(--icon-size), var(--icon-max-size));
+  /* margin-bottom: 14px; Default value*/
+  height: 2.525rem;
+  /* width: min(var(--icon-size), var(--icon-max-size)); Default value*/
 }
 @media only screen and (max-width: 767px) {
   .icons-row-item__icon {
@@ -23507,7 +23523,14 @@ search-popdown details > summary:first-of-type {
 .icons-row-item__title {
   margin-bottom: 0;
   color: var(--text);
-  font-size: calc(1.5rem * var(--adjust-heading));
+  /* font-size: calc(1.5rem * var(--adjust-heading)); Default settings*/
+  color: var(--Base-white, #fff);
+  text-align: center;
+  font-family: "Inter";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.4;
 }
 @media only screen and (max-width: 767px) {
   .icons-row-item__title {
@@ -23524,8 +23547,15 @@ search-popdown details > summary:first-of-type {
 }
 
 .icons-row-item__text {
-  color: var(--text-lighten);
-  font-size: calc(1rem * var(--adjust-body));
+  /* color: var(--text-lighten); Default value*/
+  /* font-size: calc(1rem * var(--adjust-body)); Default value*/
+  font-size: calc(0.875rem * var(--adjust-body));
+  color: var(--Base-white, #fff);
+  text-align: center;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.4;
 }
 @media only screen and (max-width: 767px) {
   .icons-row-item__text {
@@ -23535,7 +23565,8 @@ search-popdown details > summary:first-of-type {
 }
 
 .icons-row-item__text p {
-  margin-top: 6px;
+  /* margin-top: 6px; Default value*/
+  margin-top: 0.1875rem;
 }
 
 .icons-row-item__text p:last-child {
@@ -26106,8 +26137,8 @@ input.shopify-payment-button__button--unbranded
 @media only screen and (min-width: 1024px) {
   .wrapper--no-full {
     width: auto;
-    padding-left: 1.1875rem;
-    padding-right: 1.1875rem;
+    padding-left: 1.8125rem;
+    padding-right: 1.8125rem;
   }
 }
 

@@ -24,7 +24,7 @@
             "size": 125,
             "heading_highlight_type": "italics",
             "highlight_color": "#d43747",
-            "highlight_text_color": "#000"
+            "highlight_text_color": "#000000"
           }
         }
       },
@@ -51,7 +51,7 @@
         "title": "",
         "heading_highlight_type": "circle",
         "highlight_color": "#d43747",
-        "highlight_text_color": "#000",
+        "highlight_text_color": "#000000",
         "heading_size": 130,
         "content": "<p>Share details about a promotion, welcome customers, describe a product, or talk about your brand.<\/p>",
         "text_alignment": "left",
@@ -107,7 +107,7 @@
         "button_8pbrzW": {
           "type": "button",
           "settings": {
-            "heading": "Button",
+            "heading": "Todas",
             "button_link": "",
             "overlay_opacity": 100,
             "block_text_color": "",
@@ -118,7 +118,18 @@
         "button_mWn4UE": {
           "type": "button",
           "settings": {
-            "heading": "Button",
+            "heading": "Girona",
+            "button_link": "",
+            "overlay_opacity": 100,
+            "block_text_color": "",
+            "bg_color": "",
+            "border_color": ""
+          }
+        },
+        "button_W8U6qP": {
+          "type": "button",
+          "settings": {
+            "heading": "Olot",
             "button_link": "",
             "overlay_opacity": 100,
             "block_text_color": "",
@@ -129,7 +140,7 @@
         "button_qTtkPq": {
           "type": "button",
           "settings": {
-            "heading": "Button",
+            "heading": "Palamós",
             "button_link": "",
             "overlay_opacity": 100,
             "block_text_color": "",
@@ -140,18 +151,7 @@
         "button_Lr6MV7": {
           "type": "button",
           "settings": {
-            "heading": "Button",
-            "button_link": "",
-            "overlay_opacity": 100,
-            "block_text_color": "",
-            "bg_color": "",
-            "border_color": ""
-          }
-        },
-        "button_wdRbPc": {
-          "type": "button",
-          "settings": {
-            "heading": "Button",
+            "heading": "Platja d’Aro",
             "button_link": "",
             "overlay_opacity": 100,
             "block_text_color": "",
@@ -163,9 +163,9 @@
       "block_order": [
         "button_8pbrzW",
         "button_mWn4UE",
+        "button_W8U6qP",
         "button_qTtkPq",
-        "button_Lr6MV7",
-        "button_wdRbPc"
+        "button_Lr6MV7"
       ],
       "settings": {
         "title": "",
@@ -179,9 +179,9 @@
         "text_size": 115,
         "letter_spacing": 75,
         "show_arrow": false,
-        "bg_color": "#fff",
-        "block_text_color": "#000",
-        "border_color": "#000",
+        "bg_color": "#ffffff",
+        "block_text_color": "#000000",
+        "border_color": "#000000",
         "section_bg_color": "#ffffff",
         "section_text_color": "",
         "enable_slider_mobile": false,
@@ -197,8 +197,9 @@
         "column-0": {
           "type": "text_block",
           "settings": {
+            "image": "shopify:\/\/shop_images\/tiendas.png",
             "title": "",
-            "text": "<p>Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.<\/p>",
+            "text": "<p>c\/ Nou, 15<\/p><p>7001 Girona, España\u2028+34 972 22 68 48<\/p>",
             "button_text": "Veure mapa",
             "button_link": "",
             "button_color": "btn--black",
@@ -211,8 +212,9 @@
         "column-1": {
           "type": "text_block",
           "settings": {
+            "image": "shopify:\/\/shop_images\/tiendas.png",
             "title": "",
-            "text": "<p>Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.<\/p>",
+            "text": "<p>c\/ Nou, 15<\/p><p>7001 Girona, España\u2028+34 972 22 68 48<\/p>",
             "button_text": "Veure mapa",
             "button_link": "",
             "button_color": "btn--black",
@@ -225,8 +227,9 @@
         "column-2": {
           "type": "text_block",
           "settings": {
+            "image": "shopify:\/\/shop_images\/tiendas.png",
             "title": "",
-            "text": "<p>Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.<\/p>",
+            "text": "<p>c\/ Nou, 15<\/p><p>7001 Girona, España\u2028+34 972 22 68 48<\/p>",
             "button_text": "Veure mapa",
             "button_link": "",
             "button_color": "btn--black",
@@ -239,8 +242,9 @@
         "column-3": {
           "type": "text_block",
           "settings": {
+            "image": "shopify:\/\/shop_images\/tiendas.png",
             "title": "",
-            "text": "<p>Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.<\/p>",
+            "text": "<p>c\/ Nou, 15<\/p><p>7001 Girona, España\u2028+34 972 22 68 48<\/p>",
             "button_text": "Veure mapa",
             "button_link": "",
             "button_color": "btn--black",
@@ -253,8 +257,9 @@
         "text_block_gb7K3L": {
           "type": "text_block",
           "settings": {
+            "image": "shopify:\/\/shop_images\/tiendas.png",
             "title": "",
-            "text": "<p>Use this text to describe products, share details on availability and style, etc<\/p>",
+            "text": "<p>c\/ Nou, 15<\/p><p>7001 Girona, España\u2028+34 972 22 68 48<\/p>",
             "button_text": "Veure mapa",
             "button_link": "",
             "button_color": "btn--black",
@@ -285,7 +290,7 @@
         "heading_size": 120,
         "text_size": 100,
         "bg_color_secondary": false,
-        "color_borders": "#000",
+        "color_borders": "#000000",
         "layout_mobile": "carousel",
         "width": "wrapper",
         "padding_top": 0,
@@ -311,8 +316,8 @@
             "text": "<p>¿Quieres trabajar con nosotros?<\/p>",
             "size": 100,
             "heading_highlight_type": "italics",
-            "highlight_color": "#D43747",
-            "highlight_text_color": "#000"
+            "highlight_color": "#d43747",
+            "highlight_text_color": "#000000"
           }
         },
         "button_LQaBH4": {

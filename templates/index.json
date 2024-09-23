@@ -212,6 +212,7 @@
           "settings": {
             "width": "100",
             "image": "shopify:\/\/shop_images\/Grid1.png",
+            "image_mobile": "shopify:\/\/shop_images\/Grid1Mobile.png",
             "overlay_opacity": 0,
             "text_position": "center",
             "subheading": "",
@@ -229,6 +230,7 @@
           "settings": {
             "width": "33.33",
             "image": "shopify:\/\/shop_images\/Grid2.png",
+            "image_mobile": "shopify:\/\/shop_images\/Grid2Mobile.png",
             "overlay_opacity": 0,
             "text_position": "center",
             "subheading": "",
@@ -246,6 +248,7 @@
           "settings": {
             "width": "33.33",
             "image": "shopify:\/\/shop_images\/Grid3.png",
+            "image_mobile": "shopify:\/\/shop_images\/Grid3Mobile.png",
             "overlay_opacity": 0,
             "text_position": "center",
             "subheading": "",
@@ -263,6 +266,7 @@
           "settings": {
             "width": "33.33",
             "image": "shopify:\/\/shop_images\/Grid4.png",
+            "image_mobile": "shopify:\/\/shop_images\/Grid4Mobile.png",
             "overlay_opacity": 0,
             "text_position": "center",
             "subheading": "",
@@ -285,7 +289,7 @@
       "settings": {
         "desktop_height": "original-height",
         "enable_mobile_height": true,
-        "mobile_height": "six-fifty-height-mobile",
+        "mobile_height": "original-height-mobile",
         "heading_size": 120,
         "button_1_color": "btn--white",
         "button_1_style": "btn--text",
@@ -303,128 +307,79 @@
         "padding_bottom": 48
       }
     },
-    "section_list_butttons_U7LxzU": {
-      "type": "section-list-butttons",
+    "section_press_enJ896": {
+      "type": "section-press",
       "blocks": {
-        "button_jgbEfh": {
-          "type": "button",
+        "press_geripq": {
+          "type": "press",
           "settings": {
-            "heading": "Button",
-            "button_link": "",
-            "custom_collection_image": "shopify:\/\/shop_images\/Xti.png",
-            "overlay_opacity": 100,
-            "block_text_color": "",
-            "bg_color": "",
-            "border_color": ""
+            "text": "",
+            "link": "",
+            "press_logo": "shopify:\/\/shop_images\/Xti.png",
+            "logo_width": 80
           }
         },
-        "button_GECepM": {
-          "type": "button",
+        "press_DVqHir": {
+          "type": "press",
           "settings": {
-            "heading": "Button",
-            "button_link": "",
-            "overlay_opacity": 100,
-            "block_text_color": "",
-            "bg_color": "",
-            "border_color": ""
+            "text": "",
+            "link": "",
+            "press_logo": "shopify:\/\/shop_images\/Asics.png",
+            "logo_width": 150
           }
         },
-        "button_4ygf8j": {
-          "type": "button",
+        "press_8d6BLz": {
+          "type": "press",
           "settings": {
-            "heading": "Button",
-            "button_link": "",
-            "overlay_opacity": 100,
-            "block_text_color": "",
-            "bg_color": "",
-            "border_color": ""
+            "text": "",
+            "link": "",
+            "press_logo": "shopify:\/\/shop_images\/geox.png",
+            "logo_width": 170
           }
         },
-        "button_YH7VEx": {
-          "type": "button",
+        "press_MQWcPN": {
+          "type": "press",
           "settings": {
-            "heading": "Button",
-            "button_link": "",
-            "overlay_opacity": 100,
-            "block_text_color": "",
-            "bg_color": "",
-            "border_color": ""
+            "text": "",
+            "link": "",
+            "press_logo": "shopify:\/\/shop_images\/clarks.png",
+            "logo_width": 140
           }
         },
-        "button_fHNDgj": {
-          "type": "button",
+        "press_YwEyVq": {
+          "type": "press",
           "settings": {
-            "heading": "Button",
-            "button_link": "",
-            "overlay_opacity": 100,
-            "block_text_color": "",
-            "bg_color": "",
-            "border_color": ""
+            "text": "",
+            "link": "",
+            "press_logo": "shopify:\/\/shop_images\/camper.png",
+            "logo_width": 120
           }
         },
-        "button_y4fVxV": {
-          "type": "button",
+        "press_KqCF9p": {
+          "type": "press",
           "settings": {
-            "heading": "Button",
-            "button_link": "",
-            "overlay_opacity": 100,
-            "block_text_color": "",
-            "bg_color": "",
-            "border_color": ""
-          }
-        },
-        "button_W8LCBy": {
-          "type": "button",
-          "settings": {
-            "heading": "Button",
-            "button_link": "",
-            "overlay_opacity": 100,
-            "block_text_color": "",
-            "bg_color": "",
-            "border_color": ""
-          }
-        },
-        "button_kxJeMJ": {
-          "type": "button",
-          "settings": {
-            "heading": "Button",
-            "button_link": "",
-            "overlay_opacity": 100,
-            "block_text_color": "",
-            "bg_color": "",
-            "border_color": ""
+            "text": "",
+            "link": "",
+            "press_logo": "shopify:\/\/shop_images\/converse.png",
+            "logo_width": 180
           }
         }
       },
       "block_order": [
-        "button_jgbEfh",
-        "button_GECepM",
-        "button_4ygf8j",
-        "button_YH7VEx",
-        "button_fHNDgj",
-        "button_y4fVxV",
-        "button_W8LCBy",
-        "button_kxJeMJ"
+        "press_geripq",
+        "press_DVqHir",
+        "press_8d6BLz",
+        "press_MQWcPN",
+        "press_YwEyVq",
+        "press_KqCF9p"
       ],
       "settings": {
         "title": "",
-        "heading_size": 100,
-        "layout": "carousel",
-        "alignment": "center",
-        "collections_per_row": 6,
-        "columns_mobile": "2",
-        "type_style": "button-typography",
-        "button_style": "rounded",
-        "text_size": 115,
-        "letter_spacing": 75,
-        "show_arrow": false,
-        "bg_color": "#ffffff",
-        "block_text_color": "#000000",
-        "border_color": "#000000",
-        "section_bg_color": "#f7f7f7",
-        "section_text_color": "",
-        "enable_slider_mobile": true,
-        "animations_enabled": false,
+        "show_quotations": false,
+        "show_rounded_corners": false,
+        "autoplay": false,
+        "duration": 4,
+        "bg_color_secondary": false,
         "width": "wrapper--full-padded",
         "padding_top": 48,
         "padding_bottom": 48
@@ -437,32 +392,40 @@
           "type": "text",
           "settings": {
             "icon_name": "truck",
-            "title": "Free Shipping",
-            "text": "<p>on all order over $99<\/p>"
+            "title": "Envío gratis",
+            "text": "<p>Feugiat vitae urna ac posuere.<\/p>"
           }
         },
         "text_fbkDNR": {
           "type": "text",
           "settings": {
-            "icon_name": "check",
-            "title": "Free Returns",
-            "text": "<p>within 30 days of purchase<\/p>"
+            "icon_name": "truck",
+            "title": "Envío gratis",
+            "text": "<p>Feugiat vitae urna ac posuere.<\/p>"
           }
         },
         "text_KCTbnj": {
           "type": "text",
           "settings": {
-            "icon_name": "eco-friendly",
-            "title": "1% Donated",
-            "text": "<p>to forest conservation<\/p>"
+            "icon_name": "truck",
+            "title": "Envío gratis",
+            "text": "<p>Feugiat vitae urna ac posuere.<\/p>"
           }
         },
         "text_YUY9AA": {
           "type": "text",
           "settings": {
-            "icon_name": "clock",
-            "title": "Feature",
-            "text": "<p>Siempre y cuando se pueda se hace<\/p>"
+            "icon_name": "truck",
+            "title": "Envío gratis",
+            "text": "<p>Feugiat vitae urna ac posuere.<\/p>"
+          }
+        },
+        "text_9GKxV3": {
+          "type": "text",
+          "settings": {
+            "icon_name": "truck",
+            "title": "Envío gratis",
+            "text": "<p>Feugiat vitae urna ac posuere.<\/p>"
           }
         }
       },
@@ -470,13 +433,14 @@
         "text_QAJyJB",
         "text_fbkDNR",
         "text_KCTbnj",
-        "text_YUY9AA"
+        "text_YUY9AA",
+        "text_9GKxV3"
       ],
       "settings": {
         "heading": "",
         "subheading": "",
         "alignment": "center",
-        "columns": 4,
+        "columns": 5,
         "icons_width": 20,
         "show_vertical_borders": false,
         "show_horizontal_borders": false,
@@ -491,7 +455,7 @@
         "button_color": "btn--black",
         "button_style": "btn--solid",
         "button_size": "btn--small",
-        "layout_mobile": "grid",
+        "layout_mobile": "carousel",
         "width": "wrapper",
         "padding_top": 48,
         "padding_bottom": 48
@@ -503,15 +467,15 @@
         "flex_align": "align--middle-center",
         "text_color": "text-dark",
         "title": "",
-        "text": "<p>Sign up for exclusive deals and early access to new products.<\/p>",
+        "text": "<p>Suscríbete a la newsletter para conseguir descuentos y ofertas exclusivas<\/p>",
         "extra_fields": "",
         "button_text": "Vamos!",
         "bg_color": "#d3cee5",
         "image_height": "three-fifty-height",
-        "overlay_opacity": 10,
+        "overlay_opacity": 0,
         "width": "wrapper",
-        "padding_top": 60,
-        "padding_bottom": 60
+        "padding_top": 48,
+        "padding_bottom": 48
       }
     }
   },
@@ -520,7 +484,7 @@
     "section-collection-0",
     "section_collection_eckTKA",
     "section_grid_W44WiK",
-    "section_list_butttons_U7LxzU",
+    "section_press_enJ896",
     "section_icons_row_9c8Ukp",
     "section-newsletter-0"
   ]

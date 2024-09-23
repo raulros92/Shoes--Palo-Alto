@@ -126,13 +126,15 @@
     }
   }
 
-  #IconsRow--{{ section.id }} .icons-row__slider {
-      --adjust-heading: calc(var(--FONT-ADJUST-HEADING) * {{ heading_size }});
-      --adjust-body: calc(var(--FONT-ADJUST-BODY) * {{ text_size }});
-    }
+  #IconsRow--{{ section.id }}
+  .icons-row__slider {
+    --adjust-heading: calc(var(--FONT-ADJUST-HEADING) * {{ heading_size }});
+    --adjust-body: calc(var(--FONT-ADJUST-BODY) * {{ text_size }});
+  }
 
   {%- if box_color.alpha != 0.0 and box_color != '' -%}
-    #IconsRow--{{ section.id }} .icons-row-item--box {
+    #IconsRow--{{ section.id }}
+    .icons-row-item--box {
       --bg: {{ box_color }}
     }
   {%- endif -%}
@@ -144,31 +146,37 @@
   {%- endif -%}
 {%- endstyle -%}
 
-<section id="IconsRow--{{ section.id }}" class="{{ section_classes }}" data-section-id="{{ section.id }}" data-section-type="icons-row">
+<section
+  id="IconsRow--{{ section.id }}"
+  class="{{ section_classes }}"
+  data-section-id="{{ section.id }}"
+  data-section-type="icons-row">
   <div class="{{ section_width }}">
     <div class="icons-row__wrapper{% if single_block %} icons-row__wrapper--single-block-center{% endif %} text-{{ alignment }}">
       {%- if heading != blank or subheading != blank -%}
         <div class="icons-row__headings">
           {%- if heading != blank -%}
-            <h2 class="icons-row__heading"
+            <h2
+              class="icons-row__heading"
               {% if animations_enabled %}
-                data-aos="fade-up"
-                data-aos-anchor="{{ animation_anchor }}"
-                data-aos-delay="{{ animation_delay }}"
-                {%- assign animation_delay = animation_delay | plus: 150 -%}
+              data-aos="fade-up"
+              data-aos-anchor="{{ animation_anchor }}"
+              data-aos-delay="{{ animation_delay }}"
+              {%- assign animation_delay = animation_delay | plus: 150 -%}
               {% endif %}>
               {{- heading | escape -}}
             </h2>
           {%- endif -%}
 
           {%- if subheading != blank -%}
-            <div class="icons-row__subheading"
-            {% if animations_enabled %}
+            <div
+              class="icons-row__subheading"
+              {% if animations_enabled %}
               data-aos="fade-up"
               data-aos-anchor="{{ animation_anchor }}"
               data-aos-delay="{{ animation_delay }}"
               {%- assign animation_delay = animation_delay | plus: 150 -%}
-            {% endif %}>
+              {% endif %}>
               {{- subheading -}}
             </div>
           {%- endif -%}
@@ -258,12 +266,13 @@
 
             {%- unless no_render -%}
               <div class="{{ item_classes }}" {{ block.shopify_attributes }}>
-                <div class="icons-row-item__wrapper"
+                <div
+                  class="icons-row-item__wrapper"
                   {% if animations_enabled %}
-                    data-aos="fade-up"
-                    data-aos-anchor="{{ animation_anchor }}"
-                    data-aos-delay="{{ animation_delay }}"
-                    {%- assign animation_delay = animation_delay | plus: 150 -%}
+                  data-aos="fade-up"
+                  data-aos-anchor="{{ animation_anchor }}"
+                  data-aos-delay="{{ animation_delay }}"
+                  {%- assign animation_delay = animation_delay | plus: 150 -%}
                   {% endif %}>
                   {%- unless no_image -%}
                     <div class="icons-row-item__icon icon-stroke">
@@ -298,11 +307,12 @@
       {%- endif -%}
 
       {%- if button_text != blank -%}
-        <div class="icons-row__actions"
+        <div
+          class="icons-row__actions"
           {% if animations_enabled %}
-            data-aos="fade-up"
-            data-aos-anchor="{{ animation_anchor }}"
-            data-aos-delay="{{ animation_delay }}"
+          data-aos="fade-up"
+          data-aos-anchor="{{ animation_anchor }}"
+          data-aos-delay="{{ animation_delay }}"
           {% endif %}>
           <a class="btn {{ button_style }} {{ button_size }} {{ button_color }}" href="{{ button_link }}">{{ button_text }}</a>
         </div>
@@ -312,345 +322,534 @@
 </section>
 
 {% schema %}
-{
-  "name": "Icons row",
-  "max_blocks": 6,
-  "settings": [
-    {
-      "type": "header",
-      "content": "Heading"
-    },
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading"
-    },
-    {
-      "type": "richtext",
-      "id": "subheading",
-      "label": "Subheading text"
-    },
-    {
-      "type": "header",
-      "content": "Layout"
-    },
-    {
-      "type": "select",
-      "id": "alignment",
-      "label": "Alignment",
-      "options": [
-        { "label": "Center", "value": "center" },
-        { "label": "Left", "value": "left" },
-        { "label": "Inline center", "value": "inline-center" },
-        { "label": "Inline left", "value": "inline-left" }
-      ],
-      "default": "center"
-    },
-    {
-      "type": "range",
-      "id": "columns",
-      "label": "Icons per row",
-      "default": 3,
-      "min": 2,
-      "max": 4,
-      "step": 1
-    },
-    {
-      "type": "range",
-      "id": "icons_width",
-      "label": "Icons width",
-      "min": 20,
-      "max": 100,
-      "step": 5,
-      "unit": "px",
-      "default": 20,
-      "info": "Max size on mobile is 40px"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_vertical_borders",
-      "label": "Show vertical borders",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "show_horizontal_borders",
-      "label": "Show horizontal borders",
-      "default": true
-    },
-    {
-      "type": "header",
-      "content": "Text"
-    },
-    {
-      "type": "range",
-      "id": "heading_size",
-      "label": "Heading size",
-      "default": 120,
-      "min": 70,
-      "max": 200,
-      "step": 10,
-      "unit": "%"
-    },
-    {
-      "type": "range",
-      "id": "text_size",
-      "label": "Text size",
-      "default": 100,
-      "min": 70,
-      "max": 150,
-      "step": 10,
-      "unit": "%"
-    },
-    {
-      "type": "header",
-      "content": "Colors"
-    },
-    {
-      "type": "color",
-      "id": "bg_color",
-      "label": "Background color"
-    },
-    {
-      "type": "color",
-      "id": "text_color",
-      "label": "Text",
-      "default": "#333"
-    },
-    {
-      "type": "color",
-      "id": "box_color",
-      "label": "Boxes"
-    },
-    {
-      "type": "color",
-      "id": "color_border",
-      "label": "Border",
-      "default": "#333"
-    },
-    {
-      "type": "header",
-      "content": "Button"
-    },
-    {
-      "type": "text",
-      "id": "button_text",
-      "label": "Text"
-    },
-    {
-      "type": "url",
-      "id": "button_link",
-      "label": "Link"
-    },
-    {
-      "type": "select",
-      "id": "button_color",
-      "label": "Button color",
-      "default": "btn--black",
-      "options": [
-        { "label": "Primary", "value": "btn--primary" },
-        { "label": "Secondary", "value": "btn--secondary" },
-        { "label": "White", "value": "btn--white" },
-        { "label": "Black", "value": "btn--black" }
-      ]
-    },
-    {
-      "type": "select",
-      "id": "button_style",
-      "label": "Button style",
-      "default": "btn--solid",
-      "options": [
-        { "label": "Solid", "value": "btn--solid" },
-        { "label": "Outline", "value": "btn--outline" },
-        { "label": "Solid with border", "value": "btn--solid-border" },
-        { "label": "Text", "value": "btn--text" }
-      ]
-    },
-    {
-      "type": "select",
-      "id": "button_size",
-      "label": "Size",
-      "default": "btn--small",
-      "options": [
-        { "label": "Large", "value": "btn--large" },
-        { "label": "Medium", "value": "btn--medium" },
-        { "label": "Small", "value": "btn--small" }
-      ]
-    },
-    {
-      "type": "header",
-      "content": "Mobile"
-    },
-    {
-      "type": "select",
-      "id": "layout_mobile",
-      "label": "Layout",
-      "default": "grid",
-      "options": [
-        { "value": "grid", "label": "Grid" },
-        { "value": "stacked", "label": "Stacked" },
-        { "value": "carousel", "label": "Slider" }
-      ]
-    },
-    {
-      "type": "header",
-      "content": "Section spacing"
-    },
-    {
-      "type": "select",
-      "id": "width",
-      "label": "Width",
-      "default": "wrapper",
-      "options": [
-        { "value": "wrapper--full", "label": "Full width" },
-        { "value": "wrapper--full-padded", "label": "Full width padded" },
-        { "value": "wrapper", "label": "Page width" }
-      ]
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 2,
-      "unit": "px",
-      "label": "Padding top",
-      "default": 60
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 2,
-      "unit": "px",
-      "label": "Padding bottom",
-      "default": 60
-    }
-  ],
-  "blocks": [
-    {
-      "type": "text",
-      "name": "Item",
-      "settings": [
-        {
-          "type": "select",
-          "id": "icon_name",
-          "label": "Icon",
-          "default": "clock",
-          "options": [
-            { "value": "none", "label": "None" },
-            { "value": "archive", "label": "Archive", "group": "Generic" },
-            { "value": "award", "label": "Award", "group": "Generic" },
-            { "value": "bee", "label": "Bee", "group": "Generic" },
-            { "value": "bell", "label": "Bell", "group": "Generic" },
-            { "value": "calendar", "label": "Calendar", "group": "Generic" },
-            { "value": "camera", "label": "Camera", "group": "Generic" },
-            { "value": "check", "label": "Check", "group": "Generic" },
-            { "value": "clipboard", "label": "Clipboard", "group": "Generic" },
-            { "value": "clock", "label": "Clock", "group": "Generic" },
-            { "value": "compass", "label": "Compass", "group": "Generic" },
-            { "value": "dollar-sign", "label": "Dollar sign", "group": "Generic" },
-            { "value": "download", "label": "Download", "group": "Generic" },
-            { "value": "flower", "label": "Flower", "group": "Generic" },
-            { "value": "gem", "label": "Gem", "group": "Generic" },
-            { "value": "heart", "label": "Heart", "group": "Generic" },
-            { "value": "key", "label": "Key", "group": "Generic" },
-            { "value": "leaf", "label": "Leaf", "group": "Generic" },
-            { "value": "lock", "label": "Lock", "group": "Generic" },
-            { "value": "mail", "label": "Mail", "group": "Generic" },
-            { "value": "map-pin", "label": "Map", "group": "Generic" },
-            { "value": "message", "label": "Message", "group": "Generic" },
-            { "value": "music", "label": "Music", "group": "Generic" },
-            { "value": "pencils", "label": "Pencils", "group": "Generic" },
-            { "value": "phone", "label": "Phone", "group": "Generic" },
-            { "value": "scientific", "label": "Scientific", "group": "Generic" },
-            { "value": "shield", "label": "Shield", "group": "Generic" },
-            { "value": "smile", "label": "Smile", "group": "Generic" },
-            { "value": "star", "label": "Star", "group": "Generic" },
-            { "value": "tree", "label": "Tree", "group": "Generic" },
-            { "value": "truck", "label": "Truck", "group": "Generic" },
-            { "value": "credit-card", "label": "Credit card", "group": "Commerce" },
-            { "value": "fair-trade", "label": "Fair trade", "group": "Commerce" },
-            { "value": "package", "label": "Package", "group": "Commerce" },
-            { "value": "storefront", "label": "Storefront", "group": "Commerce" },
-            { "value": "support", "label": "Support", "group": "Commerce" },
-            { "value": "eco-friendly", "label": "Eco friendly", "group": "Environment" },
-            { "value": "recycle", "label": "Recycle", "group": "Environment" },
-            { "value": "recycle-circle", "label": "Recycle circle", "group": "Environment" },
-            { "value": "reuseable", "label": "Reuseable", "group": "Environment" },
-            { "value": "cotton", "label": "Cotton", "group": "Fashion" },
-            { "value": "ethically-made", "label": "Ethically made", "group": "Fashion" },
-            { "value": "plant-based", "label": "Plant based", "group": "Fashion" },
-            { "value": "dishwasher-safe", "label": "Dishwasher safe", "group": "Food and Drink" },
-            { "value": "frozen", "label": "Frozen", "group": "Food and Drink" },
-            { "value": "non-gmo", "label": "Non GMO", "group": "Food and Drink" },
-            { "value": "organic", "label": "Organic", "group": "Food and Drink" },
-            { "value": "oven-safe", "label": "Oven safe", "group": "Food and Drink" },
-            { "value": "vegan", "label": "Vegan", "group": "Food and Drink" },
-            { "value": "vegetarian", "label": "Vegetarian", "group": "Food and Drink" },
-            { "value": "cruelty-free", "label": "Cruelty free", "group": "Health/Beauty" },
-            { "value": "fragrance-free", "label": "Fragrance free", "group": "Health/Beauty" },
-            { "value": "paw-heart", "label": "Paw heart", "group": "Health/Beauty" },
-            { "value": "phthalate-free", "label": "Phthalate free", "group": "Health/Beauty" },
-            { "value": "sulfate-free", "label": "Sulfate free", "group": "Health/Beauty" },
-            { "value": "use-by", "label": "Use by", "group": "Health/Beauty" }
-          ]
-        },
-        {
-          "type": "image_picker",
-          "id": "icon_image",
-          "label": "Icon image",
-          "info": "If image set it will override the icon"
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Heading",
-          "default": "Feature"
-        },
-        {
-          "type": "richtext",
-          "id": "text",
-          "label": "Text"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Icons row",
-      "category": "Text",
-      "blocks": [
-        {
-          "type": "text",
-          "settings": {
-            "icon_name": "truck",
-            "title": "Free Shipping",
-            "text": "<p>on all order over $99</p>"
+  {
+    "name": "Icons row",
+    "max_blocks": 6,
+    "settings": [
+      {
+        "type": "header",
+        "content": "Heading"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading"
+      },
+      {
+        "type": "richtext",
+        "id": "subheading",
+        "label": "Subheading text"
+      },
+      {
+        "type": "header",
+        "content": "Layout"
+      }, {
+        "type": "select",
+        "id": "alignment",
+        "label": "Alignment",
+        "options": [
+          {
+            "label": "Center",
+            "value": "center"
+          }, {
+            "label": "Left",
+            "value": "left"
+          }, {
+            "label": "Inline center",
+            "value": "inline-center"
+          }, {
+            "label": "Inline left",
+            "value": "inline-left"
           }
-        },
-        {
-          "type": "text",
-          "settings": {
-            "icon_name": "check",
-            "title": "Free Returns",
-            "text": "<p>within 30 days of purchase</p>"
+        ],
+        "default": "center"
+      }, {
+        "type": "range",
+        "id": "columns",
+        "label": "Icons per row",
+        "default": 3,
+        "min": 2,
+        "max": 6,
+        "step": 1
+      }, {
+        "type": "range",
+        "id": "icons_width",
+        "label": "Icons width",
+        "min": 20,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "default": 20,
+        "info": "Max size on mobile is 40px"
+      }, {
+        "type": "checkbox",
+        "id": "show_vertical_borders",
+        "label": "Show vertical borders",
+        "default": true
+      }, {
+        "type": "checkbox",
+        "id": "show_horizontal_borders",
+        "label": "Show horizontal borders",
+        "default": true
+      }, {
+        "type": "header",
+        "content": "Text"
+      }, {
+        "type": "range",
+        "id": "heading_size",
+        "label": "Heading size",
+        "default": 120,
+        "min": 70,
+        "max": 200,
+        "step": 10,
+        "unit": "%"
+      }, {
+        "type": "range",
+        "id": "text_size",
+        "label": "Text size",
+        "default": 100,
+        "min": 70,
+        "max": 150,
+        "step": 10,
+        "unit": "%"
+      }, {
+        "type": "header",
+        "content": "Colors"
+      }, {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background color"
+      }, {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text",
+        "default": "#333"
+      }, {
+        "type": "color",
+        "id": "box_color",
+        "label": "Boxes"
+      }, {
+        "type": "color",
+        "id": "color_border",
+        "label": "Border",
+        "default": "#333"
+      }, {
+        "type": "header",
+        "content": "Button"
+      }, {
+        "type": "text",
+        "id": "button_text",
+        "label": "Text"
+      }, {
+        "type": "url",
+        "id": "button_link",
+        "label": "Link"
+      }, {
+        "type": "select",
+        "id": "button_color",
+        "label": "Button color",
+        "default": "btn--black",
+        "options": [
+          {
+            "label": "Primary",
+            "value": "btn--primary"
+          }, {
+            "label": "Secondary",
+            "value": "btn--secondary"
+          }, {
+            "label": "White",
+            "value": "btn--white"
+          }, {
+            "label": "Black",
+            "value": "btn--black"
           }
-        },
-        {
-          "type": "text",
-          "settings": {
-          "icon_name": "eco-friendly",
-            "title": "1% Donated",
-            "text": "<p>to forest conservation</p>"
+        ]
+      }, {
+        "type": "select",
+        "id": "button_style",
+        "label": "Button style",
+        "default": "btn--solid",
+        "options": [
+          {
+            "label": "Solid",
+            "value": "btn--solid"
+          }, {
+            "label": "Outline",
+            "value": "btn--outline"
+          }, {
+            "label": "Solid with border",
+            "value": "btn--solid-border"
+          }, {
+            "label": "Text",
+            "value": "btn--text"
           }
-        }
-      ]
+        ]
+      }, {
+        "type": "select",
+        "id": "button_size",
+        "label": "Size",
+        "default": "btn--small",
+        "options": [
+          {
+            "label": "Large",
+            "value": "btn--large"
+          }, {
+            "label": "Medium",
+            "value": "btn--medium"
+          }, {
+            "label": "Small",
+            "value": "btn--small"
+          }
+        ]
+      }, {
+        "type": "header",
+        "content": "Mobile"
+      }, {
+        "type": "select",
+        "id": "layout_mobile",
+        "label": "Layout",
+        "default": "grid",
+        "options": [
+          {
+            "value": "grid",
+            "label": "Grid"
+          }, {
+            "value": "stacked",
+            "label": "Stacked"
+          }, {
+            "value": "carousel",
+            "label": "Slider"
+          }
+        ]
+      }, {
+        "type": "header",
+        "content": "Section spacing"
+      }, {
+        "type": "select",
+        "id": "width",
+        "label": "Width",
+        "default": "wrapper",
+        "options": [
+          {
+            "value": "wrapper--full",
+            "label": "Full width"
+          }, {
+            "value": "wrapper--full-padded",
+            "label": "Full width padded"
+          }, {
+            "value": "wrapper",
+            "label": "Page width"
+          }
+        ]
+      }, {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding top",
+        "default": 60
+      }, {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding bottom",
+        "default": 60
+      }
+    ],
+    "blocks": [
+      {
+        "type": "text",
+        "name": "Item",
+        "settings": [
+          {
+            "type": "select",
+            "id": "icon_name",
+            "label": "Icon",
+            "default": "clock",
+            "options": [
+              {
+                "value": "none",
+                "label": "None"
+              },
+              {
+                "value": "archive",
+                "label": "Archive",
+                "group": "Generic"
+              },
+              {
+                "value": "award",
+                "label": "Award",
+                "group": "Generic"
+              },
+              {
+                "value": "bee",
+                "label": "Bee",
+                "group": "Generic"
+              }, {
+                "value": "bell",
+                "label": "Bell",
+                "group": "Generic"
+              }, {
+                "value": "calendar",
+                "label": "Calendar",
+                "group": "Generic"
+              }, {
+                "value": "camera",
+                "label": "Camera",
+                "group": "Generic"
+              }, {
+                "value": "check",
+                "label": "Check",
+                "group": "Generic"
+              }, {
+                "value": "clipboard",
+                "label": "Clipboard",
+                "group": "Generic"
+              }, {
+                "value": "clock",
+                "label": "Clock",
+                "group": "Generic"
+              }, {
+                "value": "compass",
+                "label": "Compass",
+                "group": "Generic"
+              }, {
+                "value": "dollar-sign",
+                "label": "Dollar sign",
+                "group": "Generic"
+              }, {
+                "value": "download",
+                "label": "Download",
+                "group": "Generic"
+              }, {
+                "value": "flower",
+                "label": "Flower",
+                "group": "Generic"
+              }, {
+                "value": "gem",
+                "label": "Gem",
+                "group": "Generic"
+              }, {
+                "value": "heart",
+                "label": "Heart",
+                "group": "Generic"
+              }, {
+                "value": "key",
+                "label": "Key",
+                "group": "Generic"
+              }, {
+                "value": "leaf",
+                "label": "Leaf",
+                "group": "Generic"
+              }, {
+                "value": "lock",
+                "label": "Lock",
+                "group": "Generic"
+              }, {
+                "value": "mail",
+                "label": "Mail",
+                "group": "Generic"
+              }, {
+                "value": "map-pin",
+                "label": "Map",
+                "group": "Generic"
+              }, {
+                "value": "message",
+                "label": "Message",
+                "group": "Generic"
+              }, {
+                "value": "music",
+                "label": "Music",
+                "group": "Generic"
+              }, {
+                "value": "pencils",
+                "label": "Pencils",
+                "group": "Generic"
+              }, {
+                "value": "phone",
+                "label": "Phone",
+                "group": "Generic"
+              }, {
+                "value": "scientific",
+                "label": "Scientific",
+                "group": "Generic"
+              }, {
+                "value": "shield",
+                "label": "Shield",
+                "group": "Generic"
+              }, {
+                "value": "smile",
+                "label": "Smile",
+                "group": "Generic"
+              }, {
+                "value": "star",
+                "label": "Star",
+                "group": "Generic"
+              }, {
+                "value": "tree",
+                "label": "Tree",
+                "group": "Generic"
+              }, {
+                "value": "truck",
+                "label": "Truck",
+                "group": "Generic"
+              }, {
+                "value": "credit-card",
+                "label": "Credit card",
+                "group": "Commerce"
+              }, {
+                "value": "fair-trade",
+                "label": "Fair trade",
+                "group": "Commerce"
+              }, {
+                "value": "package",
+                "label": "Package",
+                "group": "Commerce"
+              }, {
+                "value": "storefront",
+                "label": "Storefront",
+                "group": "Commerce"
+              }, {
+                "value": "support",
+                "label": "Support",
+                "group": "Commerce"
+              }, {
+                "value": "eco-friendly",
+                "label": "Eco friendly",
+                "group": "Environment"
+              }, {
+                "value": "recycle",
+                "label": "Recycle",
+                "group": "Environment"
+              }, {
+                "value": "recycle-circle",
+                "label": "Recycle circle",
+                "group": "Environment"
+              }, {
+                "value": "reuseable",
+                "label": "Reuseable",
+                "group": "Environment"
+              }, {
+                "value": "cotton",
+                "label": "Cotton",
+                "group": "Fashion"
+              }, {
+                "value": "ethically-made",
+                "label": "Ethically made",
+                "group": "Fashion"
+              }, {
+                "value": "plant-based",
+                "label": "Plant based",
+                "group": "Fashion"
+              }, {
+                "value": "dishwasher-safe",
+                "label": "Dishwasher safe",
+                "group": "Food and Drink"
+              }, {
+                "value": "frozen",
+                "label": "Frozen",
+                "group": "Food and Drink"
+              }, {
+                "value": "non-gmo",
+                "label": "Non GMO",
+                "group": "Food and Drink"
+              }, {
+                "value": "organic",
+                "label": "Organic",
+                "group": "Food and Drink"
+              }, {
+                "value": "oven-safe",
+                "label": "Oven safe",
+                "group": "Food and Drink"
+              }, {
+                "value": "vegan",
+                "label": "Vegan",
+                "group": "Food and Drink"
+              }, {
+                "value": "vegetarian",
+                "label": "Vegetarian",
+                "group": "Food and Drink"
+              }, {
+                "value": "cruelty-free",
+                "label": "Cruelty free",
+                "group": "Health/Beauty"
+              }, {
+                "value": "fragrance-free",
+                "label": "Fragrance free",
+                "group": "Health/Beauty"
+              }, {
+                "value": "paw-heart",
+                "label": "Paw heart",
+                "group": "Health/Beauty"
+              }, {
+                "value": "phthalate-free",
+                "label": "Phthalate free",
+                "group": "Health/Beauty"
+              }, {
+                "value": "sulfate-free",
+                "label": "Sulfate free",
+                "group": "Health/Beauty"
+              }, {
+                "value": "use-by",
+                "label": "Use by",
+                "group": "Health/Beauty"
+              }
+            ]
+          }, {
+            "type": "image_picker",
+            "id": "icon_image",
+            "label": "Icon image",
+            "info": "If image set it will override the icon"
+          }, {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Feature"
+          }, {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Icons row",
+        "category": "Text",
+        "blocks": [
+          {
+            "type": "text",
+            "settings": {
+              "icon_name": "truck",
+              "title": "Free Shipping",
+              "text": "<p>on all order over $99</p>"
+            }
+          }, {
+            "type": "text",
+            "settings": {
+              "icon_name": "check",
+              "title": "Free Returns",
+              "text": "<p>within 30 days of purchase</p>"
+            }
+          }, {
+            "type": "text",
+            "settings": {
+              "icon_name": "eco-friendly",
+              "title": "1% Donated",
+              "text": "<p>to forest conservation</p>"
+            }
+          }
+        ]
+      }
+    ],
+    "disabled_on": {
+      "groups": ["header", "aside"]
     }
-  ],
-  "disabled_on": {
-    "groups": ["header","aside"]
   }
-}
 {% endschema %}
