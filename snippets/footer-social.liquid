@@ -1,20 +1,28 @@
 <div class="social-sharing-wrapper">
+
   {%- if show_social_links -%}
+
+        {%- if settings.social_facebook_link != blank -%}
+      <a class="social-sharing-icon facebook" rel="noopener" href = "{{ settings.social_facebook_link }}" title="{{ 'footer.socials.title' | t: social: 'Facebook', shop_name: shop.name }}">
+        {%- render 'icon-facebook' -%}
+      </a>
+    {%- endif -%}
+
     {%- if settings.social_instagram_link != blank -%}
       <a class="social-sharing-icon instagram" rel="noopener" href = "{{ settings.social_instagram_link }}" title="{{ 'footer.socials.title' | t: social: 'Instagram', shop_name: shop.name }}">
         {%- render 'icon-instagram' -%}
       </a>
     {%- endif -%}
 
-    {%- if settings.social_tiktok_link != blank -%}
-      <a class="social-sharing-icon tiktok" rel="noopener" href = "{{ settings.social_tiktok_link }}" title="{{ 'footer.socials.title' | t: social: 'Tiktok', shop_name: shop.name }}">
-        {%- render 'icon-tiktok' -%}
+    {%- if settings.social_whatsapp_link != blank -%}
+      <a class="social-sharing-icon whatsapp" rel="noopener" href = "{{ settings.social_whatsapp_link }}" title="{{ 'footer.socials.title' | t: social: 'WhatsApp', shop_name: shop.name }}">
+        {%- render 'icon-whatsapp' -%}
       </a>
     {%- endif -%}
 
-    {%- if settings.social_facebook_link != blank -%}
-      <a class="social-sharing-icon facebook" rel="noopener" href = "{{ settings.social_facebook_link }}" title="{{ 'footer.socials.title' | t: social: 'Facebook', shop_name: shop.name }}">
-        {%- render 'icon-facebook' -%}
+    {%- if settings.social_tiktok_link != blank -%}
+      <a class="social-sharing-icon tiktok" rel="noopener" href = "{{ settings.social_tiktok_link }}" title="{{ 'footer.socials.title' | t: social: 'Tiktok', shop_name: shop.name }}">
+        {%- render 'icon-tiktok' -%}
       </a>
     {%- endif -%}
 

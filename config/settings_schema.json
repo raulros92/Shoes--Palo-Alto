@@ -1578,21 +1578,27 @@
       },
       {
         "type": "text",
+        "id": "social_facebook_link",
+        "label": "Facebook",
+        "info": "https://www.facebook.com/shopify"
+      },
+      {
+        "type": "text",
         "id": "social_instagram_link",
         "label": "Instagram",
         "info": "https://www.instagram.com/shopify"
       },
       {
         "type": "text",
-        "id": "social_tiktok_link",
-        "label": "TikTok",
-        "info": "https://tiktok.com/@shopify"
+        "id": "social_whatsapp_link",
+        "label": "WhatsApp",
+        "info": "https://www.whatsapp.com/shopify"
       },
       {
         "type": "text",
-        "id": "social_facebook_link",
-        "label": "Facebook",
-        "info": "https://www.facebook.com/shopify"
+        "id": "social_tiktok_link",
+        "label": "TikTok",
+        "info": "https://tiktok.com/@shopify"
       },
       {
         "type": "text",

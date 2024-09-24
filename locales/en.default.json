@@ -177,12 +177,12 @@
       "checkout": "Checkout",
       "empty": "Your cart is currently empty.",
       "accept_terms": "You must accept our terms and conditions.",
-      "accepted_terms": "Accepted terms/conditions?",
+      "accepted_terms": "Accepted terms\/conditions?",
       "zero_qty_error": "Quantity must be greater than 0.",
       "limit_error": "Sorry, looks like we don't have enough of this product.",
       "continue_shopping": "Continue Shopping",
       "close_cart": "Close Cart",
-      "free_shipping_message_html": "Spend <span data-free-shipping-amount=\"\">{{ amount }}</span> to qualify for free shipping",
+      "free_shipping_message_html": "Spend <span data-free-shipping-amount=\"\">{{ amount }}<\/span> to qualify for free shipping",
       "qualified_shipping_message": "FREE shipping will be applied at checkout"
     },
     "label": {
@@ -221,7 +221,7 @@
       "show_less": "Show less",
       "title": "Collection",
       "to": "To",
-      "use_fewer_filters_html": "Use fewer filters or <a class=\"{{ class }}\" href=\"{{ link }}\">clear all</a>"
+      "use_fewer_filters_html": "Use fewer filters or <a class=\"{{ class }}\" href=\"{{ link }}\">clear all<\/a>"
     }
   },
   "collections": {
@@ -297,7 +297,7 @@
       "city": "City",
       "country": "Country",
       "province": "Province",
-      "zip": "Postal/Zip Code",
+      "zip": "Postal\/Zip Code",
       "phone": "Phone",
       "set_default": "Set as default address",
       "add": "Add Address",
@@ -399,7 +399,7 @@
       "add_product": "Add a Product",
       "product_title": "Product Title",
       "vendor": "Shopify",
-      "no_collections_html": "You don't have any collections to show here. <a href=\"/admin/custom_collections\">Add some collections</a> to go along with the default Frontpage.",
+      "no_collections_html": "You don't have any collections to show here. <a href=\"\/admin\/custom_collections\">Add some collections<\/a> to go along with the default Frontpage.",
       "add_collection": "Add a Collection",
       "collection_title": "Collection",
       "single_product_title": "Showcase a single product",
@@ -576,6 +576,11 @@
     "month_day_year": "%B %d, %Y"
   },
   "footer": {
+    "policies": {
+      "policies": "Privacy Policy",
+      "cookies": "Cookies",
+      "legal-notice": "Legal Notice"
+    },
     "socials": {
       "title": "View {{ shop_name }} on {{ social }}",
       "rss": "RSS"
@@ -591,8 +596,8 @@
       "check_other_stores": "Check availability at other stores",
       "pick_up_available": "Pickup available",
       "pick_up_currently_unavailable": "Pickup currently unavailable",
-      "pick_up_available_at_html": "Pickup available at <strong>{{ location_name }}</strong>",
-      "pick_up_unavailable_at_html": "Pickup currently unavailable at <strong>{{ location_name }}</strong>",
+      "pick_up_available_at_html": "Pickup available at <strong>{{ location_name }}<\/strong>",
+      "pick_up_unavailable_at_html": "Pickup currently unavailable at <strong>{{ location_name }}<\/strong>",
       "kilometers": "km",
       "miles": "mi"
     }

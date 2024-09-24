@@ -154,7 +154,7 @@
           {%- when 'logo' -%}
             {%- assign logo_width = block.settings.logo_width -%}
             {%- style -%}
-              #{{ section_id }} .footer-block--logo { min-width: calc({{ logo_width }}px + calc(var(--gutter) / 2)); }
+              /* #{{ section_id }} .footer-block--logo { min-width: calc({{ logo_width }}px + calc(var(--gutter) / 2)); } */
               #{{ section_id }} .footer-block__logo-image { width: {{ logo_width }}px; }
             {%- endstyle -%}
             <div class="footer-block footer-block--logo {{ alignment }}"
@@ -178,7 +178,7 @@
               {%- endif -%}
 
               {%- if block.settings.text != blank -%}
-                <div class="rte">{{- block.settings.text -}}</div>
+                <div class="rte titles-20-regular__footer">{{- block.settings.text -}}</div>
               {%- endif -%}
             </div>
 
@@ -326,7 +326,7 @@
               {%- endif -%}
 
               {%- if block.settings.text != blank -%}
-                <div class="rte">{{- block.settings.text -}}</div>
+                <div class="rte titles-20-regular__footer">{{- block.settings.text -}}</div>
               {%- endif -%}
 
               {%- render 'newsletter-form', unique: block.id, separate_button_styles: true, button_text: button_text, button_color: button_color, button_style: button_style -%}
@@ -342,7 +342,7 @@
                 <p class="footer-title h5">{{ title }}</p>
               {%- endif -%}
 
-              <div class="rte">
+              <div class="rte titles-20-regular__footer">
                 {{- footer_text -}}
               </div>
             </div>
@@ -362,18 +362,38 @@
   </div>
 
   <div class="footer-bottom {{ section_width }} {{ bottom_bar_alignment }}">
+
+    {%-if section.settings.show_footer_icons -%}
+      {%- render 'footer-icons' -%}
+    {%- endif -%}
+
     {%- if render_socials -%}
       {%- render 'footer-social', show_social_links: show_social_links, show_follow_on_shop: show_follow_on_shop, color_bg: color_bg, color_text: color_text -%}
     {%- endif -%}
-
-    <div class="footer-bottom__content">
-      {%- render 'cross-border' -%}
-
-      {%- render 'footer-copyright' -%}
-    </div>
 
     {%- if show_payment_icons -%}
       {%- render 'footer-payment' -%}
     {%- endif -%}
   </div>
+
+  <div class="footer-bottom-policies">
+    <div class="policies-container">
+      <a href="{{ pages['politica-de-privacidad'].url }}" class="policies-text">{{ "footer.policies.policies" | t }}</a>
+    </div>
+    <div class="cookies-container">
+      <a href="#!" class="policies-text">{{ "footer.policies.cookies" | t }}</a>
+    </div>
+    <div class="legal-notice-container">
+      <a href="#!" class="policies-text">{{ "footer.policies.legal-notice" | t }}</a>
+    </div>
+    <div class="laguange-selector-container"> 
+      {%- render 'cross-border' -%}
+      {% comment %} {%- render 'footer-copyright' -%} {% endcomment %}
+    </div>
+  </div>
+
 </footer>
+
+<div class="all-rights-reserved">
+  <p class="body-12-regular">© 2024 Peacock. All rights reserved.</p>
+</div>

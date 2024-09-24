@@ -10,7 +10,7 @@
           "settings": {
             "alignment": "text-left",
             "image": "shopify:\/\/shop_images\/logoPeacockFooter.png",
-            "logo_width": 250,
+            "logo_width": 555,
             "show_shop_name": false,
             "text": "<p>Estilo y variedad. Moda actual. Zapatos para todos. Desde calzado casual y deportivo hasta elegante y formal, tenemos zapatos para cada ocasión.<\/p>",
             "column_width": "50"
@@ -20,18 +20,18 @@
           "type": "link",
           "settings": {
             "alignment": "text-left",
-            "menu": "main-menu",
-            "title": "Shop",
-            "column_width": "25"
+            "menu": "footer",
+            "title": "SOBRE NOSOTROS",
+            "column_width": "20"
           }
         },
         "footer-block-1": {
           "type": "link",
           "settings": {
             "alignment": "text-left",
-            "menu": "footer",
-            "title": "Helpful Links",
-            "column_width": "25"
+            "menu": "cuenta",
+            "title": "CUENTA",
+            "column_width": "20"
           }
         }
       },
@@ -46,18 +46,19 @@
         "increase_border_radius": false,
         "bottom_bar_alignment": "text-center",
         "show_social_links": true,
+        "show_footer_icons": true,
         "enable_follow_on_shop": false,
         "show_payment_icons": true,
-        "bottom_menu": "",
-        "color_text": "#ffffff",
-        "color_bg": "#000000",
+        "bottom_menu": "footer",
+        "color_text": "#878789",
+        "color_bg": "#ffffff",
         "color_border": "#ffffff",
         "show_locale_selector": true,
         "show_country_selector": true,
         "show_country_flag": false,
-        "width": "wrapper",
+        "width": "wrapper--full-padded",
         "padding_top": 48,
-        "padding_bottom": 48
+        "padding_bottom": 0
       }
     }
   },

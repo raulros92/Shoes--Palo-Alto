@@ -176,13 +176,13 @@
       "checkout": "Check out",
       "empty": "Tu carrito está vacío.",
       "accept_terms": "Debes aceptar nuestros términos y condiciones.",
-      "accepted_terms": "¿Términos/condiciones aceptados?",
+      "accepted_terms": "¿Términos\/condiciones aceptados?",
       "zero_qty_error": "La cantidad debe ser mayor que 0.",
       "limit_error": "Lo siento, parece que no tenemos suficiente de este producto.",
       "continue_shopping": "Seguir comprando",
       "close_cart": "Cerrar el carrito",
       "shipping_at_checkout": "Gastos de envío e impuestos calculados al finalizar la compra",
-      "free_shipping_message_html": "Invierta <span data-free-shipping-amount=\"\">{{ amount }}</span> para calificar para el envío gratuito",
+      "free_shipping_message_html": "Invierta <span data-free-shipping-amount=\"\">{{ amount }}<\/span> para calificar para el envío gratuito",
       "qualified_shipping_message": "¡Felicidades! Su pedido califica para el envío GRATIS"
     },
     "label": {
@@ -221,7 +221,7 @@
       "show_less": "Ver menos",
       "title": "Colección",
       "to": "A",
-      "use_fewer_filters_html": "Usa menos filtros o <a class=\"{{ class }}\" href=\"{{ link }}\">borra todo</a>"
+      "use_fewer_filters_html": "Usa menos filtros o <a class=\"{{ class }}\" href=\"{{ link }}\">borra todo<\/a>"
     }
   },
   "collections": {
@@ -305,7 +305,7 @@
       "province": "Estado",
       "zip": "Código postal",
       "default": "Por defecto",
-      "delete_confirm": "¿Está seguro/a de que deseas eliminar esta dirección?"
+      "delete_confirm": "¿Está seguro\/a de que deseas eliminar esta dirección?"
     },
     "login": {
       "title": "Iniciar sesión",
@@ -405,7 +405,7 @@
       "single_product_description": "Una vez que elijes un producto, su descripción se completará aquí automáticamente.",
       "single_collection_description": "Una vez que elijes una colección, su descripción se completará aquí automáticamente.",
       "single_collection_products_description": "Una vez que elija una colección, las descripciones de sus productos se completarán aquí automáticamente.",
-      "no_collections_html": "No tienes ninguna colección para mostrar aquí. <a href=\"/admin/custom_collections\">Add some collections</a> to go along with the default Frontpage.",
+      "no_collections_html": "No tienes ninguna colección para mostrar aquí. <a href=\"\/admin\/custom_collections\">Add some collections<\/a> to go along with the default Frontpage.",
       "no_content": "Esta sección no tiene actualmente ningún contenido. Agregue contenido a esta sección usando la barra lateral.",
       "no_page_content": "Esta página actualmente no incluye ningún contenido.",
       "slideshow": {
@@ -565,6 +565,11 @@
     }
   },
   "footer": {
+    "policies": {
+      "policies": "Política de Privacidad",
+      "cookies": "Cookies",
+      "legal-notice": "Aviso legal"
+    },
     "socials": {
       "title": "Ver {{ shop_name }} en {{ social }}",
       "rss": "RSS"
@@ -591,8 +596,8 @@
       "check_other_stores": "Verificar disponibilidad en otras tiendas",
       "pick_up_available": "Retiro disponible",
       "pick_up_currently_unavailable": "Retiro no disponible actualmente",
-      "pick_up_available_at_html": "Retiro disponible en <strong>{{ location_name }}</strong>",
-      "pick_up_unavailable_at_html": "Retiro no disponible actualmente en <strong>{{ location_name }}</strong>",
+      "pick_up_available_at_html": "Retiro disponible en <strong>{{ location_name }}<\/strong>",
+      "pick_up_unavailable_at_html": "Retiro no disponible actualmente en <strong>{{ location_name }}<\/strong>",
       "kilometers": "km",
       "miles": "mi"
     }

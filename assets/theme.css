@@ -6190,6 +6190,12 @@ input {
   margin-bottom: 0;
 }
 
+.titles-20-regular__footer {
+  font-size: calc(1.25rem * var(--adjust-body));
+  color: var(--base-neutral-900, #222223);
+  padding-top: 1rem;
+}
+
 /*================ Basic Styles ================*/
 html {
   scroll-behavior: smooth;
@@ -14055,6 +14061,11 @@ body:not(.no-outline) .selector-wrapper--swatches .radio__fieldset:focus-within,
   background: var(--swatch) no-repeat center center/cover;
   overflow: hidden;
 }
+
+.swatch__button:hover .swatch__label {
+  border: 1px solid black;
+}
+
 @media only screen and (max-width: 767px) {
   .swatch__button .swatch__label {
     --inner-offset: calc(var(--BORDER-WIDTH) + 3px);
@@ -14621,12 +14632,16 @@ body:not(.no-outline)
 .footer-block {
   display: flex;
   flex-flow: column wrap;
-  gap: var(--gutter-mobile);
+  /* gap: var(--gutter-mobile); */
+  gap: 0.5rem;
 }
 @media only screen and (min-width: 1024px) {
   .footer-block {
     padding: 0 calc(var(--gutter) / 2) var(--gutter);
     flex: 0 0 var(--desktop-width);
+  }
+  .footer-block--menu:nth-child(3) {
+    margin-left: auto;
   }
 }
 
@@ -14654,6 +14669,8 @@ body:not(.no-outline)
 
 .footer-block .rte p:last-child {
   margin-bottom: 0;
+  padding-top: 1rem;
+  max-width: 508px;
 }
 
 .footer-block__logo__image {
@@ -14698,7 +14715,12 @@ body:not(.no-outline)
 }
 
 .footer-title {
-  color: var(--text);
+  /* color: var(--text); Default value*/
+  color: var(--Base-neutral-900, #222223);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+  text-decoration-line: underline;
 }
 
 .footer-title__button {
@@ -14737,10 +14759,15 @@ body:not(.no-outline)
 .footer-link:hover,
 .footer-copyright a:hover {
   color: var(--text-alpha-85);
+  cursor: default;
 }
 
 .footer-link {
   transition: color 0.25s;
+}
+
+.footer-link:hover {
+  color: var(--base-neutral-900, #222223);
 }
 
 .footer-links {
@@ -14839,6 +14866,64 @@ body:not(.no-outline)
 .footer-bottom:after {
   content: none;
 }
+
+.footer-bottom__content {
+  display: flex;
+}
+
+.footer-icons-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  align-items: baseline;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.footer-icon-trilogi svg {
+  padding-top: 2px;
+}
+
+.footer-bottom-policies {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+.all-rights-reserved {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  background-color: #d3cee5;
+  color: var(--base-neutral-900, #222223);
+}
+
+@media only screen and (max-width: 767px) {
+  .footer-bottom-policies {
+    display: none;
+  }
+  .footer-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .footer-block--logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .footer-block__logo-image {
+    width: 14.5rem !important;
+    height: 3rem !important;
+  }
+  .titles-20-regular__footer {
+    display: flex;
+    text-align: center;
+    font-size: 1rem;
+  }
+}
+
 @media only screen and (min-width: 768px) {
   .footer-bottom {
     display: grid;
@@ -14871,7 +14956,8 @@ body:not(.no-outline)
     display: grid;
     grid-template-columns: repeat(5, auto);
     row-gap: 10px;
-    justify-content: flex-start;
+    /* justify-content: flex-start; Default value*/
+    justify-content: flex-end;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
@@ -23494,6 +23580,11 @@ search-popdown details > summary:first-of-type {
   background: var(--primary-primary-500, #5d1265);
   padding: 0 1rem;
 }
+
+.icons-row-item__wrapper:hover {
+  background: var(--primary-primary-300, #966399);
+}
+
 .text-inline-center .icons-row-item__wrapper,
 .text-inline-left .icons-row-item__wrapper {
   display: flex;
@@ -25846,6 +25937,10 @@ input.shopify-payment-button__button--unbranded
   text-decoration-line: underline !important;
 }
 
+.mosaic__item__btn:hover {
+  text-decoration-line: none !important;
+}
+
 .mosaic__item {
   display: flex;
   width: var(--block-width);
@@ -26351,7 +26446,7 @@ input.shopify-payment-button__button--unbranded
 .newsletter-section {
   position: relative;
   background-color: var(--bg);
-  height: 18.25rem;
+  height: 19rem;
   padding-top: 2.625rem;
   padding-bottom: 2.625rem;
 }
@@ -26575,7 +26670,48 @@ input.shopify-payment-button__button--unbranded
 }
 
 .newsletter-check-conditions input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.newsletter-check-conditions label {
+  position: relative;
+  width: 1rem;
+  height: 1rem;
+  min-width: 1rem;
+  min-height: 1rem;
+  max-width: 1rem;
+  max-height: 1rem;
+  border-radius: 3px;
+  border: var(--Quantity, 1px) solid var(--base-neutral-600, #878789);
+  background: var(--base-neutral-100, #f5f5f6);
+  display: inline-block;
+  cursor: pointer;
   margin-right: 0.5rem;
+}
+
+.newsletter-check-conditions label:hover {
+  border: var(--Quantity, 1px) solid var(--primary-primary-500, #5d1265);
+  background: #fff;
+}
+
+.newsletter-check-conditions input[type="checkbox"]:checked + label {
+  background-color: var(--base-neutral-100, #f5f5f6);
+  border: var(--Quantity, 1px) solid var(--base-neutral-600, #878789);
+  margin-right: 0.5rem;
+}
+
+.newsletter-check-conditions input[type="checkbox"]:checked + label::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 2px;
+  width: 5px;
+  height: 9px;
+  border: solid var(--primary-primary-500, #5d1265);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
 }
 
 .newsletter-check-conditions p {
@@ -26633,7 +26769,7 @@ input.shopify-payment-button__button--unbranded
   }
 
   .input-group__field--email {
-    width: 14.0625rem;
+    width: max-content;
   }
 }
 @media only screen and (min-width: 768px) {
@@ -28577,7 +28713,7 @@ search-form mark {
 .product__price--compare {
   text-decoration: line-through;
   opacity: 0.5;
-  margin: 0 3px 3px 0;
+  margin: 0 2px 2px 0;
   color: var(--base-neutral-600, #878789);
   text-decoration-line: strikethrough;
 }
@@ -32710,8 +32846,10 @@ search-form mark {
   letter-spacing: 0.02em;
   color: var(--text);
   background: var(--input-bg);
-  font-size: calc(0.875rem * var(--adjust-body));
+  /* font-size: calc(0.875rem * var(--adjust-body)); Default value*/
+  font-size: calc(1rem * var(--adjust-body));
   font-family: var(--FONT-STACK-BODY);
+  padding: 0;
 }
 @media only screen and (max-width: 767px) {
   .select-popout__toggle {

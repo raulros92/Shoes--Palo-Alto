@@ -85,7 +85,7 @@
 
         <div class="select-popout select-popout--lang" data-popout>
           <button type="button" class="select-popout__toggle" aria-expanded="false" aria-controls="lang-list" aria-describedby="lang-heading" data-popout-toggle>
-            {{ localization.language.endonym_name | capitalize }}
+            {{ localization.language.endonym_name | replace: "Español", "Castellano" | capitalize }}
             {%- render 'icon-select' -%}
           </button>
 
@@ -101,7 +101,7 @@
                     data-value="{{ language.iso_code }}"
                     data-popout-option
                   >
-                    <span>{{ language.endonym_name | capitalize }}</span>
+                    <span>{{ language.endonym_name | replace: "Español", "Castellano" | capitalize }}</span>
                   </a>
                 </li>
               {%- endfor -%}
@@ -126,7 +126,7 @@
                     selected
                   {% endif %}
                 >
-                  {{ language.endonym_name | capitalize }}
+                  {{ language.endonym_name | replace: "Español", "Castellano" | capitalize }}
                 </option>
               {%- endfor -%}
             </select>
