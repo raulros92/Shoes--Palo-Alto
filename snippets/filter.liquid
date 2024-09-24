@@ -164,7 +164,8 @@
                     {% if filter_value.count == 0 and filter_value.active == false %}disabled{% endif %}>
 
                   {%- if is_swatch_option -%}
-                    <label class="swatch__label swatch__label--{{ swatches_style }} filter__button" for="filter-{{ filter.label | escape }}-{{ forloop.index }}" data-swatch="{{ filter_value.label | escape_once }}" data-tooltip="{{ filter_value.value | escape_once | capitalize }}">
+                    {% comment %} <label class="swatch__label swatch__label--{{ swatches_style }} filter__button" for="filter-{{ filter.label | escape }}-{{ forloop.index }}" data-swatch="{{ filter_value.label | escape_once }}" data-tooltip="{{ filter_value.value | escape_once | capitalize }}"> {% endcomment %}
+                    <label class="swatch__label swatch__label--{{ swatches_style }} filter__button" for="filter-{{ filter.label | escape }}-{{ forloop.index }}" data-swatch="{{ filter_value.label | escape_once }}">
                       {{ filter_text }}
                     </label>
                   {%- elsif filter.presentation == 'swatch' -%}
@@ -172,7 +173,8 @@
                       <label
                         class="swatch__label swatch__label--{{ swatches_style }} filter__button"
                         for="filter-{{ filter.label | escape }}-{{ forloop.index }}"
-                        data-tooltip="{{ filter_value.label | escape_once | capitalize }}">
+                        {% comment %} data-tooltip="{{ filter_value.label | escape_once | capitalize }}" {% endcomment %}
+                        >
                         {%- render 'image' image: filter_value.swatch.image, width: retina_size, sizes: swatch_sizes, widths: swatch_widths, cover: true -%}
                         {{ filter_text }}
                       </label>
@@ -180,7 +182,7 @@
                       <label
                         class="swatch__label swatch__label--{{ swatches_style }} filter__button"
                         for="filter-{{ filter.label | escape }}-{{ forloop.index }}"
-                        data-tooltip="{{ filter_value.label | escape_once | capitalize }}"
+                        {% comment %} data-tooltip="{{ filter_value.label | escape_once | capitalize }}" {% endcomment %}
                         {% if swatch_color_name %}data-swatch="{{ swatch_color_name }}"{% endif %}
                         style="background: {{ filter_value.swatch.color }};">
                         {{ filter_text }}
@@ -189,7 +191,7 @@
                       <label
                         class="swatch__label swatch__label--{{ swatches_style }} swatch__label--empty filter__button"
                         for="filter-{{ filter.label | escape }}-{{ forloop.index }}"
-                        data-tooltip="{{ filter_value.label | escape_once | capitalize }}"
+                        {% comment %} data-tooltip="{{ filter_value.label | escape_once | capitalize }}" {% endcomment %}
                         data-swatch="White"
                         style="--swatch: white;">
                         {{ filter_text }}
@@ -205,7 +207,8 @@
                       <label
                         class="image__label"
                         for="filter-{{ filter.label | escape }}-{{ forloop.index }}"
-                        data-tooltip="{{ filter_value.label | escape_once | capitalize }}">
+                        {% comment %} data-tooltip="{{ filter_value.label | escape_once | capitalize }}" {% endcomment %}
+                        >
                         {%- render 'image' image: filter_value.image.preview_image, height: filter_value.image.height, sizes: image_sizes, widths: image_widths, cover: false, placeholder_svg: 'image' -%}
                         {{ filter_text }}
                       </label>

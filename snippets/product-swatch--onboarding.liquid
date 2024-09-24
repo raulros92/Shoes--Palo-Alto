@@ -9,7 +9,8 @@
 			value="{{ value | escape_once }}"
 			id="option-{{ value }}-0-{{ section.id }}"
 			{% if forloop.index == 1 %}checked{% endif %}>
-		<label for="option-{{ value }}-0-{{ section.id }}" class="swatch__label" data-swatch="{{ value | escape_once }}" data-tooltip="{{ value | escape_once }}">
+		{% comment %} <label for="option-{{ value }}-0-{{ section.id }}" class="swatch__label" data-swatch="{{ value | escape_once }}" data-tooltip="{{ value | escape_once }}"> {% endcomment %}
+		<label for="option-{{ value }}-0-{{ section.id }}" class="swatch__label" data-swatch="{{ value | escape_once }}">
 			<span class="visually-hidden">{{ value | escape_once }}</span>
 			<span class="icon icon-check"></span>
 		</label>

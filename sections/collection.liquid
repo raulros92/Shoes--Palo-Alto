@@ -529,7 +529,8 @@
                             data-value="{{ group_tag }}"
                             data-tag="{{ tag | handleize }}"
                             data-collection-filter-tag-button>
-                            <div class="swatch__label" data-swatch="{{ group_tag | escape_once }}" data-tooltip="{{ group_tag | escape_once | capitalize }}">
+                            {% comment %} <div class="swatch__label" data-swatch="{{ group_tag | escape_once }}" data-tooltip="{{ group_tag | escape_once | capitalize }}"> {% endcomment %}
+                            <div class="swatch__label" data-swatch="{{ group_tag | escape_once }}">
                               <span class="icon icon-check"></span>
                             </div>
                           </a>

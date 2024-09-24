@@ -1109,7 +1109,7 @@
                           <label for="{{ input_id }}"
                             class="swatch__label"
                             data-swatch="{{ value | escape_once }}"
-                            data-tooltip="{{ value | escape_once }}"
+                            {% comment %} data-tooltip="{{ value | escape_once }}" {% endcomment %}
                             data-swatch-variant="{{ current_option_variants_id }}"
                             style="{{ swatch_style }}">
                             <span class="visually-hidden">{{ value | escape_once }}</span>
@@ -2923,7 +2923,7 @@
                           <label for="{{ input_id }}"
                             class="swatch__label"
                             data-swatch="{{ value | escape_once }}"
-                            data-tooltip="{{ value | escape_once | capitalize }}"
+                            {% comment %} data-tooltip="{{ value | escape_once | capitalize }}" {% endcomment %}
                             data-swatch-variant="{{ current_option_variants_id }}"
                             style="{{ swatch_style }}">
                             <span class="visually-hidden">{{ value | escape_once }}</span>

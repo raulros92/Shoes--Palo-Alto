@@ -106,13 +106,16 @@
   {%- if settings.color_swatches_type != 'disabled' -%}
     <div class="product-grid-item__swatch swatch{% if settings.color_swatches_product_style == 'rectangle' %} product-grid__swatch--rectangle{% endif %}">
       <div data-value="White" class="swatch__button swatch__button--{{ settings.color_swatches_product_style }}">
-        <div class="swatch__label" style="--swatch: white;" data-swatch="White" data-tooltip="White"></div>
+        {% comment %} <div class="swatch__label" style="--swatch: white;" data-swatch="White" data-tooltip="White"></div> {% endcomment %}
+        <div class="swatch__label" style="--swatch: white;" data-swatch="White"></div>
       </div>
       <div data-value="Grey" class="swatch__button swatch__button--{{ settings.color_swatches_product_style }}">
-        <div class="swatch__label" style="--swatch: grey;" data-swatch="Grey" data-tooltip="Grey"></div>
+        {% comment %} <div class="swatch__label" style="--swatch: grey;" data-swatch="Grey" data-tooltip="Grey"></div> {% endcomment %}
+        <div class="swatch__label" style="--swatch: grey;" data-swatch="Grey"></div>
       </div>
       <div data-value="Black" class="swatch__button swatch__button--{{ settings.color_swatches_product_style }}">
-        <div class="swatch__label" style="--swatch: black;" data-swatch="Black" data-tooltip="Black"></div>
+        {% comment %} <div class="swatch__label" style="--swatch: black;" data-swatch="Black" data-tooltip="Black"></div> {% endcomment %}
+        <div class="swatch__label" style="--swatch: black;" data-swatch="Black"></div>
       </div>
     </div>
   {%- endif -%}

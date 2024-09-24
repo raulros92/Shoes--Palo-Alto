@@ -1691,7 +1691,7 @@ input[disabled] {
   z-index: 1;
   -webkit-tap-highlight-color: initial;
 }
-.btn:before,
+/* .btn:before,
 .shopify-payment-button__button--unbranded:before {
   content: "";
   position: absolute;
@@ -1707,7 +1707,7 @@ input[disabled] {
   opacity: 0.3;
   transition: transform 0.3s ease;
   background: var(--btn-bg-hover);
-}
+} Default values*/
 .btn[disabled],
 [disabled].shopify-payment-button__button--unbranded,
 .btn:disabled,
@@ -1744,7 +1744,7 @@ input[disabled] {
 @media only screen and (min-width: 1440px) {
   .btn,
   .shopify-payment-button__button--unbranded {
-    min-width: 180px;
+    /* min-width: 180px; Default value*/
   }
 }
 @media only screen and (max-width: 479px) {
@@ -5782,36 +5782,6 @@ label.error {
 }
 
 /*================ Input group ================*/
-.newsletter-check-conditions {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.newsletter-check-conditions input[type="checkbox"] {
-  margin-right: 0.5rem;
-}
-
-.newsletter-check-conditions p {
-  color: var(--base-neutral-600, #878789);
-}
-
-.newsletter-check-conditions span {
-  color: var(--base-neutral-900, #222223);
-  font-family: "Roboto";
-  font-size: calc(0.875rem * var(--adjust-body), 14px);
-  font-weight: 400;
-  line-height: 1.4;
-  text-decoration-line: underline;
-}
-
-.newsletter-check-conditions input[type="checkbox"]:hover {
-  cursor: pointer;
-}
-
-.newsletter-check-conditions span:hover {
-  cursor: pointer;
-}
 
 .input-group {
   --form-margin: 20px;
@@ -5844,6 +5814,7 @@ label.error {
 .align--middle-split .input-group,
 .align--bottom-center .input-group {
   justify-content: center;
+  gap: 24px;
 }
 @media only screen and (min-width: 768px) {
   .text-right .input-group,
@@ -5891,13 +5862,15 @@ label.error {
   margin-bottom: -1px;
 }
 .input-group--inline .input-group__item {
-  flex: 1 1 auto;
+  /* flex: 1 1 auto; Default value*/
   padding: 0;
 }
 .input-group--inline .input-group__item--btn {
   flex-grow: 0;
-  flex-basis: 54px;
-  max-width: 54px;
+  /* flex-basis: 54px;
+  max-width: 54px; Default values*/
+  display: flex;
+  align-items: center;
 }
 .input-group--inline .input-group__field {
   width: 100%;
@@ -5931,35 +5904,37 @@ label.error {
 
 .input-group__item {
   position: relative;
-  padding: calc(var(--form-margin) / 2);
+  /* padding: calc(var(--form-margin) / 2);
   flex-basis: 100%;
-  flex-grow: 2;
+  flex-grow: 2; Default values*/
 }
 @media only screen and (min-width: 1024px) {
   .input-group__item {
-    max-width: 280px;
+    /* max-width: 280px; Default value*/
   }
 }
 @media only screen and (min-width: 768px) {
   .input-group__item {
-    flex-basis: 50%;
+    /* flex-basis: 50%; Default value*/
   }
 }
 @media only screen and (min-width: 1440px) {
   .input-group__item {
-    flex-basis: 25%;
+    /* flex-basis: 25%; Default value*/
   }
   .align--middle-split .input-group__item {
-    flex-basis: 50%;
+    /* flex-basis: 50%; Default value*/
   }
 }
 
 .input-group__item--btn {
-  flex-grow: 0;
+  /* flex-grow: 0; Default value*/
+  display: flex;
+  align-items: center;
 }
 
 .input-group__item--text {
-  flex-basis: 100%;
+  /* flex-basis: 100%; Default value*/
 }
 
 .input-group__field {
@@ -5968,9 +5943,9 @@ label.error {
 }
 
 .input-group__btn {
-  width: 100%;
+  /* width: 100%;
   height: var(--input-height);
-  min-width: 54px;
+  min-width: 54px; Default values*/
 }
 
 .input-group__error {
@@ -26410,12 +26385,18 @@ input.shopify-payment-button__button--unbranded
 .newsletter-section__content {
   flex-basis: 100%;
 }
+
 .newsletter-section__content .btn.input-group__btn,
 .newsletter-section__content
   .input-group__btn.shopify-payment-button__button--unbranded {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: var(--Spacers-8, 8px) 24px;
+  gap: var(--Spacers-8, 8px);
+  color: var(--base-white, #fff);
+  font-size: 1rem;
+  font-weight: 400;
 }
 
 .newsletter-section__entry {
@@ -26486,11 +26467,11 @@ input.shopify-payment-button__button--unbranded
 
 .input-group__fields {
   display: flex;
-  flex: 1 1 auto;
+  /* flex: 1 1 auto; Default value*/
   padding: 0;
   flex-flow: row wrap;
 }
-@media only screen and (min-width: 1024px) {
+/* @media only screen and (min-width: 1024px) {
   .input-group__fields {
     max-width: 280px;
   }
@@ -26513,7 +26494,7 @@ input.shopify-payment-button__button--unbranded
   .input-group__fields--name {
     max-width: 560px;
   }
-}
+} Default values*/
 
 .input-group__fields--name .errors,
 .input-group__fields--first-last-name .errors,
@@ -26559,6 +26540,16 @@ input.shopify-payment-button__button--unbranded
   border-radius: var(--RADIUS);
   padding: 12px 0 12px 20px;
 }
+
+.input-group__field--email {
+  background: transparent;
+  display: flex;
+  width: 22.75rem;
+  padding: var(--Spacers-8, 0.5rem) 1.5rem;
+  align-items: center;
+  gap: var(--Spacers-8, 0.5rem);
+}
+
 .input-group__field::input-placeholder {
   color: var(--text);
 }
@@ -26574,6 +26565,39 @@ input.shopify-payment-button__button--unbranded
 
 .mailer-response {
   display: none;
+}
+
+.newsletter-check-conditions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.625rem;
+}
+
+.newsletter-check-conditions input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+.newsletter-check-conditions p {
+  color: var(--base-neutral-600, #878789);
+  text-align: left;
+}
+
+.newsletter-check-conditions span {
+  color: var(--base-neutral-900, #222223);
+  font-family: "Roboto";
+  font-size: calc(0.875rem * var(--adjust-body), 14px);
+  font-weight: 400;
+  line-height: 1.4;
+  text-decoration-line: underline;
+}
+
+.newsletter-check-conditions input[type="checkbox"]:hover {
+  cursor: pointer;
+}
+
+.newsletter-check-conditions span:hover {
+  cursor: pointer;
 }
 
 /*=== Newsletter Layouts ===*/
@@ -26595,6 +26619,21 @@ input.shopify-payment-button__button--unbranded
   .align--middle-split .newsletter-section__entry {
     padding: 0 0 var(--gutter-mobile);
     max-width: 100%;
+  }
+
+  .newsletter-section__entry p {
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .input-group {
+    display: flex;
+    flex-direction: row;
+    gap: var(--Spacers-8, 0.5rem) !important;
+  }
+
+  .input-group__field--email {
+    width: 14.0625rem;
   }
 }
 @media only screen and (min-width: 768px) {
