@@ -1,0 +1,181 @@
+{% assign id = 'Press--' | append: section.id %}
+{% assign selector_id = '#' | append: id %}
+
+<section
+  id="{{ id }}"
+  data-section-id="{{ section.id }}"
+  style="padding-top: var(--PT); padding-bottom: var(--PB);">
+  <div class="logos">
+    <div class="logos-slider">
+      {%- for block in section.blocks -%}
+        {%- if block.settings.logo_image -%}
+          <div class="logo-item">
+            {% assign image = block.settings.logo_image %}
+            <img
+              src="{{ image | image_url: width: 300 }}"
+              alt="Brand Logo"
+              width="{{ image.width }}"
+              height="{{ image.height }}"
+              loading="lazy" />
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{%- style -%}
+  {{ selector_id }} {
+    --PT: {{ section.settings.padding_top }}px;
+    --PB: {{ section.settings.padding_bottom }}px;
+  }
+{%- endstyle -%}
+
+<style>
+  .logos {
+    padding: 0 6.375rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .logo-item img {
+    max-width: 100%;
+    height: auto;
+  }
+  .logos-slider {
+    display: flex;
+    transition: transform 0.3s ease;
+    align-items: center;
+    justify-content: center;
+  }
+  .logos-slider .logo-item {
+    margin-right: 4rem;
+  }
+
+  .logos-slider .logo-item:last-child {
+    margin-right: 0;
+  }
+
+  @media (max-width: 768px) {
+    .logos {
+      padding-left: 1rem;
+    }
+    .logos-slider {
+      justify-content: flex-start;
+      transition: transform 0.3s ease;
+      will-change: transform;
+    }
+    .logos-slider .logo-item {
+      margin-right: 2rem;
+      flex: 0 0 auto;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const logosSlider = document.querySelector('.logos-slider');
+    let isDragging = false;
+    let startPos = 0;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
+    let animationID;
+  
+    logosSlider.addEventListener('touchstart', touchStart);
+    logosSlider.addEventListener('touchmove', touchMove);
+    logosSlider.addEventListener('touchend', touchEnd);
+  
+    function touchStart(event) {
+      isDragging = true;
+      startPos = getPositionX(event);
+      animationID = requestAnimationFrame(animation);
+      logosSlider.style.transition = 'none';
+    }
+  
+    function touchMove(event) {
+      if (isDragging) {
+        const currentPosition = getPositionX(event);
+        const moveBy = currentPosition - startPos;
+        currentTranslate = prevTranslate + moveBy; 
+      }
+    }
+  
+    function touchEnd() {
+      isDragging = false;
+      cancelAnimationFrame(animationID);
+  
+      const maxTranslate = 0;
+      const minTranslate = -(logosSlider.scrollWidth - logosSlider.clientWidth);
+      
+      currentTranslate = Math.max(Math.min(currentTranslate, maxTranslate), minTranslate);
+      prevTranslate = currentTranslate;
+      logosSlider.style.transition = 'transform 0.3s ease';
+      logosSlider.style.transform = `translateX(${currentTranslate}px)`; 
+    }
+  
+    function getPositionX(event) {
+      return event.touches[0].clientX;
+    }
+  
+    function animation() {
+      logosSlider.style.transform = `translateX(${currentTranslate}px)`;
+      if (isDragging) requestAnimationFrame(animation);
+    }
+  });
+</script>
+
+
+{% schema %}
+  {
+    "name": "Custom-brands",
+    "class": "brands-section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Custom Brands"
+      }, {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding top",
+        "default": 60
+      }, {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding bottom",
+        "default": 60
+      }
+    ],
+    "blocks": [
+      {
+        "type": "image_block",
+        "name": "Brand Logo",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "logo_image",
+            "label": "Logo Image"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Custom-brands",
+        "category": "Text"
+      }
+    ],
+    "max_blocks": 10,
+    "disabled_on": {
+      "groups": ["header", "aside"]
+    }
+  }
+{% endschema %}

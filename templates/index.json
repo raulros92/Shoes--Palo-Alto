@@ -307,6 +307,60 @@
         "padding_bottom": 48
       }
     },
+    "custom_brands_aVbjDB": {
+      "type": "custom-brands",
+      "blocks": {
+        "image_block_AYyfDx": {
+          "type": "image_block",
+          "settings": {
+            "logo_image": "shopify:\/\/shop_images\/Xti.png"
+          }
+        },
+        "image_block_WNQd9y": {
+          "type": "image_block",
+          "settings": {
+            "logo_image": "shopify:\/\/shop_images\/Asics.png"
+          }
+        },
+        "image_block_ikwb7U": {
+          "type": "image_block",
+          "settings": {
+            "logo_image": "shopify:\/\/shop_images\/geox.png"
+          }
+        },
+        "image_block_P83wWK": {
+          "type": "image_block",
+          "settings": {
+            "logo_image": "shopify:\/\/shop_images\/clarks.png"
+          }
+        },
+        "image_block_Yg4XCq": {
+          "type": "image_block",
+          "settings": {
+            "logo_image": "shopify:\/\/shop_images\/camper.png"
+          }
+        },
+        "image_block_TA7LEJ": {
+          "type": "image_block",
+          "settings": {
+            "logo_image": "shopify:\/\/shop_images\/converse.png"
+          }
+        }
+      },
+      "block_order": [
+        "image_block_AYyfDx",
+        "image_block_WNQd9y",
+        "image_block_ikwb7U",
+        "image_block_P83wWK",
+        "image_block_Yg4XCq",
+        "image_block_TA7LEJ"
+      ],
+      "settings": {
+        "title": "Custom Brands",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
     "section_press_enJ896": {
       "type": "section-press",
       "blocks": {
@@ -373,6 +427,7 @@
         "press_YwEyVq",
         "press_KqCF9p"
       ],
+      "disabled": true,
       "settings": {
         "title": "",
         "show_quotations": false,
@@ -484,6 +539,7 @@
     "section-collection-0",
     "section_collection_eckTKA",
     "section_grid_W44WiK",
+    "custom_brands_aVbjDB",
     "section_press_enJ896",
     "section_icons_row_9c8Ukp",
     "section-newsletter-0"
