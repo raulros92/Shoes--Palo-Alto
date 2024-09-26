@@ -453,6 +453,12 @@
       "banner_image": {
         "title": "Palo Alto"
       }
+    },
+    "newsletter": {
+      "first_part": "I have read and accept the",
+      "privacy_policy": "Privacy Policy",
+      "second_part": "and",
+      "terms_of_use": "Terms of Use"
     }
   },
   "layout": {

@@ -161,7 +161,8 @@
             class="press__logos-slide{% if text != blank %} has-text{% endif %}"
             data-logo-slide
             data-logo-index="{{ forloop.index0 }}">
-            <div class="press__logo" style="--image-width: {{ image_width }}px; --image-height: {{ image_height }}px;">
+            {% comment %} <div class="press__logo" style="--image-width: {{ image_width }}px; --image-height: {{ image_height }}px;"> {% endcomment %}
+            <div class="press__logo-custom" style="--image-width: {{ image_width }}px; --image-height: {{ image_height }}px;">
               {%- liquid
                 assign image_class = 'press__logo-image lazy-image__simple'
                 unless image != blank
@@ -231,7 +232,7 @@
   {
     "name": "Press/Logo",
     "class": "press-section",
-    "max_blocks": 10,
+    "max_blocks": 20,
     "settings": [
       {
         "type": "text",

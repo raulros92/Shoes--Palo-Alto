@@ -143,10 +143,10 @@
   <input type="checkbox" id="accept-conditions" required>
   <label for="accept-conditions"></label>
   <p class="body-14-regular">
-    He llegit i accepto la 
-    <span onclick="window.location.href='{{ pages['politica-de-privacidad'].url }}'">Política de privacitat</span> 
-    i les 
-    <span onclick="window.location.href='{{ pages['condiciones-de-uso'].url }}'">Condicions d'ús</span>
+    {{ "homepage.newsletter.first_part" | t }}
+    <span onclick="window.location.href='{{ pages['politica-de-privacidad'].url }}'">{{ "homepage.newsletter.privacy_policy" | t }}</span> 
+    {{ "homepage.newsletter.second_part" | t }}
+    <span onclick="window.location.href='{{ pages['condiciones-de-uso'].url }}'">{{ "homepage.newsletter.terms_of_use" | t }}</span>
   </p>
 </div>
 
