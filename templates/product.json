@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "main": {
@@ -7,7 +16,7 @@
           "type": "title",
           "settings": {
             "subheading": "breadcrumbs",
-            "padding_bottom": 20
+            "padding_bottom": 12
           }
         },
         "inventory_countdown": {
@@ -21,7 +30,7 @@
         "description": {
           "type": "description",
           "settings": {
-            "padding_bottom": 20
+            "padding_bottom": 32
           }
         },
         "form": {
@@ -31,7 +40,7 @@
             "show_quantity": false,
             "show_payment_button": true,
             "enable_subscriptions_selectors": true,
-            "padding_bottom": 20
+            "padding_bottom": 32
           }
         },
         "7ddd2db6-1d92-43ee-a7d9-e786662f9ced": {
@@ -40,7 +49,7 @@
             "icon_name": "eco-friendly",
             "icon_color": "",
             "icon_width": 20,
-            "icon_text": "Highlight or Feature",
+            "icon_text": "Devolución en 30 días",
             "text_size": 90,
             "width": "full",
             "text_alignment": "left",
@@ -54,7 +63,7 @@
             "icon_name": "check",
             "icon_color": "",
             "icon_width": 20,
-            "icon_text": "Free shipping over $99",
+            "icon_text": "Envío gratis por compras superiores a 45€",
             "text_size": 90,
             "width": "full",
             "text_alignment": "left",
@@ -65,9 +74,9 @@
         "product_accordion": {
           "type": "product_accordion",
           "settings": {
-            "accordion_heading": "Materials and specs",
+            "accordion_heading": "Sobre el producto",
             "heading_style": "font-body",
-            "accordion_text": "<p>Use this accordion to add info such as Materials, Sizing, Features, Shipping and Returns policies<\/p>",
+            "accordion_text": "<p>{{ product.metafields.custom.sobre_el_producto | metafield_tag }}</p>",
             "accordion_page": "",
             "padding_bottom": 10
           }
@@ -75,9 +84,9 @@
         "9927e90d-2ecb-4104-af67-0dadf75b2a0a": {
           "type": "product_accordion",
           "settings": {
-            "accordion_heading": "Shipping and returns",
+            "accordion_heading": "Ficha técnica",
             "heading_style": "font-body",
-            "accordion_text": "<p>Use this accordion to add info such as Materials, Sizing, Features, Shipping and Returns policies<\/p>",
+            "accordion_text": "<p>{{ product.metafields.custom.ficha_tecnica | metafield_tag }}</p>",
             "accordion_page": "",
             "padding_bottom": 10
           }
@@ -85,9 +94,9 @@
         "product_accordion_kDKHtc": {
           "type": "product_accordion",
           "settings": {
-            "accordion_heading": "Materials and specs",
+            "accordion_heading": "Composición y cuidado",
             "heading_style": "font-body",
-            "accordion_text": "<p>Use this accordion to add info such as Materials, Sizing, Features, Shipping and Returns policies<\/p>",
+            "accordion_text": "<p>{{ product.metafields.custom.composicion_y_cuidado | metafield_tag }}</p>",
             "accordion_page": "",
             "padding_bottom": 20
           }
@@ -95,9 +104,9 @@
         "product_accordion_ix6LgP": {
           "type": "product_accordion",
           "settings": {
-            "accordion_heading": "Materials and specs",
+            "accordion_heading": "Envíos y devoluciones",
             "heading_style": "font-body",
-            "accordion_text": "<p>Use this accordion to add info such as Materials, Sizing, Features, Shipping and Returns policies<\/p>",
+            "accordion_text": "<p>{{ product.metafields.custom.envios_y_devoluciones | metafield_tag }}</p>",
             "accordion_page": "",
             "padding_bottom": 20
           }
@@ -106,9 +115,11 @@
           "type": "upsell",
           "settings": {
             "product_list": [
-
+              "the-complete-snowboard",
+              "rossignol-jibsaw-magtek-snowboard-2016",
+              "rossignol-angus-magtek-snowboard-2016"
             ],
-            "padding_bottom": 20
+            "padding_bottom": 0
           }
         }
       },
@@ -144,15 +155,15 @@
         "related": {
           "type": "related",
           "settings": {
-            "title": "You May Also Like",
-            "product_recommendations_limit": 4
+            "title": "Productos relacionados",
+            "product_recommendations_limit": 6
           }
         },
         "recent": {
           "type": "recent",
           "settings": {
-            "title": "Recently viewed",
-            "product_recently_limit": 4
+            "title": "Visto recientemente",
+            "product_recently_limit": 6
           }
         }
       },
@@ -163,12 +174,12 @@
       "settings": {
         "enable_tabs": true,
         "columns_mobile": "1",
-        "type_style": "subheading-text",
-        "tab_heading_size": 120,
+        "type_style": "font-body",
+        "tab_heading_size": 125,
         "bg_color": "",
-        "width": "wrapper--full-padded",
-        "padding_top": 60,
-        "padding_bottom": 60
+        "width": "wrapper",
+        "padding_top": 48,
+        "padding_bottom": 48
       }
     },
     "tabs": {
@@ -177,29 +188,29 @@
         "acordion-0": {
           "type": "text",
           "settings": {
-            "title": "Heading",
-            "text": "<p>Use this text block to discuss some commonly asked questions like shipping and returns, sizing, warranties, or product and company details.<\/p>"
+            "title": "¿Cómo recibiré mi pedido?",
+            "text": "<p>Use this text block to discuss some commonly asked questions like shipping and returns, sizing, warranties, or product and company details.</p>"
           }
         },
         "acordion-1": {
           "type": "text",
           "settings": {
-            "title": "Heading",
-            "text": "<p>Use this text block to discuss some commonly asked questions like shipping and returns, sizing, warranties, or product and company details.<\/p>"
+            "title": "¿Cómo fija el precio de sus productos?",
+            "text": "<p>Use this text block to discuss some commonly asked questions like shipping and returns, sizing, warranties, or product and company details.</p>"
           }
         },
         "acordion-2": {
           "type": "text",
           "settings": {
-            "title": "Heading",
-            "text": "<p>Use this text block to discuss some commonly asked questions like shipping and returns, sizing, warranties, or product and company details.<\/p>"
+            "title": "¿Ofrecen garantía para sus productos?",
+            "text": "<p>Use this text block to discuss some commonly asked questions like shipping and returns, sizing, warranties, or product and company details.</p>"
           }
         },
         "d0defd0d-94c3-403c-bd36-dc2f140a104f": {
           "type": "text",
           "settings": {
-            "title": "Heading",
-            "text": "<p>Use this text block to discuss some commonly asked questions like shipping and returns, sizing, warranties, or product and company details.<\/p>"
+            "title": "¿Cómo cuido mis zapatos?",
+            "text": "<p>Use this text block to discuss some commonly asked questions like shipping and returns, sizing, warranties, or product and company details.</p>"
           }
         }
       },
@@ -212,32 +223,32 @@
       "settings": {
         "layout": "two-columns",
         "show_accordion_divider": true,
-        "title": "Frequently Asked Questions",
+        "title": "Preguntas frequentes",
         "subheading": "",
         "text": "",
         "tabs_bg_color": "#ffffff",
         "bg_color_secondary": false,
         "text_color": "text-dark",
         "width": "wrapper",
-        "padding_top": 60,
-        "padding_bottom": 60
+        "padding_top": 48,
+        "padding_bottom": 96
       }
     },
     "section_newsletter_hCGjmD": {
       "type": "section-newsletter",
       "settings": {
-        "flex_align": "align--middle-left",
+        "flex_align": "align--middle-center",
         "text_color": "text-dark",
-        "title": "Newsletter",
-        "text": "<p>Sign up for exclusive deals and early access to new products.<\/p>",
+        "title": "",
+        "text": "<p>Suscríbete a la newsletter para conseguir descuentos y ofertas exclusivas</p>",
         "extra_fields": "",
-        "button_text": "",
-        "bg_color": "",
+        "button_text": "Vamos!",
+        "bg_color": "#d3cee5",
         "image_height": "three-fifty-height",
         "overlay_opacity": 10,
         "width": "wrapper",
-        "padding_top": 60,
-        "padding_bottom": 60
+        "padding_top": 48,
+        "padding_bottom": 48
       }
     }
   },

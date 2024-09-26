@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "current": {
     "color_body_bg": "#ffffff",
@@ -38,8 +47,16 @@
     "show_gray_bg": false,
     "product_grid_hover": "none",
     "cutline_color": "body",
+    "show_product_gray_bg": false,
     "variants_style": "auto",
+    "show_variant_image": false,
+    "show_newsletter": true,
+    "enable_half_width_btn": true,
+    "atc_show_product_price": false,
     "atc_button_color": "btn--primary",
+    "atc_button_style": "btn--solid",
+    "buynow_btn_color": "btn--primary",
+    "buynow_btn_style": "btn--outline",
     "quick_buy": "quick_buy",
     "quick_buy_image_layout": "large",
     "show_labels": true,
@@ -54,7 +71,7 @@
     "empty_cart_buttons": "main-menu",
     "cart_custom_message_color": "text-dark",
     "enable_accept_terms": false,
-    "upsells_height": 100,
+    "upsells_height": 150,
     "upsells_image_width": 30,
     "upsells_bg_color": "#ffffff",
     "upsells_text_color": "#222223",
@@ -73,14 +90,14 @@
     "sold_text_color": "#d3d3d3",
     "show_saving_badge": true,
     "saving_bg_color": "#d02e2e",
-    "color_swatches_type": "theme",
+    "color_swatches_type": "native",
     "color_swatches_product_style": "circle",
     "enable_infinity_scroll": false,
     "suggestions_results_limit": 5,
     "suggestions_terms_limit": 10,
-    "social_facebook_link": "https:\/\/www.facebook.com\/shopify",
-    "social_instagram_link": "https:\/\/www.instagram.com\/shopify",
-    "social_whatsapp_link": "https:\/\/www.instagram.com\/shopify",
+    "social_facebook_link": "https://www.facebook.com/shopify",
+    "social_instagram_link": "https://www.instagram.com/shopify",
+    "social_whatsapp_link": "https://www.instagram.com/shopify",
     "social_tiktok_link": "",
     "social_twitter_link": "",
     "social_pinterest_link": "",
@@ -103,7 +120,7 @@
     ],
     "blocks": {
       "14060646107696862457": {
-        "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/judgeme_core\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
         "disabled": false,
         "settings": {
         }
@@ -183,9 +200,9 @@
       "enable_infinity_scroll": false,
       "suggestions_results_limit": 5,
       "suggestions_terms_limit": 10,
-      "social_instagram_link": "https:\/\/www.instagram.com\/shopify",
-      "social_tiktok_link": "https:\/\/tiktok.com\/@shopify",
-      "social_facebook_link": "https:\/\/www.facebook.com\/shopify",
+      "social_instagram_link": "https://www.instagram.com/shopify",
+      "social_tiktok_link": "https://tiktok.com/@shopify",
+      "social_facebook_link": "https://www.facebook.com/shopify",
       "social_twitter_link": "",
       "social_pinterest_link": "",
       "loading_image_width": 150,
@@ -292,12 +309,12 @@
       "popular_searches_menu": "main-menu",
       "show_browse_categories_menu": false,
       "suggestions_terms_limit": 15,
-      "social_instagram_link": "https:\/\/www.instagram.com\/shopify",
-      "social_tiktok_link": "https:\/\/tiktok.com\/@shopify",
+      "social_instagram_link": "https://www.instagram.com/shopify",
+      "social_tiktok_link": "https://tiktok.com/@shopify",
       "social_facebook_link": "",
-      "social_twitter_link": "https:\/\/www.twitter.com\/shopify",
+      "social_twitter_link": "https://www.twitter.com/shopify",
       "social_pinterest_link": "",
-      "social_youtube_link": "https:\/\/youtube.com\/user\/shopify",
+      "social_youtube_link": "https://youtube.com/user/shopify",
       "loading_image_width": 150,
       "currency_code_enable": false,
       "favicon": "",
@@ -475,10 +492,10 @@
       "color_swatches_product_style": "circle",
       "suggestions_results_limit": 10,
       "suggestions_terms_limit": 15,
-      "social_instagram_link": "https:\/\/www.instagram.com\/shopify",
-      "social_tiktok_link": "https:\/\/tiktok.com\/@shopify",
+      "social_instagram_link": "https://www.instagram.com/shopify",
+      "social_tiktok_link": "https://tiktok.com/@shopify",
       "social_facebook_link": "",
-      "social_twitter_link": "https:\/\/www.twitter.com\/shopify",
+      "social_twitter_link": "https://www.twitter.com/shopify",
       "social_pinterest_link": "",
       "currency_code_enable": false,
       "favicon": "",
