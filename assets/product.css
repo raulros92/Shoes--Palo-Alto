@@ -1,0 +1,22 @@
+.wrapper-custom {
+  padding: 0;
+}
+
+.product-single-custom {
+  padding-left: 9.9375rem;
+  padding-right: 9.9375rem;
+}
+
+.product-upsell__holder-custom {
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  align-self: stretch;
+  gap: 1rem;
+  border-radius: var(--Spacers-8, 0.5rem);
+  border: var(--Quantity, 0.0625rem) solid var(--base-neutral-900, #222223);
+}
+
+.product__title-and-price-custom {
+  gap: 1rem;
+}

@@ -1,4 +1,9 @@
 {%- comment -%} /sections/product-template {%- endcomment -%}
+
+  {%- comment -%} CSS {%- endcomment -%}
+  {{- 'product.css' | asset_url | stylesheet_tag -}}
+
+
 {%- liquid
   assign bg_color = section.settings.bg_color
   assign section_width = section.settings.width
@@ -21,7 +26,7 @@
 {%- endstyle -%}
 
 <section id="{{ section_id }}"
-  class="section-padding product-single{%- render 'button-fallback-classes', primary_color: settings.atc_button_color, secondary_color: settings.buynow_btn_color, section_bg_color: bg_color -%}"
+  class="section-padding product-single product-single-custom {%- render 'button-fallback-classes', primary_color: settings.atc_button_color, secondary_color: settings.buynow_btn_color, section_bg_color: bg_color -%}"
   data-enable-history-state="true"
   data-section-type="product-template"
   data-section-id="{{ section.id }}"
@@ -30,7 +35,7 @@
   {% if animations_enabled %}
     data-aos-intersection="0.01"
   {% endif %}>
-  <div class="{{ section_width }}">
+<div class="{{ section_width }} wrapper-custom">
     {%- render 'product' section: section, unique: section.id, animation_anchor: animation_anchor -%}
   </div>
 </section>
@@ -227,6 +232,12 @@
           "unit": "px",
           "label": "Padding bottom",
           "default": 20
+        },
+        {
+        "type": "checkbox",
+        "label": "Enable Product Reference",
+        "id": "show_sku",
+        "default": true
         }
       ]
     },

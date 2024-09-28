@@ -1,17 +1,19 @@
+
+
 <nav class="breadcrumbs">
-  <a href="{{ routes.root_url }}" title="{{ 'collections.breadcrumbs.back_to_home' | t }}" class="breadcrumbs__link">
+  <a href="{{ routes.root_url }}" title="{{ 'collections.breadcrumbs.back_to_home' | t }}" class="breadcrumbs__link body-12-regular">
     {{- 'collections.breadcrumbs.home' | t -}}
   </a>
 
   {%- if template contains 'collection' -%}
-    <span class="breadcrumbs__sep">/</span>
-    <a href="{{ routes.collections_url }}" class="breadcrumbs__link">
+    <span class="breadcrumbs__sep breadcrumbs__sep-custom">/</span>
+    <a href="{{ routes.collections_url }}" class="breadcrumbs__link body-12-regular ">
       {{- 'collections.breadcrumbs.collections' | t -}}
     </a>
-    <span class="breadcrumbs__sep">/</span>
+    <span class="breadcrumbs__sep breadcrumbs__sep-custom">/</span>
 
     {%- if collection.handle -%}
-      <span class="breadcrumbs__current">
+      <span class="breadcrumbs__current breadcrumbs__current-custom body-12-regular">
         {%- if collection.handle == 'all' -%}
           {{- 'collections.breadcrumbs.default_collection' | t -}}
         {%- else -%}
@@ -22,16 +24,16 @@
   {%- endif -%}
 
   {%- if template contains 'product' -%}
-    <span class="breadcrumbs__sep">/</span>
+    <span class="breadcrumbs__sep breadcrumbs__sep-custom">/</span>
 
     {%- assign product_collection = collection | default: product.collections[0] -%}
     {%- if product_collection.handle != blank -%}
-      {{- product_collection.title | link_to: product_collection.url | replace: '<a ', '<a class="breadcrumbs__link" ' -}}
-      <span class="breadcrumbs__sep">/</span>
+      {{- product_collection.title | link_to: product_collection.url | replace: '<a ', '<a class="breadcrumbs__link body-12-regular" ' -}}
+      <span class="breadcrumbs__sep breadcrumbs__sep-custom">/</span>
     {%- endif -%}
 
     {%- if product.handle -%}
-      <span class="breadcrumbs__current">{{ product.title | strip_html | escape }}</span>
+      <span class="breadcrumbs__current body-12-regular">{{ product.title | strip_html | escape }}</span>
     {%- endif -%}
   {%- endif -%}
 </nav>

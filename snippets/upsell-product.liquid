@@ -37,7 +37,7 @@
       {%- render 'product-price', product: upsell_product, namespace: 'product-upsell' -%}
     </p>
   {%- endcapture -%}
-  <div class="product-upsell__holder{% if upsell_error %} product-upsell__holder--onboarding{% endif %}" data-upsell-holder {% render 'upsells-fallback-styles', section: section %}>
+  <div class="product-upsell__holder product-upsell__holder-custom{% if upsell_error %} product-upsell__holder--onboarding{% endif %}" data-upsell-holder {% render 'upsells-fallback-styles', section: section %}>
     <div class="product-upsell">
       <a class="product-upsell__image" href="{{ upsell_link }}" aria-label="{{ upsell_product.title | escape | strip_html }}"{% if index > 1 %} tabindex="-1"{% endif %}>
         {%- liquid

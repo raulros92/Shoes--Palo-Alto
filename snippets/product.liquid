@@ -270,7 +270,7 @@
 
     {%- comment -%} Product details {%- endcomment -%}
     <div class="product-single__details" data-collapsible-single>
-      <div class="form__wrapper" data-product-info>
+      <div class="form__wrapper form__wrapper-custom" data-product-info>
         {%- for block in section.blocks -%}
           {%- liquid
             assign padding_bottom = block.settings.padding_bottom
@@ -302,7 +302,7 @@
               </div>
 
             {%- when 'title' -%}
-              <div class="product__block product__title-and-price"
+              <div class="product__block product__title-and-price product__title-and-price-custom"
                 {% if animations_enabled %}
                   data-aos="hero"
                   data-aos-anchor="{{ animation_anchor }}"
@@ -332,6 +332,18 @@
 
                     <nav class="breadcrumbs"><a href="{{ vendor | url_for_vendor }}">{{ vendor }}</a></nav>
                 {%- endcase -%}
+
+                {% comment %} Ref/Sku functionality {% endcomment %}
+                {% for block in section.blocks  %}
+                  {% if block.settings.show_sku %}
+                    {% if product and product.variants.size > 0 %}
+                      <div class="product-sku">
+                        <span class="sku-label">Ref:</span>
+                        <span class="sku-value">{{ current_variant.sku }}</span>
+                      </div>
+                    {% endif %}
+                  {% endif %}
+                {% endfor %}
 
                 <h1 class="product__title">
                   {%- if template.name == 'product' and section_type != 'featured' -%}
@@ -800,104 +812,112 @@
 
           {%- assign option_name_handle_separator = option.name | handle | prepend: ',' | append: ',' -%}
           {%- assign color_swatches_type = settings.color_swatches_type -%}
-          {%- assign current_option_position = option.position | prepend: 'option' -%}{%- liquid
-  assign is_swatch_option = false
-  assign is_native_swatch_option = false
+          {%- assign current_option_position = option.position | prepend: 'option' -%}
+          
+          {%- liquid
+          assign is_swatch_option = false
+          assign is_native_swatch_option = false
 
-  comment
-    Determine if current option matches swatch handle translations
-  endcomment
-  assign swatch_translation = 'general.swatches.color' | t
-  assign color_translation_string = swatch_translation | remove: '  ' | replace: ', ', ',' | replace: ' ,', ',' | replace: ',', '____' | handle | replace: '____', ',' | append: ',' | prepend: ','
+          comment
+            Determine if current option matches swatch handle translations
+          endcomment
+          assign swatch_translation = 'general.swatches.color' | t
+          assign color_translation_string = swatch_translation | remove: '  ' | replace: ', ', ',' | replace: ' ,', ',' | replace: ',', '____' | handle | replace: '____', ',' | append: ',' | prepend: ','
 
-  if color_translation_string contains option_name_handle_separator
-    if color_swatches_type == 'theme'
-      assign is_swatch_option = true
-    endif
-  endif
+          if color_translation_string contains option_name_handle_separator
+            if color_swatches_type == 'theme'
+              assign is_swatch_option = true
+            endif
+          endif
 
-  if color_swatches_type == 'native'
-    for value in option.values
-      if value.swatch
-        assign is_native_swatch_option = true
-        break
-      endif
-    endfor
-  endif
--%}{%- comment -%}
-  Determine if current option matches siblings handle translations
-  Inherited variables:
-    - product: {Object} Product object.
-    - section: {Object} the current Section this code block belongs to.
-    - option_name_handle_separator: {String} handle option.name surrounded by commas
-  Returns variables:
-    - hide_sib_option: {Boolean}
-    - is_current_product_in_siblings: {Boolean}
-{%- endcomment -%}
+          if color_swatches_type == 'native'
+            for value in option.values
+              if value.swatch
+                assign is_native_swatch_option = true
+                break
+              endif
+            endfor
+          endif
+          -%}
+          
+          {%- comment -%}
+            Determine if current option matches siblings handle translations
+            Inherited variables:
+              - product: {Object} Product object.
+              - section: {Object} the current Section this code block belongs to.
+              - option_name_handle_separator: {String} handle option.name surrounded by commas
+            Returns variables:
+              - hide_sib_option: {Boolean}
+              - is_current_product_in_siblings: {Boolean}
+          {%- endcomment -%}
 
-{%- liquid
-  assign sib_options_count = 0
-  assign hide_sib_option = false
-  assign sib_translation = 'general.siblings.swatches' | t
-  assign sib_translation_string = sib_translation | remove: '  ' | replace: ', ', ',' | replace: ' ,', ',' | replace: ',', '____' | handle | replace: '____', ',' | append: ',' | prepend: ','
+          {%- liquid
+            assign sib_options_count = 0
+            assign hide_sib_option = false
+            assign sib_translation = 'general.siblings.swatches' | t
+            assign sib_translation_string = sib_translation | remove: '  ' | replace: ', ', ',' | replace: ' ,', ',' | replace: ',', '____' | handle | replace: '____', ',' | append: ',' | prepend: ','
 
-  if sib_translation_string contains option_name_handle_separator
-    assign sib_options = product.options_with_values | where: 'name', option.name
-    assign sib_options_count = sib_options[0].values.size
-  endif
-  if sib_options_count == 1
-    assign hide_sib_option = true
-  endif
+            if sib_translation_string contains option_name_handle_separator
+              assign sib_options = product.options_with_values | where: 'name', option.name
+              assign sib_options_count = sib_options[0].values.size
+            endif
+            if sib_options_count == 1
+              assign hide_sib_option = true
+            endif
 
-  assign is_current_product_in_siblings = false
-  assign siblings_blocks = section.blocks | map: 'settings' | where: 'siblings_product_list'
-  if siblings_blocks.size > 0
-    assign sib_lists = siblings_blocks | map: 'siblings_product_list'
+            assign is_current_product_in_siblings = false
+            assign siblings_blocks = section.blocks | map: 'settings' | where: 'siblings_product_list'
+            if siblings_blocks.size > 0
+              assign sib_lists = siblings_blocks | map: 'siblings_product_list'
 
-    for sib_list in sib_lists
-      assign sib_ids = sib_list | map: 'id'
-      if sib_ids contains product.id
-        assign is_current_product_in_siblings = true
-      endif
-    endfor
-  endif
--%}{%- comment -%}
-  Determine if current option matches size handle translations
-  Inherited variables:
-    - option_name_handle_separator: {String} handle option.name surrounded by commas
-  Returns variables:
-    - is_size_option: {Boolean}
-{%- endcomment -%}
+              for sib_list in sib_lists
+                assign sib_ids = sib_list | map: 'id'
+                if sib_ids contains product.id
+                  assign is_current_product_in_siblings = true
+                endif
+              endfor
+            endif
+            -%}
+            
+            {%- comment -%}
+              Determine if current option matches size handle translations
+              Inherited variables:
+                - option_name_handle_separator: {String} handle option.name surrounded by commas
+              Returns variables:
+                - is_size_option: {Boolean}
+            {%- endcomment -%}
 
-{%- liquid
-  assign is_size_option = false
-  assign size_translation = 'general.size_chart.size' | t
-  assign translation_string = size_translation | remove: '  ' | replace: ', ', ',' | replace: ' ,', ',' | replace: ',', '____' | handle | replace: '____', ',' | append: ',' | prepend: ','
+          {%- liquid
+            assign is_size_option = false
+            assign size_translation = 'general.size_chart.size' | t
+            assign translation_string = size_translation | remove: '  ' | replace: ', ', ',' | replace: ' ,', ',' | replace: ',', '____' | handle | replace: '____', ',' | append: ',' | prepend: ','
 
-  if translation_string contains option_name_handle_separator
-    assign is_size_option = true
-  endif
--%}{%- comment -%}
-  Determine if current option should show images
-{%- endcomment -%}
+            if translation_string contains option_name_handle_separator
+              assign is_size_option = true
+            endif
+          -%}
+          
+          {%- comment -%}
+            Determine if current option should show images
+          {%- endcomment -%}
 
-{%- liquid
-  if settings.show_variant_image
-    assign has_variant_option_image = false
-    assign color_swatch_variant_image = false
+          {%- liquid
+            if settings.show_variant_image
+              assign has_variant_option_image = false
+              assign color_swatch_variant_image = false
 
-    assign variant_option_image_translation = 'products.product.variant_option_image' | t
-    assign translation_string_variant_option_image = variant_option_image_translation | remove: '  ' | replace: ', ', ',' | replace: ' ,', ',' | replace: ',', '____' | handle | replace: '____', ',' | append: ',' | prepend: ','
+              assign variant_option_image_translation = 'products.product.variant_option_image' | t
+              assign translation_string_variant_option_image = variant_option_image_translation | remove: '  ' | replace: ', ', ',' | replace: ' ,', ',' | replace: ',', '____' | handle | replace: '____', ',' | append: ',' | prepend: ','
 
-    if translation_string_variant_option_image contains option_name_handle_separator
-      assign has_variant_option_image = true
-    endif
+              if translation_string_variant_option_image contains option_name_handle_separator
+                assign has_variant_option_image = true
+              endif
 
-    if color_translation_string contains translation_string_variant_option_image
-      assign color_swatch_variant_image = true
-    endif
-  endif
--%}
+              if color_translation_string contains translation_string_variant_option_image
+                assign color_swatch_variant_image = true
+              endif
+            endif
+          -%}
 
           {%- liquid
             assign size_options_less_two = false

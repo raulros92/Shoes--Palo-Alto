@@ -103,6 +103,7 @@
     "social_pinterest_link": "",
     "currency_code_enable": false,
     "favicon": "",
+    "info_page": "size-chart",
     "checkout_logo_position": "left",
     "checkout_logo_size": "large",
     "checkout_body_background_image": "",

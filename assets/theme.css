@@ -16846,8 +16846,10 @@ body:not(.no-outline)
 }
 
 .breadcrumbs__link,
-.breadcrumbs__sep {
-  margin-right: 7px;
+.breadcrumbs__sep,
+.breadcrumbs__current {
+  margin-right: 0.625rem;
+  color: var(--base-neutral-600, #878789);
 }
 
 /*================ Card scrolling effect ================*/
