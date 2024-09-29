@@ -337,10 +337,12 @@
                 {% for block in section.blocks  %}
                   {% if block.settings.show_sku %}
                     {% if product and product.variants.size > 0 %}
-                      <div class="product-sku">
-                        <span class="sku-label">Ref:</span>
-                        <span class="sku-value">{{ current_variant.sku }}</span>
-                      </div>
+                      {% if current_variant.sku %}
+                        <div class="product-sku">
+                          <span class="sku-label">Ref:</span>
+                          <span class="sku-value" id="sku-value">{{ current_variant.sku }}</span>
+                        </div>
+                      {% endif %}
                     {% endif %}
                   {% endif %}
                 {% endfor %}
@@ -3173,3 +3175,9 @@
     </div>
   {%- endunless -%}
 {%- endunless -%}
+
+<script>
+  // Crear un objeto con las variantes del producto
+  var productVariants = {{ product.variants | json }};
+  console.log('Variantes del producto:', productVariants); // Asegúrate de que las variantes se están cargando correctamente
+</script>

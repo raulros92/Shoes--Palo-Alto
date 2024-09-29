@@ -200,7 +200,7 @@
   {%- endif -%}
 
   <script src="{{ 'vendor.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'theme.dev.js' | asset_url }}" defer="defer"></script>
 
   {%- comment -%}
     If you need to do some edits in Theme JS use theme.dev.js file
@@ -252,6 +252,9 @@ template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}
     just cut this next line and paste it outside this comment:
     <script src="{{ 'custom.js' | asset_url }}" defer="defer"></script>
   {%- endcomment -%}
+
+      <script src="{{ 'custom.js' | asset_url }}" defer="defer"></script>
+
 
   <!-- Paste marketing code or third party scripts below this comment line ============== -->
 
