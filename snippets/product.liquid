@@ -3176,8 +3176,8 @@
   {%- endunless -%}
 {%- endunless -%}
 
-<script>
-  // Crear un objeto con las variantes del producto
+<script type="application/javascript">
+  // Create an object with the product variants
   var productVariants = {{ product.variants | json }};
-  console.log('Variantes del producto:', productVariants); // Asegúrate de que las variantes se están cargando correctamente
+  console.log('Product variants:', productVariants);
 </script>

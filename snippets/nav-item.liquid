@@ -87,9 +87,37 @@
   {% else %}
     data-hover-disclosure-toggle
   {% endif %}>
-  <a href="{{ link.url }}" data-top-link class="navlink navlink--toplevel{{ link_hover_dot_class }}{% if highlight_item == link_title_lowercase %} navlink--highlight{% endif %}{% if settings.nav_caps_toplevel %} caps{% endif %}">
-    <span class="navtext">{{ link_title }}</span>
-  </a>
+  {% comment %} Conditional to display Complementos, Marcas, Novedades and Outlet  {% endcomment %}
+  {% if link_title == 'Complementos' %}
+    {% if section.settings.show_accesories %}
+      <a href="{{ link.url }}" data-top-link class="navlink navlink--toplevel{{ link_hover_dot_class }}{% if highlight_item == link_title_lowercase %} navlink--highlight{% endif %}{% if settings.nav_caps_toplevel %} caps{% endif %}">
+        <span class="navtext">{{ link_title }}</span>
+      </a>
+    {% endif %}
+  {% elsif link_title == 'Marcas' %}
+    {% if section.settings.show_brands %}
+      <a href="{{ link.url }}" data-top-link class="navlink navlink--toplevel{{ link_hover_dot_class }}{% if highlight_item == link_title_lowercase %} navlink--highlight{% endif %}{% if settings.nav_caps_toplevel %} caps{% endif %}">
+        <span class="navtext">{{ link_title }}</span>
+      </a>
+    {% endif %}
+  {% elsif link_title == 'Novedades' %}
+    {% if section.settings.show_new-arrivals %}
+      <a href="{{ link.url }}" data-top-link class="navlink navlink--toplevel{{ link_hover_dot_class }}{% if highlight_item == link_title_lowercase %} navlink--highlight{% endif %}{% if settings.nav_caps_toplevel %} caps{% endif %}">
+        <span class="navtext">{{ link_title }}</span>
+      </a>
+    {% endif %}
+  {% elsif link_title == 'Outlet' %}
+    {% if section.settings.show_outlet %}
+      <a href="{{ link.url }}" data-top-link class="navlink navlink--toplevel{{ link_hover_dot_class }}{% if highlight_item == link_title_lowercase %} navlink--highlight{% endif %}{% if settings.nav_caps_toplevel %} caps{% endif %}">
+        <span class="navtext">{{ link_title }}</span>
+      </a>
+    {% endif %}
+  {% else %}
+    <a href="{{ link.url }}" data-top-link class="navlink navlink--toplevel{{ link_hover_dot_class }}{% if highlight_item == link_title_lowercase %} navlink--highlight{% endif %}{% if settings.nav_caps_toplevel %} caps{% endif %}">
+      <span class="navtext">{{ link_title }}</span>
+    </a>
+  {% endif %}
+  {%- assign section_title = link_title -%}
   {%- if expands -%}
     <div class="header__dropdown"
       data-hover-disclosure
@@ -105,41 +133,127 @@
                     {%- capture link_image_markup -%}
                       {%- render 'header-link-image' with enable: section.settings.show_images, link: link, aspect_ratio: section.settings.image_aspect_ratio -%}
                     {%- endcapture -%}
-
                     <div class="dropdown__family">
                       {%- assign link_title = link.title | strip_html | escape -%}
                       {%- assign link_title_lowercase = link.title | downcase | strip_html | escape -%}
+
+
+
                       <a href="{{ link.url }}" class="navlink navlink--child-underupper{% if link_image_markup != blank %} navlink--image hover-scale{% endif %}{% if link.active %} navlink--active{% endif %}{% if highlight_item == link_title_lowercase %} navlink--highlight{% endif %}">
                         {{- link_image_markup -}}
                         <span class="navtext">{{ link_title }}</span>
                       </a>
-                      {%- for link in link.links -%}
-                        {%- assign link_title = link.title | strip_html | escape -%}
-                        {%- assign link_title_lowercase = link.title | downcase | strip_html | escape -%}
-                        <a href="{{ link.url }}" class="navlink navlink--grandchild{% if link.active %} navlink--active{% endif %}{% if highlight_item == link_title_lowercase %} navlink--highlight{% endif %}{% if link_title_lowercase == 'ver todas' %} navlink--grandchild-special{% endif %}">
-                          {%- case link_title_lowercase -%}
-                            {%- when 'alpargatas' -%}
-                              {% render 'icon-alpargata' %}
-                            {%- when 'zuecos' -%}
-                              {% render 'icon-zueco' %}
-                            {%- when 'mocasines' -%}
-                              {% render 'icon-mocasin' %}
-                            {%- when 'sandalias' -%}
-                              {% render 'icon-sandalia' %}
-                            {%- when 'náuticos' -%}
-                              {% render 'icon-nautico' %}
-                            {%- when 'sneakers' -%}
-                              {% render 'icon-sneaker' %}
-                            {%- when 'zapatillas' -%}
-                              {% render 'icon-zapatilla' %}
-                            {%- when 'salón' -%}
-                              {% render 'icon-salon' %}
-                            {%- else -%}
-                              <!-- No icon available -->
-                          {%- endcase -%}
-                          <span class="navtext">{{ link_title }}</span>
-                        </a>
-                      {%- endfor -%}
+                      {%- if link_title_lowercase == 'categorías' and section_title == 'Mujer' -%}
+                        <div class="dropdown__family-custom">
+                          {%- for link in link.links -%}
+                            {%- assign link_title = link.title | strip_html | escape -%}
+                            {%- assign link_title_lowercase = link.title | downcase | strip_html | escape -%}
+                            <a href="{{ link.url }}" class="navlink navlink--grandchild{% if link.active %} navlink--active{% endif %}{% if highlight_item == link_title_lowercase %} navlink--highlight{% endif %}{% if link_title_lowercase == 'ver todas' %} navlink--grandchild-special{% endif %}">
+                              {%- case link_title_lowercase -%}
+                                {%- when 'alpargatas' -%}
+                                  {% render 'icon-alpargata-mujer' %}
+                                {%- when 'zuecos' -%}
+                                  {% render 'icon-zueco-mujer' %}
+                                {%- when 'mocasines' -%}
+                                  {% render 'icon-mocasin-mujer' %}
+                                {%- when 'sandalias' -%}
+                                  {% render 'icon-sandalia-mujer' %}
+                                {%- when 'náuticos' -%}
+                                  {% render 'icon-nautico-mujer' %}
+                                {%- when 'sneakers' -%}
+                                  {% render 'icon-sneaker-mujer' %}
+                                {%- when 'zapatillas' -%}
+                                  {% render 'icon-zapatilla-mujer' %}
+                                {%- when 'salón' -%}
+                                  {% render 'icon-salon-mujer' %}
+                                {%- else -%}
+                                {%- when 'bluchers' -%}
+                                  {% render 'icon-bluchers-mujer' %}
+                                {%- else -%}
+                                {%- when 'botas' -%}
+                                  {% render 'icon-botas-mujer' %}
+                                {%- else -%}
+                                {%- when 'botines' -%}
+                                  {% render 'icon-botines-mujer' %}
+                                {%- else -%}
+                                {%- when 'chanclas' -%}
+                                  {% render 'icon-chanclas-mujer' %}
+                                {%- else -%}
+                                {%- when 'merceditas' -%}
+                                  {% render 'icon-merceditas-mujer' %}
+                                {%- else -%}
+                                {%- when 'outlet mujer' -%}
+                                  <img src="{{ 'outlet-mujer.png' | asset_url }}" alt="Outlet Mujer" width="39" height="39">
+                                {%- else -%}
+                                  <!-- No icon available -->
+                              {%- endcase -%}
+                              <span class="navtext">{{ link_title }}</span>
+                            </a>
+                          {%- endfor -%}
+                        </div>
+                      
+                      {% elsif link_title_lowercase == 'categorías' and section_title == 'Hombre' %}
+                        <div class="dropdown__family-custom">
+                          {%- for link in link.links -%}
+                            {%- assign link_title = link.title | strip_html | escape -%}
+                            {%- assign link_title_lowercase = link.title | downcase | strip_html | escape -%}
+                            <a href="{{ link.url }}" class="navlink navlink--grandchild{% if link.active %} navlink--active{% endif %}{% if highlight_item == link_title_lowercase %} navlink--highlight{% endif %}{% if link_title_lowercase == 'ver todas' %} navlink--grandchild-special{% endif %}">
+                              {%- case link_title_lowercase -%}
+                                {%- when 'alpargatas' -%}
+                                  {% render 'icon-alpargata-hombre' %}
+                                {%- else -%}
+                                {%- when 'botas' -%}
+                                  {% render 'icon-botas-hombre' %}
+                                {%- else -%}
+                                {%- when 'chancletas' -%}
+                                  {% render 'icon-chancletas-hombre' %}
+                                {%- else -%}
+                                {%- when 'náuticos' -%}
+                                  {% render 'icon-nauticos-hombre' %}
+                                {%- else -%}
+                                {%- when 'sneakers' -%}
+                                  {% render 'icon-sneakers-hombre' %}
+                                {%- else -%}
+                                {%- when 'zapatos traje' -%}
+                                  {% render 'icon-zapatos-traje-hombre' %}
+                                {%- else -%}
+                                {%- when 'bluchers' -%}
+                                  {% render 'icon-bluchers-hombre' %}
+                                {%- else -%}
+                                {%- when 'botines' -%}
+                                  {% render 'icon-botines-hombre' %}
+                                {%- else -%}
+                                {%- when 'mocasines' -%}
+                                  {% render 'icon-mocasines-hombre' %}
+                                {%- else -%}
+                                {%- when 'sandalias' -%}
+                                  {% render 'icon-sandalias-hombre' %}
+                                {%- else -%}
+                                {%- when 'zapatillas' -%}
+                                  {% render 'icon-zapatillas-hombre' %}
+                                {%- else -%}
+                                {%- when 'zuecos' -%}
+                                  {% render 'icon-zuecos-hombre' %}
+                                {%- else -%}
+                                {%- when 'outlet hombre' -%}
+                                  <img src="{{ 'outlet-hombre.png' | asset_url }}" alt="Outlet Hombre" width="39" height="39">
+                                {%- else -%}
+                                  <!-- No icon available -->
+                              {%- endcase -%}
+                              <span class="navtext">{{ link_title }}</span>
+                            </a>
+                          {%- endfor -%}
+                        </div>
+  
+                      {% else %}
+                        {%- for link in link.links -%}
+                          {%- assign link_title = link.title | strip_html | escape -%}
+                          {%- assign link_title_lowercase = link.title | downcase | strip_html | escape -%}
+                          <a href="{{ link.url }}" class="navlink navlink--grandchild{% if link.active %} navlink--active{% endif %}{% if highlight_item == link_title_lowercase %} navlink--highlight{% endif %}{% if link_title_lowercase == 'ver todas' %} navlink--grandchild-special{% endif %}">
+                            <span class="navtext">{{ link_title }}</span>
+                          </a>
+                        {%- endfor -%}
+                      {%- endif -%}
                     </div>
                   {%- endfor -%}
                 {%- elsif link.levels == 1 -%}
@@ -169,9 +283,36 @@
             {%- for link in link.links -%}
               {%- assign link_title = link.title | strip_html | escape -%}
               {%- assign link_title_lowercase = link.title | downcase | strip_html | escape -%}
-              <a href="{{ link.url }}" data-stagger class="navlink navlink--child{% if link.active %} navlink--active{% endif %}{% if highlight_item == link_title_lowercase %} navlink--highlight{% endif %}{% if settings.nav_caps_megamenu %} caps{% endif %}">
-                <span class="navtext">{{ link_title }}</span>
-              </a>
+              {% comment %} Conditional to display Complementos links {% endcomment %}
+              {% if link_title_lowercase == 'bolsos' %}
+                {% if section.settings.show_bags %}
+                  <a href="{{ link.url }}" data-stagger class="navlink navlink--child{% if link.active %} navlink--active{% endif %}{% if highlight_item == link_title_lowercase %} navlink--highlight{% endif %}{% if settings.nav_caps_megamenu %} caps{% endif %}">
+                    <span class="navtext">{{ link_title }}</span>
+                  </a>
+                {% endif %}
+              {%  elsif link_title_lowercase == 'calcetines' %}
+                {% if section.settings.show_socks %}
+                  <a href="{{ link.url }}" data-stagger class="navlink navlink--child{% if link.active %} navlink--active{% endif %}{% if highlight_item == link_title_lowercase %} navlink--highlight{% endif %}{% if settings.nav_caps_megamenu %} caps{% endif %}">
+                    <span class="navtext">{{ link_title }}</span>
+                  </a>
+                {% endif %}
+              {% elsif link_title_lowercase == 'carteras' %}
+                {% if section.settings.show_wallets %}
+                  <a href="{{ link.url }}" data-stagger class="navlink navlink--child{% if link.active %} navlink--active{% endif %}{% if highlight_item == link_title_lowercase %} navlink--highlight{% endif %}{% if settings.nav_caps_megamenu %} caps{% endif %}">
+                    <span class="navtext">{{ link_title }}</span>
+                  </a>
+                {% endif %}
+              {% elsif link_title_lowercase == 'productos de cuidado' %}
+                {% if section.settings.show_care-products %}
+                  <a href="{{ link.url }}" data-stagger class="navlink navlink--child{% if link.active %} navlink--active{% endif %}{% if highlight_item == link_title_lowercase %} navlink--highlight{% endif %}{% if settings.nav_caps_megamenu %} caps{% endif %}">
+                    <span class="navtext">{{ link_title }}</span>
+                  </a>
+                {% endif %}
+              {% else %}
+                <a href="{{ link.url }}" data-stagger class="navlink navlink--child{% if link.active %} navlink--active{% endif %}{% if highlight_item == link_title_lowercase %} navlink--highlight{% endif %}{% if settings.nav_caps_megamenu %} caps{% endif %}">
+                  <span class="navtext">{{ link_title }}</span>
+                </a>
+              {% endif %}
             {%- endfor -%}
           {%- endif -%}
         </div>
