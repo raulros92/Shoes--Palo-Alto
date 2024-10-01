@@ -13,6 +13,13 @@
     {%- render 'product' product: product, section: section, unique: unique -%}
 {%- endcomment -%}
 
+{%- assign is_size_option = false -%}
+{%- for option in product.options -%}
+  {%- if option.name contains "Talla" or option.name contains "talla" or option.name contains "Size" or option.name contains "size" -%}
+    {%- assign is_size_option = true -%}
+  {%- endif -%}
+{%- endfor -%}
+
 {%- liquid
   assign section_width = section.settings.width
   assign image_layout = section.settings.image_layout
@@ -30,6 +37,14 @@
   assign product_wrapper_class = 'product-single__wrapper'
   assign product_wrapper_modifiers = ' ' | append: 'product-single__wrapper--carousel'
   assign product_form_id = 'AddToCartForm--' | append: unique
+  assign custom_badge_metafield = false
+  assign show_custom_badge = settings.show_custom_badge
+
+  if product.metafields.theme.badge != blank and product.metafields.theme.badge.type == 'single_line_text_field'
+    assign custom_badge_metafield = true
+    assign custom_badge_metafield_text = product.metafields.theme.badge.value
+  endif
+
 
   case image_layout
     when 'grid'
@@ -169,6 +184,20 @@
   assign buynow_btn_style = settings.buynow_btn_style
 -%}
 
+{% comment %} Logic to implement size_chart_button only when the product has "size" as an option (variant) {% endcomment %}
+{%- assign is_size_option = false -%}
+{%- for option in product.options_with_values -%}
+  {%- if option.name contains "Talla" or option.name contains "talla" or option.name contains "Size" or option.name contains "size" -%}
+    {%- assign is_size_option = true -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- if custom_badge_metafield and show_custom_badge -%}
+  <div class="product__badge__item product__badge__item--custom product__badge__item--custom-product">
+    <span>{{ custom_badge_metafield_text }}</span>
+  </div>
+{%- endif -%}
+
 {%- capture product_gallery -%}
   {%- unless product == blank -%}
     <div class="{{ product_gallery_class }}{{ product_gallery_modifiers }}"
@@ -269,7 +298,7 @@
     {{ product_gallery }}
 
     {%- comment -%} Product details {%- endcomment -%}
-    <div class="product-single__details" data-collapsible-single>
+    <div class="product-single__details product-single__details-custom" data-collapsible-single>
       <div class="form__wrapper form__wrapper-custom" data-product-info>
         {%- for block in section.blocks -%}
           {%- liquid
@@ -339,8 +368,8 @@
                     {% if product and product.variants.size > 0 %}
                       {% if current_variant.sku %}
                         <div class="product-sku">
-                          <span class="sku-label">Ref:</span>
-                          <span class="sku-value" id="sku-value">{{ current_variant.sku }}</span>
+                          <span class="sku-label body-14-regular">Ref:</span>
+                          <span class="sku-value body-14-regular" id="sku-value">{{ current_variant.sku }}</span>
                         </div>
                       {% endif %}
                     {% endif %}
@@ -367,7 +396,7 @@
   <div class="product__price-wrapper">
     <div class="product__price" data-price-wrapper>
       {%- unless product == blank -%}
-        <span data-product-price class="product__price--regular{% if current_variant.compare_at_price > current_variant.price %} product__price--sale{% endif %}">
+        <span data-product-price class="product__price--regular titles-24-semibold{% if current_variant.compare_at_price > current_variant.price %} product__price--sale{% endif %}">
           {%- liquid
             if current_variant.price == 0
               echo 'products.product.free' | t
@@ -390,7 +419,7 @@
         </span>
       {%- endunless -%}
 
-      <s data-compare-price class="product__price--compare">
+      <s data-compare-price class="product__price--compare body-14-regular product__price--compare-custom">
         {%- liquid
           if current_variant.compare_at_price
             if currency_code_enable
@@ -442,10 +471,10 @@
         </span>
       {%- endif -%}
       {% if section_type != 'quickview' %}
-        <span data-price-off class="product__price--off hidden">
+        <span data-price-off class="product__price--off hidden product__price--off-custom">
           <span data-price-off-type>{{ 'products.product.sale' | t }}</span>
-          <em>&bull;</em>
-          {{ 'products.product.save' | t }}
+          {% comment %} <em>&bull;</em> {% endcomment %}
+          {% comment %} {{ 'products.product.save' | t }} Default value {% endcomment %}
           <span data-price-off-amount></span>
         </span>
       {% endif %}
@@ -453,10 +482,10 @@
   </div>
 
   {% if section_type == 'quickview' %}
-    <span data-price-off class="product__price--off hidden">
+    <span data-price-off class="product__price--off hidden product__price--off-custom">
       <span data-price-off-type>{{ 'products.product.sale' | t }}</span>
-      <em>&bull;</em>
-      {{ 'products.product.save' | t }}
+      {% comment %} <em>&bull;</em> {% endcomment %}
+      {% comment %} {{ 'products.product.save' | t }} Default value {% endcomment %}
       <span data-price-off-amount></span>
     </span>
   {% endif %}
@@ -724,15 +753,18 @@
       </div>
     {%- endunless -%}
   {%- endcapture -%}
-
-  {%- capture size_chart_button -%}
-    {%- unless empty_size_guide -%}
-      <button type="button" class="product__popup__link label-typography" href="{{ info_page.url | default: '#!' }}" aria-controls="size-chart--{{ unique }}" data-drawer-toggle>
-        {% render 'icon-ruler' %}
-        <span>{{ size_chart_button_text }}</span>
-      </button>
-    {%- endunless -%}
-  {%- endcapture -%}
+  
+  {% comment %} Logic to implement size_chart_button only when the product has "size" as an option (variant) {% endcomment %}
+  {%- if is_size_option -%}
+    {%- capture size_chart_button -%}
+      {%- unless empty_size_guide -%}
+        <button type="button" class="product__popup__link product__popup__link-custom label-typography" href="{{ info_page.url | default: '#!' }}" aria-controls="size-chart--{{ unique }}" data-drawer-toggle>
+          {% render 'icon-ruler' %}
+          <span class="body-14-regular ruler-text-custom">{{ size_chart_button_text }}</span>
+        </button>
+      {%- endunless -%}
+    {%- endcapture -%}
+  {%- endif -%}
 {%- endif -%}{%- form 'product', product, class: 'product__form', data-product-form: '', id: product_form_id, data-recipient-errors: gift_card_recipient_feature_active -%}
   {% comment %} The input with name="id" submits to cart {% endcomment %}
   <input type="hidden" name="id" value="{{ current_variant.id }}" data-product-select>
@@ -1013,7 +1045,12 @@
 
               <fieldset class="{{ radio_fieldset_class }}"{% if is_swatch_option or is_native_swatch_option %}{% unless color_swatch_variant_image and show_variant_image %} data-swatches-container{% endunless %}{% endif %}>
                 <legend class="radio__legend"{% if is_swatch_option or is_native_swatch_option %}{% unless color_swatch_variant_image and show_variant_image %} data-swatches-label{% endunless %}{% endif %}>
-                  <span class="radio__legend__label label-typography">{{ option.name | escape_once }}</span>
+                  {% comment %} We shorten the name to 'Talla'. For example, if the option.name == "Talla de zapatos", then it will display "Talla" {% endcomment %}
+                  {% if option.name contains "Talla" %}
+                    <span class="radio__legend__label body-14-regular">Talla</span>
+                  {% else %}
+                    <span class="radio__legend__label body-14-regular">{{ option.name | escape_once }}</span>
+                  {% endif %}
                   {%- if show_size_guide_as_label -%}{{- size_chart_button -}}{%- endif -%}
                 </legend>
 
@@ -1033,7 +1070,7 @@
                           value="{{ value | escape_once }}" id="{{ input_id }}"
                           {% if value == current_value %}checked{% endif %}>
 
-                        <label for="{{ input_id }}" class="radio__label">
+                        <label for="{{ input_id }}" class="radio__label radio__label-custom">
                           {%- if has_variant_option_image -%}
                             {%- liquid
                               if settings.button_style == 'pill'
@@ -1135,7 +1172,7 @@
                             data-swatch-variant="{{ current_option_variants_id }}"
                             style="{{ swatch_style }}">
                             <span class="visually-hidden">{{ value | escape_once }}</span>
-                            <span class="icon icon-check"></span>
+                            {% comment %} <span class="icon icon-check"></span> Default value{% endcomment %}
                           </label>
                         </span>
                       {%- endif -%}
@@ -1414,7 +1451,7 @@
       {%- if enable_variant_boxes or color_swatches_type != 'disabled' -%}
         <fieldset class="radio__fieldset radio__fieldset--{{ settings.color_swatches_product_style }}">
           <legend class="radio__legend">
-            <span class="radio__legend__label label-typography">{{- 'homepage.onboarding.color' | t -}}</span>
+            <span class="radio__legend__label body-14-regular">{{- 'homepage.onboarding.color' | t -}}</span>
           </legend>
 
           {%- if color_swatches_type != 'disabled' -%}
@@ -1436,7 +1473,7 @@
                   value="{{ value | escape_once }}"
                   id="option-{{ value }}-0-{{ section.id }}"
                   {% if forloop.index == 1 %}checked{% endif %}>
-                <label for="option-{{ value }}-0-{{ section.id }}" class="radio__label">
+                <label for="option-{{ value }}-0-{{ section.id }}" class="radio__label radio__label-custom">
                   <span>{{ value | escape_once }}</span>
                 </label>
               </span>
@@ -1446,7 +1483,7 @@
       {%- else -%}
         <div class="select__fieldset">
           <span class="radio__legend">
-            <span class="radio__legend__label label-typography" id="onboarding-{{ section.id }}-option-0-label">{{- 'homepage.onboarding.color' | t -}}</span>
+            <span class="radio__legend__label body-14-regular" id="onboarding-{{ section.id }}-option-0-label">{{- 'homepage.onboarding.color' | t -}}</span>
           </span>
 
           <div class="select-popout" data-popout data-popout-prevent="true">
@@ -1486,7 +1523,7 @@
       {%- if enable_variant_boxes -%}
         <fieldset class="radio__fieldset">
           <legend class="radio__legend">
-            <span class="radio__legend__label label-typography">{{- 'homepage.onboarding.size' | t -}}</span>
+            <span class="radio__legend__label body-14-regular">{{- 'homepage.onboarding.size' | t -}}</span>
           </legend>
 
           {%- for i in (1..3) -%}
@@ -1501,7 +1538,7 @@
                 value="{{ value | escape_once }}"
                 id="option-{{ value }}-1-{{ section.id }}"
                 {% if forloop.index == 1 %}checked{% endif %}>
-              <label for="option-{{ value }}-1-{{ section.id }}" class="radio__label">
+              <label for="option-{{ value }}-1-{{ section.id }}" class="radio__label radio__label-custom">
                 <span>{{ value | escape_once }}</span>
               </label>
             </span>
@@ -1510,7 +1547,7 @@
       {%- else -%}
         <div class="select__fieldset">
           <span class="radio__legend">
-            <span class="radio__legend__label label-typography" id="onboarding-{{ section.id }}-option-1-label">{{- 'homepage.onboarding.size' | t -}}</span>
+            <span class="radio__legend__label body-14-regular" id="onboarding-{{ section.id }}-option-1-label">{{- 'homepage.onboarding.size' | t -}}</span>
           </span>
 
           <div class="select-popout" data-popout data-popout-prevent="true">
@@ -2313,10 +2350,10 @@
         </span>
       {%- endif -%}
       {% if section_type != 'quickview' %}
-        <span data-price-off class="product__price--off hidden">
+        <span data-price-off class="product__price--off hidden product__price--off-custom">
           <span data-price-off-type>{{ 'products.product.sale' | t }}</span>
-          <em>&bull;</em>
-          {{ 'products.product.save' | t }}
+          {% comment %} <em>&bull;</em> {% endcomment %}
+          {% comment %} {{ 'products.product.save' | t }} Default value {% endcomment %}
           <span data-price-off-amount></span>
         </span>
       {% endif %}
@@ -2324,10 +2361,10 @@
   </div>
 
   {% if section_type == 'quickview' %}
-    <span data-price-off class="product__price--off hidden">
+    <span data-price-off class="product__price--off hidden product__price--off-custom">
       <span data-price-off-type>{{ 'products.product.sale' | t }}</span>
-      <em>&bull;</em>
-      {{ 'products.product.save' | t }}
+      {% comment %} <em>&bull;</em> {% endcomment %}
+      {% comment %} {{ 'products.product.save' | t }} Default value {% endcomment %}
       <span data-price-off-amount></span>
     </span>
   {% endif %}
@@ -2584,14 +2621,17 @@
     {%- endunless -%}
   {%- endcapture -%}
 
-  {%- capture size_chart_button -%}
-    {%- unless empty_size_guide -%}
-      <button type="button" class="product__popup__link label-typography" href="{{ info_page.url | default: '#!' }}" aria-controls="size-chart--{{ unique }}" data-drawer-toggle>
-        {% render 'icon-ruler' %}
-        <span>{{ size_chart_button_text }}</span>
-      </button>
-    {%- endunless -%}
-  {%- endcapture -%}
+  {% comment %} Logic to implement size_chart_button only when the product has "size" as an option (variant) {% endcomment %}
+  {%- if is_size_option -%}
+    {%- capture size_chart_button -%}
+      {%- unless empty_size_guide -%}
+        <button type="button" class="product__popup__link product__popup__link-custom label-typography" href="{{ info_page.url | default: '#!' }}" aria-controls="size-chart--{{ unique }}" data-drawer-toggle>
+          {% render 'icon-ruler' %}
+          <span>{{ size_chart_button_text }}</span>
+        </button>
+      {%- endunless -%}
+    {%- endcapture -%}
+  {%- endif -%}
 {%- endif -%}<div class="product__form">
   {% comment %} The input with name="id" submits to cart {% endcomment %}
   <input type="hidden" name="id" value="{{ current_variant.id }}" data-product-select>
@@ -2828,7 +2868,7 @@
 
               <fieldset class="{{ radio_fieldset_class }}"{% if is_swatch_option or is_native_swatch_option %}{% unless color_swatch_variant_image and show_variant_image %} data-swatches-container{% endunless %}{% endif %}>
                 <legend class="radio__legend"{% if is_swatch_option or is_native_swatch_option %}{% unless color_swatch_variant_image and show_variant_image %} data-swatches-label{% endunless %}{% endif %}>
-                  <span class="radio__legend__label label-typography">{{ option.name | escape_once }}</span>
+                  <span class="radio__legend__label body-14-regular">{{ option.name | escape_once }}</span>
                   {%- if show_size_guide_as_label -%}{{- size_chart_button -}}{%- endif -%}
                 </legend>
 
@@ -2848,7 +2888,7 @@
                           value="{{ value | escape_once }}" id="{{ input_id }}"
                           {% if value == current_value %}checked{% endif %}>
 
-                        <label for="{{ input_id }}" class="radio__label">
+                        <label for="{{ input_id }}" class="radio__label radio__label-custom">
                           {%- if has_variant_option_image -%}
                             {% liquid
                               if settings.button_style == 'pill'
@@ -2949,7 +2989,7 @@
                             data-swatch-variant="{{ current_option_variants_id }}"
                             style="{{ swatch_style }}">
                             <span class="visually-hidden">{{ value | escape_once }}</span>
-                            <span class="icon icon-check"></span>
+                            {% comment %} <span class="icon icon-check"></span> Default value{% endcomment %}
                           </label>
                         </span>
                       {%- endif -%}

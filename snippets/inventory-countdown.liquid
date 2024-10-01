@@ -75,14 +75,14 @@
   <span data-remaining-count>{{ current_inventory | default: 0 }}</span>
 {%- endcapture -%}
 
-<div class="variant__countdown {{ show_remaining_class }}" data-remaining-max="{{ max_inventory }}" data-remaining-wrapper>
-  <span class="variant__countdown--in">{{ 'products.product.in_stock' | t }}</span>
+<div class="variant__countdown {{ show_remaining_class }}" data-remaining-max="{{ max_inventory }} body-14-regular-" data-remaining-wrapper>
+  <span class="variant__countdown--in body-14-regular">{{ 'products.product.in_stock' | t }}</span>
   {%- if hide_inventory_count -%}
-    <span class="variant__countdown--low">{{ 'products.product.remaining_no_count' | t }}</span>
+    <span class="variant__countdown--low body-14-regular">{{ 'products.product.remaining_no_count' | t }}</span>
   {%- else -%}
-    <span class="variant__countdown--low">{{ 'products.product.remaining_html' | t: inventory: inventory }}</span>
+    <span class="variant__countdown--low body-14-regular">{{ 'products.product.remaining_html' | t: inventory: inventory }}</span>
   {%- endif -%}
 
-  <span class="variant__countdown--out">{{ 'products.product.out_of_stock' | t }}</span>
-  <span class="variant__countdown--unavailable">{{ 'products.product.item_unavailable' | t }}</span>
+  <span class="variant__countdown--out body-14-regular">{{ 'products.product.out_of_stock' | t }}</span>
+  <span class="variant__countdown--unavailable body-14-regular">{{ 'products.product.item_unavailable' | t }}</span>
 </div>
