@@ -1,3 +1,6 @@
+{%- comment -%} CSS {%- endcomment -%}
+{{- 'custom.css' | asset_url | stylesheet_tag -}}
+
 {%- comment -%} Accordions section {%- endcomment -%}
 
 {%- liquid
@@ -61,17 +64,20 @@
     --border-opacity: {{ border_opacity }};
     --MB: {{ margin_bottom }}px;
 
-  {%- if padded -%}
-    {%- unless tabs_bg_color != 'rgba(0,0,0,0)' -%}
-      --bg-padded-line: #fff;
-    {%- else -%}
-      --bg-padded-line: var(--bg);
-    {%- endunless -%}
-  {%- endif -%}
+    {%- if padded -%}
+      {%- unless tabs_bg_color != 'rgba(0,0,0,0)' -%}
+        --bg-padded-line: #fff;
+      {%- else -%}
+        --bg-padded-line: var(--bg);
+      {%- endunless -%}
+    {%- endif -%}
   }
 
   {%- if tabs_bg_color != 'rgba(0,0,0,0)' and tabs_bg_color != '' -%}
-    #Accordions--{{ section.id }} .accordion__item { --bg: {{ tabs_bg_color }}; }
+    #Accordions--{{ section.id }}
+    .accordion__item {
+      --bg: {{ tabs_bg_color }};
+    }
   {%- endif -%}
 {%- endstyle -%}
 
@@ -79,9 +85,12 @@
   {%- unless heading == blank and subheading == blank and text == blank -%}
     <div class="accordion__header">
       <div class="{{ section_width }}">
-        <div class="section__header">
+        <div class="section__header section__header-custom">
           {%- if heading != blank -%}
-            <h2 class="section__heading h2"
+            <h2 class="section__heading h3
+              {%if section.settings.heading_flex-start %}
+                heading-flex-start
+              {% endif %}"
               {% if animations_enabled %}
                 data-aos="fade-up"
                 data-aos-anchor="{{ animation_anchor }}"
@@ -127,7 +136,6 @@
   {%- assign animation_delay_header = animation_delay -%}
   {%- assign animation_delay_mobile = animation_delay -%}
 {% endcapture %}
-
 {% capture accordions %}
   {%- if layout == 'one-column' -%}
     <ul class="accordion__list">
@@ -155,7 +163,7 @@
             {% endif %}
             {{ block.shopify_attributes }}>
             <button class="accordion__item__title" aria-controls="Accordions-item--{{ forloop.index0 }}-{{ section.id }}" data-collapsible-trigger>
-              <span class="accordion__item__title__text">{{ title }}</span>
+              <span class="accordion__item__title__text body-14-regular">{{ title }}</span>
 
               {%- render 'icon-toggle-plus' -%}
               {%- render 'icon-toggle-minus' -%}
@@ -187,8 +195,11 @@
     </div>
   {%- endif -%}
 {% endcapture %}
-
-<section data-section-id="{{ section.id }}" id="Accordions--{{ section.id }}" data-section-type="accordions" class="section-padding accordions-section {{ text_color }}{% if bg_color_secondary %} bg-secondary{% endif %}">
+<section
+  data-section-id="{{ section.id }}"
+  id="Accordions--{{ section.id }}"
+  data-section-type="accordions"
+  class="section-padding accordions-section {{ text_color }}{% if bg_color_secondary %} bg-secondary{% endif %}">
   {{ section__heading }}
 
   {%- if block_size > 0 -%}
@@ -203,189 +214,194 @@
 </section>
 
 {% schema %}
-{
-  "name": "Tabs",
-  "settings": [
-    {
-      "type": "header",
-      "content": "Layout"
-    },
-    {
-      "type": "select",
-      "id": "layout",
-      "label": "Layout",
-      "default": "two-columns",
-      "options": [
-        { "label": "One column", "value": "one-column" },
-        { "label": "Two columns", "value": "two-columns" }
-      ]
-    },
-    {
-      "type": "checkbox",
-      "id": "show_accordion_divider",
-      "label": "Show divider lines",
-      "default": false,
-      "info": "For transparent tabs background only"
-    },
-    {
-      "type": "header",
-      "content": "Text"
-    },
-    {
-      "type": "text",
-      "id": "title",
-      "label": "Heading",
-      "default": "Frequently Asked Questions"
-    },
-    {
-      "type": "text",
-      "id": "subheading",
-      "label": "Subheading"
-    },
-    {
-      "type": "richtext",
-      "id": "text",
-      "label": "Text"
-    },
-    {
-      "type": "header",
-      "content": "Colors"
-    },
-    {
-      "type": "color",
-      "id": "tabs_bg_color",
-      "label": "Tabs",
-      "default": "#fafafa"
-    },
-    {
-      "type": "checkbox",
-      "id": "bg_color_secondary",
-      "label": "Background",
-      "info": "Use secondary background color",
-      "default": false
-    },
-    {
-      "type": "select",
-      "id": "text_color",
-      "label": "Text color",
-      "default": "text-dark",
-      "options": [
-        { "value": "text-light", "label": "Light"},
-        { "value": "text-dark", "label": "Dark"}
-      ]
-    },
-    {
-      "type": "header",
-      "content": "Section spacing"
-    },
-    {
-      "type": "select",
-      "id": "width",
-      "label": "Width",
-      "default": "wrapper",
-      "options": [
-        { "value": "wrapper--full-padded", "label": "Full width padded" },
-        { "value": "wrapper", "label": "Page width" },
-        { "value": "wrapper--narrow", "label": "Page width narrow" }
-      ]
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 2,
-      "unit": "px",
-      "label": "Padding top",
-      "default": 60
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 2,
-      "unit": "px",
-      "label": "Padding bottom",
-      "default": 60
+  {
+    "name": "Tabs",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Layout"
+      },
+      {
+        "type": "select",
+        "id": "layout",
+        "label": "Layout",
+        "default": "two-columns",
+        "options": [
+          {
+            "label": "One column",
+            "value": "one-column"
+          }, {
+            "label": "Two columns",
+            "value": "two-columns"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "show_accordion_divider",
+        "label": "Show divider lines",
+        "default": false,
+        "info": "For transparent tabs background only"
+      },
+      {
+        "type": "header",
+        "content": "Text"
+      }, {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Frequently Asked Questions"
+      }, {
+        "type": "checkbox",
+        "id": "heading_flex-start",
+        "label": "Muestra el título a la izquierda",
+        "default": true
+      }, {
+        "type": "text",
+        "id": "subheading",
+        "label": "Subheading"
+      }, {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text"
+      }, {
+        "type": "header",
+        "content": "Colors"
+      }, {
+        "type": "color",
+        "id": "tabs_bg_color",
+        "label": "Tabs",
+        "default": "#fafafa"
+      }, {
+        "type": "checkbox",
+        "id": "bg_color_secondary",
+        "label": "Background",
+        "info": "Use secondary background color",
+        "default": false
+      }, {
+        "type": "select",
+        "id": "text_color",
+        "label": "Text color",
+        "default": "text-dark",
+        "options": [
+          {
+            "value": "text-light",
+            "label": "Light"
+          }, {
+            "value": "text-dark",
+            "label": "Dark"
+          }
+        ]
+      }, {
+        "type": "header",
+        "content": "Section spacing"
+      }, {
+        "type": "select",
+        "id": "width",
+        "label": "Width",
+        "default": "wrapper",
+        "options": [
+          {
+            "value": "wrapper--full-padded",
+            "label": "Full width padded"
+          }, {
+            "value": "wrapper",
+            "label": "Page width"
+          }, {
+            "value": "wrapper--narrow",
+            "label": "Page width narrow"
+          }
+        ]
+      }, {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding top",
+        "default": 60
+      }, {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding bottom",
+        "default": 60
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Text",
+        "type": "text",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Heading"
+          }, {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text",
+            "default": "<p>Use this text block to discuss some commonly asked questions like shipping and returns, sizing, warranties, or product and company details.</p>"
+          }
+        ]
+      }, {
+        "name": "Page",
+        "type": "page",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Page",
+            "info": "Example: Size chart"
+          }, {
+            "type": "page",
+            "id": "raw_content",
+            "label": "Content"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "category": "Text",
+        "name": "Tabs",
+        "blocks": [
+          {
+            "type": "text",
+            "settings": {
+              "title": "How long does it take to get my products?",
+              "text": "<p>Domestic shipping can take up to 5 business days.<br\/><br\/>Foreign shipping could take up to 14 business days.<br\/><br\/>Due to global supply chain challenges, shipping times could be longer than usual.<\/p>"
+            }
+          }, {
+            "type": "text",
+            "settings": {
+              "title": "Do you offer warranty for your products?",
+              "text": "<p>All our products are subject to quality control.<br\/><br\/>Our warranty provides a guarantee against manufacturer defects.<br\/><br\/>The guarantee covers any manufacturing, design, or material defect. Please notify us within 2 months of noticing any defects.<br\/><br\/>It does not cover blows, improper use, or other issues that are not attributable to a manufacturer defects.<\/p>"
+            }
+          }, {
+            "type": "text",
+            "settings": {
+              "title": "Do you offer refunds?",
+              "text": "<p>Yes, we offer full and partial refunds.<br\/><br\/>Please enquire for more information about our Refund policy.<\/p>"
+            }
+          }, {
+            "type": "text",
+            "settings": {
+              "title": "What shipping methods do you offer?",
+              "text": "<p>We use all major carriers, and local courier partners. Use the shipping estimator in the cart to check your shipping rates.<\/p>"
+            }
+          }
+        ]
+      }
+    ],
+    "disabled_on": {
+      "groups": ["header", "aside", "footer"]
     }
-  ],
-  "blocks": [
-    {
-      "name": "Text",
-      "type": "text",
-      "settings": [
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Heading",
-          "default": "Heading"
-        },
-        {
-          "type": "richtext",
-          "id": "text",
-          "label": "Text",
-          "default": "<p>Use this text block to discuss some commonly asked questions like shipping and returns, sizing, warranties, or product and company details.</p>"
-        }
-      ]
-    },
-    {
-      "name": "Page",
-      "type": "page",
-      "settings": [
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Heading",
-          "default": "Page",
-          "info": "Example: Size chart"
-        },
-        {
-          "type": "page",
-          "id": "raw_content",
-          "label": "Content"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "category": "Text",
-      "name": "Tabs",
-      "blocks": [
-        {
-          "type": "text",
-          "settings": {
-            "title": "How long does it take to get my products?",
-            "text": "<p>Domestic shipping can take up to 5 business days.<br\/><br\/>Foreign shipping could take up to 14 business days.<br\/><br\/>Due to global supply chain challenges, shipping times could be longer than usual.<\/p>"
-          }
-        },
-        {
-          "type": "text",
-          "settings": {
-            "title": "Do you offer warranty for your products?",
-            "text": "<p>All our products are subject to quality control.<br\/><br\/>Our warranty provides a guarantee against manufacturer defects.<br\/><br\/>The guarantee covers any manufacturing, design, or material defect. Please notify us within 2 months of noticing any defects.<br\/><br\/>It does not cover blows, improper use, or other issues that are not attributable to a manufacturer defects.<\/p>"
-          }
-        },
-        {
-          "type": "text",
-          "settings": {
-            "title": "Do you offer refunds?",
-            "text": "<p>Yes, we offer full and partial refunds.<br\/><br\/>Please enquire for more information about our Refund policy.<\/p>"
-          }
-        },
-        {
-          "type": "text",
-          "settings": {
-            "title": "What shipping methods do you offer?",
-            "text": "<p>We use all major carriers, and local courier partners. Use the shipping estimator in the cart to check your shipping rates.<\/p>"
-          }
-        }
-      ]
-    }
-  ],
-  "disabled_on": {
-    "groups": ["header","aside","footer"]
   }
-}
 {% endschema %}

@@ -75,6 +75,7 @@
     "upsells_image_width": 30,
     "upsells_bg_color": "#ffffff",
     "upsells_text_color": "#222223",
+    "upsells_button_color": "btn--primary",
     "loading_image_width": 150,
     "loading_appearance": "once",
     "show_spacer_lines": false,

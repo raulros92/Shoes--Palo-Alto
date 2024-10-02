@@ -127,8 +127,8 @@
       "out_of_stock": "Agotado",
       "error_info": "Verifique el identificador de la variante y el identificador del producto",
       "error_no_product": "No se ha seleccionado ningún producto",
-      "pair_products": "Cómpralo con",
-      "quick_view": "Compra rápida",
+      "pair_products": "Productos relacionados",
+      "quick_view": "Comprar",
       "add_to_cart": "Añadir al carrito"
     },
     "complementary": {
@@ -525,7 +525,7 @@
       "free": "Gratis",
       "unavailable": "Indisponible",
       "quantity": "Cantidad",
-      "in_stock": "El artículo está en stock",
+      "in_stock": "Stock Disponible",
       "out_of_stock": "El artículo está agotado",
       "item_unavailable": "El artículo no está disponible",
       "remaining_html": "Sólo {{ inventory }} quedan en el inventario",

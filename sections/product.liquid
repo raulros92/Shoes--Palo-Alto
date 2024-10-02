@@ -1,7 +1,7 @@
 {%- comment -%} /sections/product-template {%- endcomment -%}
 
   {%- comment -%} CSS {%- endcomment -%}
-  {{- 'product.css' | asset_url | stylesheet_tag -}}
+  {{- 'custom.css' | asset_url | stylesheet_tag -}}
 
 
 {%- liquid
@@ -445,16 +445,6 @@
         {
           "type": "header",
           "content": "Block spacing"
-        },
-        {
-          "type": "range",
-          "id": "padding_bottom",
-          "min": 0,
-          "max": 50,
-          "step": 2,
-          "unit": "px",
-          "label": "Padding bottom",
-          "default": 20
         }
       ]
     },
@@ -642,7 +632,9 @@
             { "value": "paw-heart", "label": "Paw heart", "group": "Health/Beauty" },
             { "value": "phthalate-free", "label": "Phthalate free", "group": "Health/Beauty" },
             { "value": "sulfate-free", "label": "Sulfate free", "group": "Health/Beauty" },
-            { "value": "use-by", "label": "Use by", "group": "Health/Beauty" }
+            { "value": "use-by", "label": "Use by", "group": "Health/Beauty" },
+            { "value": "arrows", "label": "Arrows", "group": "Custom" },
+            { "value": "box", "label": "Box", "group": "Custom" }
           ]
         },
         {

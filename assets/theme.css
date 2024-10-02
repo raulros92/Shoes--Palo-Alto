@@ -411,7 +411,8 @@ h2,
 
 h3,
 .h3 {
-  --heading-size: calc(1.75rem * var(--adjust-heading));
+  /* --heading-size: calc(1.75rem * var(--adjust-heading)); Default value*/
+  --heading-size: calc(1.56rem * var(--adjust-heading));
   font-size: var(--heading-size);
 }
 @media only screen and (max-width: 1439px) {
@@ -7264,8 +7265,8 @@ body:has(.section-footer--visible) .parallax-rounded-corners {
   width: 100%;
   height: 5px;
   padding: 0;
-  margin-top: 10px;
-  background: var(--text-alpha-5);
+  /* margin-top: 10px; Default value*/
+  background: var(--base-neutral-300, #dbdbdd);
   border-radius: var(--radius-scrollbar);
   overflow: hidden;
 }
@@ -7286,7 +7287,7 @@ body:has(.section-footer--visible) .parallax-rounded-corners {
   display: block;
   width: 100%;
   height: 100%;
-  background: var(--accent);
+  background: var(--primary-primary-500, #5d1265);
   transform: scaleX(var(--thumb-scale));
   transform-origin: left;
   transition: transform 0.3s ease-in-out;
@@ -13609,24 +13610,20 @@ body:not(.no-outline) .selector-wrapper--swatches .radio__fieldset:focus-within,
 .radio__fieldset .radio__label {
   display: block;
   font-size: inherit;
-  line-height: 1.3;
   position: relative;
   margin: 0;
-  padding: var(--form-top) var(--form-left);
+  /* padding: var(--form-top) var(--form-left); Default value*/
   color: var(--text);
   background-color: var(--bg);
   border: var(--BORDER-WIDTH) solid var(--text-alpha-25);
-  border-radius: var(--RADIUS);
+  /* border-radius: var(--RADIUS); Default value*/
 }
 @media only screen and (max-width: 767px) {
   .radio__fieldset .radio__label {
     font-size: calc(0.875rem * var(--adjust-body));
-    line-height: 1.1;
-    /* padding: 10px 12px;
+    /* line-height: 1.1;
+    padding: 10px 12px;
     min-width: 60px; Default values*/
-    text-align: center;
-    height: 1.25rem;
-    width: 1.5rem;
   }
 }
 .radio__fieldset .radio__label:hover,
@@ -29027,10 +29024,13 @@ search-form mark {
 .product__accordion {
   text-align: left;
   overflow: hidden;
+  border-bottom: 1px solid;
+  padding: 7px 0;
 }
 
 .product__accordion__inner {
-  margin-bottom: 0;
+  /* margin-bottom: 0; Default value*/
+  margin: 16px 0 7px 0;
   padding-bottom: 5px;
   position: relative;
   font-size: calc(0.9rem * var(--adjust-body));
@@ -29211,7 +29211,9 @@ search-form mark {
 }
 
 .product__icon__text:not(:only-child) {
-  margin-left: 10px;
+  /* margin-left: 10px Default value; */
+  margin-left: 5px;
+  font-size: 14px;
 }
 
 /*
@@ -29984,7 +29986,8 @@ search-form mark {
   z-index: 2;
   flex: 0 0 calc(100% - var(--UPSELLS-IMAGE-WIDTH));
   max-width: calc(100% - var(--UPSELLS-IMAGE-WIDTH));
-  padding: 5px 0 5px var(--inner);
+  /* padding: 5px 0 5px var(--inner); */
+  padding: 0.5rem 0 0.3125rem var(--inner);
   font-size: calc(1rem * var(--adjust-body));
   display: flex;
   flex-flow: column wrap;
@@ -36099,6 +36102,7 @@ search-form mark {
   vertical-align: bottom;
   border-bottom: 3px solid transparent;
   white-space: normal;
+  color: var(--base-neutral-900);
 }
 .tabs__link:last-child {
   margin-right: 0;

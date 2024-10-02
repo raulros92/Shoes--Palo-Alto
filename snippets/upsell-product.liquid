@@ -33,7 +33,7 @@
 
 {%- if show_upsell -%}
   {%- capture product_info_price -%}
-    <p class="product-upsell__price">
+    <p class="product-upsell__price body-14-regular">
       {%- render 'product-price', product: upsell_product, namespace: 'product-upsell' -%}
     </p>
   {%- endcapture -%}
@@ -52,13 +52,13 @@
       </a>
 
       <div class="product-upsell__content">
-        <p class="product-upsell__subtitle">{{ subtitle }}</p>
+        <p class="product-upsell__subtitle body-14-regular">{{ subtitle }}</p>
         {%- if upsell_error -%}
-          <p class="product-upsell__title h3">{{ 'general.upsell.error_no_product' | t }}</p>
+          <p class="product-upsell__title h3 titles-20-semibold">{{ 'general.upsell.error_no_product' | t }}</p>
           <p class="product-upsell__variant-title">{{ 'general.upsell.error_info' | t }}</p>
         {%- else -%}
           <div class="product-upsell__row">
-            <p class="product-upsell__title h3">
+            <p class="product-upsell__title h3 titles-20-semibold">
               <a href="{{ upsell_link }}">{{ upsell_product.title | strip_html | escape }}</a>
             </p>
 

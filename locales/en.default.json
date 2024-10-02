@@ -127,8 +127,8 @@
       "out_of_stock": "Out of stock",
       "error_info": "Select products from the Upsell block setting",
       "error_no_product": "No upsell product selected",
-      "pair_products": "Buy It With",
-      "quick_view": "Quick Buy",
+      "pair_products": "Related products",
+      "quick_view": "Buy now",
       "add_to_cart": "Add to Cart"
     },
     "complementary": {

@@ -44,30 +44,41 @@
     --PT: {{ section.settings.padding_top }}px;
     --PB: {{ section.settings.padding_bottom }}px;
   }
-  {{ selector_id }} .tabs__nav { --text-size: calc({{ type_adjustment }} * {{ tab_heading_size }}); }
+  {{ selector_id }}
+  .tabs__nav {
+    --text-size: calc({{ type_adjustment }} * {{ tab_heading_size }});
+  }
 
   {%- if bg_color != 'rgba(0,0,0,0)' and bg_color != '' -%}
-    {{ selector_id }} { background-color: {{ bg_color }}; }
-    {{ selector_id }} .product-grid-item { --bg: {{ bg_color }}; }
+    {{ selector_id }} {
+      background-color: {{ bg_color }};
+    }
+    {{ selector_id }}
+    .product-grid-item {
+      --bg: {{ bg_color }};
+    }
   {%- endif -%}
 
   @media screen and (max-width: 767px) {
     {%- if columns_mobile > 1 -%}
-      {{ selector_id }} .carousel--mobile { --item-width-mobile: calc(90% / {{ columns_mobile }} - var(--grid-gutter)); }
+      {{ selector_id }}
+      .carousel--mobile {
+        --item-width-mobile: calc(90% / {{ columns_mobile }} - var(--grid-gutter));
+      }
     {%- endif -%}
   }
 {%- endstyle -%}
 
-<div id="{{ section_id }}"
+<div
+  id="{{ section_id }}"
   class="related-products section-padding js-only"
   data-section-type="related-products"
   data-section-id="{{ section.id }}"
   data-product-id="{{ product.id }}"
   data-columns="{{ columns }}"
   {% if related_block != blank %}
-    data-limit="{{ recomendations_limit }}"
-  {% endif %}
->
+  data-limit="{{ recomendations_limit }}"
+  {% endif %}>
   <div class="{{ section_width }}">
     {%- if section.blocks.size > 0 -%}
       {%- for block in section.blocks -%}
@@ -104,7 +115,6 @@
             </div>
           {%- endif -%}
         {%- endcapture -%}
-
         {%- capture tabs_navigation -%}
           {{ tabs_navigation }}
 
@@ -113,10 +123,9 @@
             data-block-id="{{ block.id }}"
             tabindex="0"
             {{ block.shopify_attributes }}>
-            <span>{{ block_heading }}</span>
+            <span class="titles-20-semibold">{{ block_heading }}</span>
           </li>
         {%- endcapture -%}
-
         {%- capture tabs -%}
           {{ tabs }}
 
@@ -169,14 +178,14 @@
 
       <div class="tabs{% unless show_tabs %} tabs--stacked{% endunless %}" data-tabs-holder>
         {%- if show_tabs -%}
-          <div class="tabs__head"
+          <div
+            class="tabs__head"
             {% if animations_enabled %}
-              data-aos="fade-up"
-              data-aos-anchor="{{ animation_anchor }}"
-              data-aos-delay="{{ animation_delay }}"
-              {%- assign animation_delay = animation_delay | plus: 150 -%}
-            {% endif %}
-          >
+            data-aos="fade-up"
+            data-aos-anchor="{{ animation_anchor }}"
+            data-aos-delay="{{ animation_delay }}"
+            {%- assign animation_delay = animation_delay | plus: 150 -%}
+            {% endif %}>
             <div class="tabs-scrollbar" data-custom-scrollbar-parent>
               <div class="tabs-scrollbar__holder" data-custom-scrollbar-holder>
                 <ul class="tabs__nav {{ type_style }}" data-custom-scrollbar-items>
@@ -202,143 +211,149 @@
 </div>
 
 {% schema %}
-{
-  "name": "Product recommendations",
-  "settings": [
-    {
-      "type": "header",
-      "content": "Layout"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_tabs",
-      "label": "Enable tabs",
-      "default": true
-    },
-    {
-      "type": "select",
-      "id": "columns_mobile",
-      "label": "Products per row on mobile",
-      "default": "1",
-      "options": [
-        { "label": "1", "value": "1" },
-        { "label": "2", "value": "2" }
-      ]
-    },
-    {
-      "type": "select",
-      "label": "Tab heading style",
-      "id": "type_style",
-      "default": "subheading-text",
-      "options": [
-        { "label": "Heading", "value": "font-heading" },
-        { "label": "Body", "value": "font-body" },
-        { "label": "Accent", "value": "subheading-text" }
-      ]
-    },
-    {
-      "type": "range",
-      "id": "tab_heading_size",
-      "label": "Tab heading size",
-      "default": 120,
-      "min": 100,
-      "max": 200,
-      "step": 5,
-      "unit": "%"
-    },
-    {
-      "type": "header",
-      "content": "Colors"
-    },
-    {
-      "type": "color",
-      "id": "bg_color",
-      "label": "Background"
-    },
-    {
-      "type": "header",
-      "content": "Section spacing"
-    },
-    {
-      "type": "select",
-      "id": "width",
-      "label": "Width",
-      "default": "wrapper",
-      "options": [
-        { "value": "wrapper--full-padded", "label": "Full width padded" },
-        { "value": "wrapper", "label": "Page width" }
-      ]
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 2,
-      "unit": "px",
-      "label": "Padding top",
-      "default": 60
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 2,
-      "unit": "px",
-      "label": "Padding bottom",
-      "default": 60
-    }
-  ],
-  "blocks": [
-    {
-      "type": "related",
-      "name": "Related products",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "paragraph",
-          "content": "Dynamic recommendations change and improve with time. [Learn more](https://help.shopify.com/en/themes/development/recommended-products)"
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Heading",
-          "default": "You May Also Like"
-        },
-        {
-          "type": "range",
-          "id": "product_recommendations_limit",
-          "min": 1,
-          "max": 6,
-          "step": 1,
-          "label": "Product limit",
-          "default": 4
-        }
-      ]
-    },
-    {
-      "type": "recent",
-      "name": "Recently viewed products",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Heading",
-          "default": "Recently viewed"
-        },
-        {
-          "type": "range",
-          "id": "product_recently_limit",
-          "min": 1,
-          "max": 6,
-          "step": 1,
-          "label": "Product limit",
-          "default": 4
-        }
-      ]
-    }
-  ]
-}
+  {
+    "name": "Product recommendations",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Layout"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_tabs",
+        "label": "Enable tabs",
+        "default": true
+      },
+      {
+        "type": "select",
+        "id": "columns_mobile",
+        "label": "Products per row on mobile",
+        "default": "1",
+        "options": [
+          {
+            "label": "1",
+            "value": "1"
+          }, {
+            "label": "2",
+            "value": "2"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "Tab heading style",
+        "id": "type_style",
+        "default": "subheading-text",
+        "options": [
+          {
+            "label": "Heading",
+            "value": "font-heading"
+          }, {
+            "label": "Body",
+            "value": "font-body"
+          }, {
+            "label": "Accent",
+            "value": "subheading-text"
+          }
+        ]
+      }, {
+        "type": "range",
+        "id": "tab_heading_size",
+        "label": "Tab heading size",
+        "default": 120,
+        "min": 100,
+        "max": 200,
+        "step": 5,
+        "unit": "%"
+      }, {
+        "type": "header",
+        "content": "Colors"
+      }, {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background"
+      }, {
+        "type": "header",
+        "content": "Section spacing"
+      }, {
+        "type": "select",
+        "id": "width",
+        "label": "Width",
+        "default": "wrapper",
+        "options": [
+          {
+            "value": "wrapper--full-padded",
+            "label": "Full width padded"
+          }, {
+            "value": "wrapper",
+            "label": "Page width"
+          }
+        ]
+      }, {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding top",
+        "default": 60
+      }, {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding bottom",
+        "default": 60
+      }
+    ],
+    "blocks": [
+      {
+        "type": "related",
+        "name": "Related products",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "paragraph",
+            "content": "Dynamic recommendations change and improve with time. [Learn more](https://help.shopify.com/en/themes/development/recommended-products)"
+          }, {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "You May Also Like"
+          }, {
+            "type": "range",
+            "id": "product_recommendations_limit",
+            "min": 1,
+            "max": 6,
+            "step": 1,
+            "label": "Product limit",
+            "default": 4
+          }
+        ]
+      }, {
+        "type": "recent",
+        "name": "Recently viewed products",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Recently viewed"
+          }, {
+            "type": "range",
+            "id": "product_recently_limit",
+            "min": 1,
+            "max": 6,
+            "step": 1,
+            "label": "Product limit",
+            "default": 4
+          }
+        ]
+      }
+    ]
+  }
 {% endschema %}

@@ -22,7 +22,7 @@
 
   {%- unless upsell_error -%}
     {%- capture product_info_price -%}
-      <p class="product-upsell__price">
+      <p class="product-upsell__price body-14-regular">
         {%- render 'product-price', product: upsell_product, namespace: 'product-upsell' -%}
       </p>
     {%- endcapture -%}
@@ -55,10 +55,10 @@
         </a>
 
         <div class="product-upsell__content">
-          <p class="product-upsell__subtitle">{{ 'general.upsell.pair_products' | t }}</p>
+          <p class="product-upsell__subtitle body-14-regular">{{ 'general.upsell.pair_products' | t }}</p>
 
           <div class="product-upsell__row">
-            <p class="product-upsell__title h3">
+            <p class="product-upsell__title h3 titles-20-semibold">
               <a href="{{ upsell_link }}">{{ upsell_product.title | strip_html | escape }}</a>
             </p>
 

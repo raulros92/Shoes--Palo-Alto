@@ -1,3 +1,5 @@
+/* PRODUCT PAGE */
+
 .wrapper-custom {
   position: relative;
 }
@@ -10,6 +12,7 @@
 .product-upsell__holder-custom {
   padding: 1rem;
   border: var(--Quantity, 0.0625rem) solid var(--base-neutral-900, #222223);
+  margin-top: 2rem;
 }
 
 .product__title-and-price-custom {
@@ -67,17 +70,15 @@
   text-decoration: underline;
 }
 
+.shopify-payment-button:hover .shopify-payment-button__button {
+  background-color: var(--primary-primary-500, #5d1265) !important;
+  color: var(--base-white, #ffffff) !important;
+  transition: none !important;
+}
+
 .radio__label-custom {
-  display: flex;
-  width: var(--font-size-4032, 40px);
-  height: var(--font-size-4032, 40px);
   padding: var(--Spacers-8, 8px) var(--Font-Size-10, 10px);
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: var(--Spacers-8, 0.5rem);
-  border-radius: 4px !important;
-  border: var(--Quantity, 1px) solid var(--base-neutral-900, #222223);
+  border-radius: 4px;
 }
 
 .radio__label-custom:hover,
@@ -85,6 +86,23 @@
 .radio__button.unavailable .radio__label-custom:hover {
   background-color: var(--base-neutral-900, #222223);
   color: var(--base-white, #ffffff);
+}
+
+.product-upsell__price-new {
+  color: var(--base-red-500, #e94949);
+  font-weight: 600;
+}
+
+.heading-flex-start {
+  text-align: left;
+}
+
+.section__header-custom {
+  margin-bottom: calc(var(--gutter) / 3);
+}
+
+.accordion__item__text.rte > p {
+  font-size: 0.875rem;
 }
 
 @media only screen and (min-width: 768px) {
@@ -119,3 +137,5 @@
     top: 0.75rem;
   }
 }
+
+/* ABOUT PAGE */

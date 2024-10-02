@@ -16,7 +16,8 @@
           "type": "title",
           "settings": {
             "subheading": "breadcrumbs",
-            "padding_bottom": 12
+            "padding_bottom": 12,
+            "show_sku": true
           }
         },
         "inventory_countdown": {
@@ -46,7 +47,7 @@
         "7ddd2db6-1d92-43ee-a7d9-e786662f9ced": {
           "type": "icon",
           "settings": {
-            "icon_name": "eco-friendly",
+            "icon_name": "arrows",
             "icon_color": "",
             "icon_width": 20,
             "icon_text": "Devolución en 30 días",
@@ -60,7 +61,7 @@
         "icon_jpk9mG": {
           "type": "icon",
           "settings": {
-            "icon_name": "check",
+            "icon_name": "box",
             "icon_color": "",
             "icon_width": 20,
             "icon_text": "Envío gratis por compras superiores a 45€",
@@ -68,7 +69,7 @@
             "width": "full",
             "text_alignment": "left",
             "bg_color": "",
-            "padding_bottom": 32
+            "padding_bottom": 24
           }
         },
         "product_accordion": {
@@ -78,7 +79,7 @@
             "heading_style": "font-body",
             "accordion_text": "<p>{{ product.metafields.custom.sobre_el_producto | metafield_tag }}</p>",
             "accordion_page": "",
-            "padding_bottom": 10
+            "padding_bottom": 0
           }
         },
         "9927e90d-2ecb-4104-af67-0dadf75b2a0a": {
@@ -88,7 +89,7 @@
             "heading_style": "font-body",
             "accordion_text": "<p>{{ product.metafields.custom.ficha_tecnica | metafield_tag }}</p>",
             "accordion_page": "",
-            "padding_bottom": 10
+            "padding_bottom": 0
           }
         },
         "product_accordion_kDKHtc": {
@@ -98,7 +99,7 @@
             "heading_style": "font-body",
             "accordion_text": "<p>{{ product.metafields.custom.composicion_y_cuidado | metafield_tag }}</p>",
             "accordion_page": "",
-            "padding_bottom": 20
+            "padding_bottom": 0
           }
         },
         "product_accordion_ix6LgP": {
@@ -108,7 +109,7 @@
             "heading_style": "font-body",
             "accordion_text": "<p>{{ product.metafields.custom.envios_y_devoluciones | metafield_tag }}</p>",
             "accordion_page": "",
-            "padding_bottom": 20
+            "padding_bottom": 0
           }
         },
         "upsell": {
