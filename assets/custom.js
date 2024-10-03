@@ -64,6 +64,22 @@
     });
   });
 
+  // Logica para cambiar la posición de la etiqueta descuento en la página producto
+  document.addEventListener("DOMContentLoaded", function () {
+    const badgeCustom = document.querySelector(
+      ".product__badge__item--custom-product"
+    );
+    const priceOffCustom = document.querySelector(
+      ".product__price--off-custom"
+    );
+
+    if (badgeCustom && priceOffCustom) {
+      // Cambia top y left de .product__price--off-custom si existe el badge custom
+      priceOffCustom.style.top = "1.8rem";
+      priceOffCustom.style.left = "1.8rem";
+    }
+  });
+
   // ^^ Keep your scripts inside this IIFE function call to
   // avoid leaking your variables into the global scope.
 })();

@@ -3890,9 +3890,9 @@ search-form[loading] .predictive-search__loader {
   .wrapper--full-padded .carousel .flickity-prev-next-button.next {
     right: calc(var(--gutter) * 1.5);
   }
-  .wrapper--full-padded .carousel .flickity-prev-next-button.previous {
-    left: calc(var(--gutter) * 1.5);
-  }
+  /* .wrapper--full-padded .carousel .flickity-prev-next-button.previous {
+    left: calc(var(--gutter) * 1.5) Default value;
+  } */
 }
 
 @media only screen and (max-width: 1023px) {
@@ -9561,11 +9561,11 @@ https://flickity.metafizzy.co
 }
 
 .flickity-prev-next-button.previous {
-  left: 10px;
+  left: 1rem;
 }
 
 .flickity-prev-next-button.next {
-  right: 10px;
+  right: 1rem;
 }
 
 .flickity-rtl .flickity-prev-next-button.previous {
@@ -9703,13 +9703,13 @@ https://flickity.metafizzy.co
   right: var(--flickity-btn-position);
 }
 
-.flickity-prev-next-button.previous {
+/* .flickity-prev-next-button.previous {
   left: var(--flickity-btn-position);
 }
 
 .flickity-prev-next-button.next {
   right: var(--flickity-btn-position);
-}
+} Default values*/
 
 .flickity-prev-next-button {
   --icon-size: 18px;
@@ -28740,6 +28740,7 @@ search-form mark {
   display: block;
   margin: 0;
   object-fit: contain;
+  border: 1px solid var(--base-neutral-200, #ebebec);
 }
 .product-single__media .lazy-image,
 .product-single__media iframe,
@@ -29016,6 +29017,7 @@ search-form mark {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border: 1px solid var(--base-neutral-200, #ebebec);
 }
 
 /*
@@ -32674,7 +32676,7 @@ search-form mark {
   overflow: hidden;
   display: block;
   width: 100%;
-  padding: var(--form-top) var(--arrow-size) var(--form-top) var(--form-left);
+  /* padding: var(--form-top) var(--arrow-size) var(--form-top) var(--form-left); Default value*/
   border: var(--BORDER-WIDTH) solid var(--text);
   border-radius: var(--RADIUS);
   line-height: 1.3;

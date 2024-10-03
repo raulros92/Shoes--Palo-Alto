@@ -20,6 +20,11 @@
             "show_sku": true
           }
         },
+        "judge_me_reviews_preview_badge_y4UXdL": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+          }
+        },
         "inventory_countdown": {
           "type": "inventory_countdown",
           "settings": {
@@ -119,13 +124,13 @@
               "the-complete-snowboard",
               "rossignol-jibsaw-magtek-snowboard-2016",
               "rossignol-angus-magtek-snowboard-2016"
-            ],
-            "padding_bottom": 0
+            ]
           }
         }
       },
       "block_order": [
         "title",
+        "judge_me_reviews_preview_badge_y4UXdL",
         "inventory_countdown",
         "description",
         "form",
@@ -225,6 +230,7 @@
         "layout": "two-columns",
         "show_accordion_divider": true,
         "title": "Preguntas frequentes",
+        "heading_flex-start": true,
         "subheading": "",
         "text": "",
         "tabs_bg_color": "#ffffff",
