@@ -1,9 +1,5 @@
 {%- comment -%} /sections/product-template {%- endcomment -%}
 
-  {%- comment -%} CSS {%- endcomment -%}
-  {{- 'custom.css' | asset_url | stylesheet_tag -}}
-
-
 {%- liquid
   assign bg_color = section.settings.bg_color
   assign section_width = section.settings.width

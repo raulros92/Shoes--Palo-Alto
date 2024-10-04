@@ -2,6 +2,7 @@
   * Render an image in <img> tag
 
   *  image {object} - The Image that would be used
+  *  image_mobile {object} - The Image that would be used for mobile (Optional)
   *  width {Int} - The default image width (Optional)
   *  height {Int} - The default image height (Optional)
   *  sizes {String} - A set of media conditions (Optional)
@@ -22,6 +23,7 @@
 {%- liquid
   assign default_image = 'blank.svg' | asset_url
   assign image = image | default: default_image
+  assign image_mobile = image_mobile | default: image
   assign classes = classes | default: ''
   assign styles = styles | default: ''
   assign image_aspect_ratio = image.aspect_ratio
@@ -100,7 +102,26 @@
     <figure class="{{ wrapper_classes }}">
   {%- endunless -%}
 
-    {{ image | image_url: width: width, height: height | image_tag: loading: loading, sizes: sizes, alt: alt, fetchpriority: fetchpriority, preload: preload, srcset: srcset, class: image_classes, style: image_styles, data-product-image: image_data, data-image-id: id }}
+  <picture>
+    {%- if image_mobile != blank -%}
+      <source media="(max-width: 767px)" srcset="{{ image_mobile | image_url: width: width, height: height }}" />
+    {%- endif -%}
+    <img 
+      src="{{ image | image_url: width: width, height: height }}" 
+      loading="{{ loading }}" 
+      sizes="{{ sizes }}" 
+      alt="{{ alt }}" 
+      fetchpriority="{{ fetchpriority }}" 
+      preload="{{ preload }}" 
+      srcset="{{ srcset }}" 
+      class="{{ image_classes }}" 
+      style="{{ image_styles }}" 
+      data-product-image="{{ image_data }}" 
+      data-image-id="{{ id }}" 
+      width="{{ width }}"
+      height="{{ height }}"
+    />
+  </picture>
 
   {%- unless simple -%}
     </figure>
@@ -139,7 +160,7 @@
           echo '<svg preserveAspectRatio="' | append: svg_aspect_ratio | append: '"'
         endcapture
         comment
-          Manually splice in attributes neccesary for an SVG to mimic `object-fit: cover or contain`
+          Manually splice in attributes necessary for an SVG to mimic `object-fit: cover or contain`
         endcomment
         assign parts = svg_tag | split: '<svg'
       -%}

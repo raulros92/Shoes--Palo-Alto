@@ -1,3 +1,13 @@
+/* HOME PAGE */
+
+.section__heading.h2 .text-highlight__break {
+  font-size: 1.25rem;
+}
+
+.navtext::after {
+  display: none !important;
+}
+
 /* PRODUCT PAGE */
 
 .wrapper-custom {
@@ -148,6 +158,103 @@
 }
 
 /* ABOUT PAGE */
+
+.image-with-text__content-items,
+.text__content {
+  color: var(--base-neutral-600, #878789);
+}
+
+.text__subheading.subheading-text-custom {
+  --adjust-body: calc(var(--FONT-ADJUST-SUBHEADING) * 2.3) !important;
+  text-align: center;
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: normal;
+}
+
+.button-custom {
+  display: flex;
+  padding: var(--Spacers-8, 8px) 24px;
+  justify-content: center;
+  align-items: center;
+  gap: var(--Spacers-8, 8px);
+  border-radius: var(--font-size-4032, 40px);
+  border: var(--Quantity, 1px) solid var(--base-neutral-900, #222223);
+}
+
+.button-custom.selected {
+  background: var(--base-neutral-900, #222223);
+}
+
+.button-custom.selected span {
+  color: var(--base-white, #ffffff);
+}
+
+.button-custom:hover {
+  background: var(--base-neutral-900, #222223);
+}
+
+.button-custom:hover span {
+  color: var(--base-white, #ffffff);
+}
+
+.column-item.show {
+  display: block !important;
+}
+
+.column-item:not(.show) {
+  display: none !important;
+}
+
+.column-item__content > .column-item__button-custom {
+  font-size: calc(1rem * var(--adjust-body));
+  text-decoration: underline !important;
+  font-weight: 400;
+}
+
+.column-item__content > .column-item__button-custom:hover {
+  text-decoration: none !important;
+}
+
+.btn--white.btn--text {
+  font-size: calc(1rem * var(--adjust-body));
+  text-decoration: underline !important;
+  font-weight: 400;
+}
+
+.btn--white.btn--text:hover {
+  text-decoration: none !important;
+}
+
+.banner-image__heading .text-highlight__break {
+  font-size: 1.75rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .list-collections__item {
+    width: 142px !important;
+    height: 38px !important;
+    margin-right: 16px !important;
+  }
+  .text-container-custom {
+    margin: 0 10.75rem;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .banner-image__heading .text-highlight__break {
+    margin-top: 1rem;
+  }
+  .button-custom.selected span,
+  .button-custom span {
+    font-size: 1rem;
+  }
+  .list-collections-section .carousel__container .grid--mobile {
+    margin: 0 !important;
+  }
+}
 
 /* APPS */
 

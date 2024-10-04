@@ -80,6 +80,63 @@
     }
   });
 
+  // Lógica para seleccionar tiendas mediante botones
+  document.addEventListener("DOMContentLoaded", function () {
+    const buttons = document.querySelectorAll(".button-custom");
+    const columnItems = document.querySelectorAll(".column-item");
+
+    // Al cargar la página, queremos que todos los items estén visibles
+    columnItems.forEach((item) => item.classList.add("show"));
+
+    // Selecciona el botón "Todas" por defecto
+    buttons.forEach((button) => {
+      const buttonText = button
+        .querySelector("span")
+        .textContent.trim()
+        .toLowerCase();
+      if (buttonText === "todas") {
+        button.classList.add("selected"); // Marca el botón "Todas" como seleccionado
+      }
+    });
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", function () {
+        // Obtén el texto del span dentro del botón seleccionado
+        const selectedText = this.querySelector("span")
+          .textContent.trim()
+          .toLowerCase();
+
+        // Recorrer todos los column-items
+        columnItems.forEach((item) => {
+          const columnText = item
+            .querySelector(".column-item__text")
+            .textContent.trim()
+            .toLowerCase();
+
+          // Si el texto es "todas", mostramos todos los items
+          if (selectedText === "todas") {
+            item.classList.add("show"); // Muestra todos los elementos
+          } else {
+            // Comparar el texto del span con el texto dentro del column-item
+            if (columnText.includes(selectedText)) {
+              item.classList.add("show"); // Muestra el elemento si coincide
+            } else {
+              item.classList.remove("show"); // Oculta el elemento si no coincide
+            }
+          }
+        });
+
+        // Elimina la clase 'selected' de todos los botones
+        buttons.forEach((btn) => {
+          btn.classList.remove("selected");
+        });
+
+        // Agrega la clase 'selected' al botón clicado
+        this.classList.add("selected");
+      });
+    });
+  });
+
   // ^^ Keep your scripts inside this IIFE function call to
   // avoid leaking your variables into the global scope.
 })();

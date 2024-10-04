@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://monorail-edge.shopifysvc.com" crossorigin>
 
   {{ 'theme.css' | asset_url | preload_tag: as: 'style' }}
+  {{'custom.css' | asset_url | stylesheet_tag }}
   {{ 'vendor.js' | asset_url | preload_tag: as: 'script' }}
   {{ 'theme.js' | asset_url | preload_tag: as: 'script' }}
 

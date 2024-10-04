@@ -25,7 +25,7 @@
   data-section-id="{{ unique }}"
   data-section-type="text">
   <div class="{{ section_width }} text-{{ text_position }}">
-    <div class="text">
+    <div class="text text-container-custom">
       {%- if section.blocks.size > 0 -%}
         {%- for block in section.blocks -%}
           {%- liquid
@@ -58,7 +58,11 @@
               {%- endstyle -%}
 
               {%- if text != blank -%}
-                <div id="Text--{{ block_id }}" class="text__subheading subheading-text"
+                <div
+                 
+                 
+                  id="Text--{{ block_id }}"
+                  class="text__subheading subheading-text subheading-text-custom"
                   {% if animations_enabled %}
                     data-aos="fade-up"
                     data-aos-anchor="{{ animation_anchor }}"
