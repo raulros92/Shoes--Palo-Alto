@@ -229,7 +229,7 @@
 }
 
 .banner-image__heading .text-highlight__break {
-  font-size: 1.75rem;
+  font-size: calc(1.75rem * var(--FONT-ADJUST-BHEADING));
 }
 
 @media only screen and (min-width: 768px) {
@@ -246,10 +246,6 @@
 @media only screen and (max-width: 767px) {
   .banner-image__heading .text-highlight__break {
     margin-top: 1rem;
-  }
-  .button-custom.selected span,
-  .button-custom span {
-    font-size: 1rem;
   }
   .list-collections-section .carousel__container .grid--mobile {
     margin: 0 !important;

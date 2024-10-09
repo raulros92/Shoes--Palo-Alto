@@ -84,7 +84,7 @@
         </h2>
 
         <div class="select-popout select-popout--lang" data-popout>
-          <button type="button" class="select-popout__toggle" aria-expanded="false" aria-controls="lang-list" aria-describedby="lang-heading" data-popout-toggle>
+          <button type="button" class="select-popout__toggle select-popout__toggle-custom" aria-expanded="false" aria-controls="lang-list" aria-describedby="lang-heading" data-popout-toggle>
             {{ localization.language.endonym_name | replace: "Español", "Castellano" | capitalize }}
             {%- render 'icon-select' -%}
           </button>

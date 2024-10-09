@@ -355,7 +355,7 @@
       ],
       "settings": {
         "height": "original-height",
-        "enable_mobile_height": false,
+        "enable_mobile_height": true,
         "mobile_height": "original-height-mobile",
         "image": "shopify://shop_images/Banner_about-us.png",
         "image_mobile": "shopify://shop_images/m-Banner_about-us.png",
