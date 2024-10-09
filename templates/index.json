@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "section-slideshow-0": {
@@ -6,8 +15,8 @@
         "image_TLgwmT": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Slider1.png",
-            "image_mobile": "shopify:\/\/shop_images\/Slider1Mobile.png",
+            "image": "shopify://shop_images/Slider1.png",
+            "image_mobile": "shopify://shop_images/Slider1Mobile.png",
             "overlay_opacity": 0,
             "text_width": "normal",
             "text_position": "center",
@@ -21,7 +30,7 @@
             "text": "",
             "stacked_button": false,
             "button_1_text": "",
-            "button_1_link": "shopify:\/\/collections\/all",
+            "button_1_link": "shopify://collections/all",
             "button_1_color": "btn--white",
             "button_1_style": "btn--solid-border",
             "button_1_size": "btn--large",
@@ -37,8 +46,8 @@
         "image_Ffw4Rz": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Slider1.png",
-            "image_mobile": "shopify:\/\/shop_images\/Slider1Mobile.png",
+            "image": "shopify://shop_images/Slider1.png",
+            "image_mobile": "shopify://shop_images/Slider1Mobile.png",
             "overlay_opacity": 0,
             "text_width": "normal",
             "text_position": "center",
@@ -52,7 +61,7 @@
             "text": "",
             "stacked_button": false,
             "button_1_text": "",
-            "button_1_link": "shopify:\/\/collections\/all",
+            "button_1_link": "shopify://collections/all",
             "button_1_color": "btn--white",
             "button_1_style": "btn--solid-border",
             "button_1_size": "btn--large",
@@ -68,8 +77,8 @@
         "image_W9Utcx": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Slider1.png",
-            "image_mobile": "shopify:\/\/shop_images\/Slider1Mobile.png",
+            "image": "shopify://shop_images/Slider1.png",
+            "image_mobile": "shopify://shop_images/Slider1Mobile.png",
             "overlay_opacity": 0,
             "text_width": "normal",
             "text_position": "center",
@@ -83,7 +92,7 @@
             "text": "",
             "stacked_button": false,
             "button_1_text": "",
-            "button_1_link": "shopify:\/\/collections\/all",
+            "button_1_link": "shopify://collections/all",
             "button_1_color": "btn--white",
             "button_1_style": "btn--solid-border",
             "button_1_size": "btn--large",
@@ -120,36 +129,6 @@
     },
     "section-collection-0": {
       "type": "section-collection",
-      "blocks": {
-        "section-collection-0-block-0": {
-          "type": "promo",
-          "disabled": true,
-          "settings": {
-            "position": 1,
-            "width": "half",
-            "title": "<p>Promotion title<\/p>",
-            "heading_highlight_type": "circle",
-            "highlight_color": "rgba(0,0,0,0)",
-            "highlight_text_color": "#000000",
-            "heading_size": 100,
-            "content": "Advertise a promotion or a sale",
-            "text_size": 100,
-            "text_color": "text-dark",
-            "text_position": "bottom-left",
-            "layout": "stacked",
-            "overlay_opacity": 10,
-            "bg_color": "#f7f7f7",
-            "button_text": "",
-            "button_link": "",
-            "button_color": "btn--white",
-            "button_style": "btn--solid-border",
-            "button_size": "btn--small"
-          }
-        }
-      },
-      "block_order": [
-        "section-collection-0-block-0"
-      ],
       "settings": {
         "collection": "novedades",
         "products_layout": "carousel",
@@ -157,12 +136,11 @@
         "products_per_row_on_desktop": 4,
         "columns_mobile": "1",
         "text_alignment": "text-left",
-        "title": "<p>Novedades Zapato Mujer<\/p>",
+        "title": "<p>Novedades Zapato Mujer</p>",
         "title_mobile": true,
         "heading_highlight_type": "circle",
         "highlight_color": "#d43747",
         "highlight_text_color": "#000000",
-        "heading_size": 75,
         "text": "",
         "text_size": 100,
         "button_text": "",
@@ -185,12 +163,11 @@
         "products_per_row_on_desktop": 4,
         "columns_mobile": "1",
         "text_alignment": "text-left",
-        "title": "<p>Novedades zapatos hombre<\/p>",
+        "title": "<p>Novedades zapatos hombre</p>",
         "title_mobile": true,
         "heading_highlight_type": "circle",
         "highlight_color": "#d43747",
         "highlight_text_color": "#000000",
-        "heading_size": 75,
         "text": "",
         "text_size": 100,
         "button_text": "",
@@ -211,15 +188,15 @@
           "type": "image",
           "settings": {
             "width": "100",
-            "image": "shopify:\/\/shop_images\/Grid1.png",
-            "image_mobile": "shopify:\/\/shop_images\/Grid1Mobile.png",
+            "image": "shopify://shop_images/Grid1.png",
+            "image_mobile": "shopify://shop_images/Grid1Mobile.png",
             "overlay_opacity": 0,
             "text_position": "center",
             "subheading": "",
             "title": "Sobre Nosotros",
             "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             "button_1_text": "Leer más",
-            "button_1_link": "shopify:\/\/pages\/sobre-nosotros",
+            "button_1_link": "shopify://pages/sobre-nosotros",
             "button_2_text": "",
             "button_2_link": "",
             "overlay_text_color": "text-light"
@@ -229,15 +206,15 @@
           "type": "image",
           "settings": {
             "width": "33.33",
-            "image": "shopify:\/\/shop_images\/Grid2.png",
-            "image_mobile": "shopify:\/\/shop_images\/Grid2Mobile.png",
+            "image": "shopify://shop_images/Grid2.png",
+            "image_mobile": "shopify://shop_images/Grid2Mobile.png",
             "overlay_opacity": 0,
             "text_position": "center",
             "subheading": "",
             "title": "Tienda",
             "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
             "button_1_text": "Leer más",
-            "button_1_link": "shopify:\/\/pages\/sobre-nosotros",
+            "button_1_link": "shopify://pages/sobre-nosotros",
             "button_2_text": "",
             "button_2_link": "",
             "overlay_text_color": "text-light"
@@ -247,15 +224,15 @@
           "type": "image",
           "settings": {
             "width": "33.33",
-            "image": "shopify:\/\/shop_images\/Grid3.png",
-            "image_mobile": "shopify:\/\/shop_images\/Grid3Mobile.png",
+            "image": "shopify://shop_images/Grid3.png",
+            "image_mobile": "shopify://shop_images/Grid3Mobile.png",
             "overlay_opacity": 0,
             "text_position": "center",
             "subheading": "",
             "title": "Instagram",
             "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
             "button_1_text": "Leer más",
-            "button_1_link": "shopify:\/\/pages\/sobre-nosotros",
+            "button_1_link": "shopify://pages/sobre-nosotros",
             "button_2_text": "",
             "button_2_link": "",
             "overlay_text_color": "text-light"
@@ -265,15 +242,15 @@
           "type": "image",
           "settings": {
             "width": "33.33",
-            "image": "shopify:\/\/shop_images\/Grid4.png",
-            "image_mobile": "shopify:\/\/shop_images\/Grid4Mobile.png",
+            "image": "shopify://shop_images/Grid4.png",
+            "image_mobile": "shopify://shop_images/Grid4Mobile.png",
             "overlay_opacity": 0,
             "text_position": "center",
             "subheading": "",
             "title": "Blog",
             "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
             "button_1_text": "Leer más",
-            "button_1_link": "shopify:\/\/blogs\/news",
+            "button_1_link": "shopify://blogs/news",
             "button_2_text": "",
             "button_2_link": "",
             "overlay_text_color": "text-light"
@@ -293,10 +270,8 @@
         "heading_size": 160,
         "button_1_color": "btn--white",
         "button_1_style": "btn--text",
-        "button_1_size": "btn--small",
         "button_2_color": "btn--black",
         "button_2_style": "btn--text",
-        "button_2_size": "btn--small",
         "bg_color_secondary": false,
         "enable_slider_mobile": false,
         "columns_mobile": "1",
@@ -315,7 +290,7 @@
           "settings": {
             "text": "",
             "link": "",
-            "press_logo": "shopify:\/\/shop_images\/Xti.png",
+            "press_logo": "shopify://shop_images/Xti.png",
             "logo_width": 85
           }
         },
@@ -324,7 +299,7 @@
           "settings": {
             "text": "",
             "link": "",
-            "press_logo": "shopify:\/\/shop_images\/Asics.png",
+            "press_logo": "shopify://shop_images/Asics.png",
             "logo_width": 155
           }
         },
@@ -333,7 +308,7 @@
           "settings": {
             "text": "",
             "link": "",
-            "press_logo": "shopify:\/\/shop_images\/geox.png",
+            "press_logo": "shopify://shop_images/geox.png",
             "logo_width": 170
           }
         },
@@ -342,7 +317,7 @@
           "settings": {
             "text": "",
             "link": "",
-            "press_logo": "shopify:\/\/shop_images\/clarks.png",
+            "press_logo": "shopify://shop_images/clarks.png",
             "logo_width": 145
           }
         },
@@ -351,7 +326,7 @@
           "settings": {
             "text": "",
             "link": "",
-            "press_logo": "shopify:\/\/shop_images\/camper.png",
+            "press_logo": "shopify://shop_images/camper.png",
             "logo_width": 125
           }
         },
@@ -360,7 +335,7 @@
           "settings": {
             "text": "",
             "link": "",
-            "press_logo": "shopify:\/\/shop_images\/converse.png",
+            "press_logo": "shopify://shop_images/converse.png",
             "logo_width": 215
           }
         },
@@ -369,7 +344,7 @@
           "settings": {
             "text": "",
             "link": "",
-            "press_logo": "shopify:\/\/shop_images\/Xti.png",
+            "press_logo": "shopify://shop_images/Xti.png",
             "logo_width": 85
           }
         },
@@ -378,7 +353,7 @@
           "settings": {
             "text": "",
             "link": "",
-            "press_logo": "shopify:\/\/shop_images\/clarks.png",
+            "press_logo": "shopify://shop_images/clarks.png",
             "logo_width": 145
           }
         },
@@ -387,7 +362,7 @@
           "settings": {
             "text": "",
             "link": "",
-            "press_logo": "shopify:\/\/shop_images\/geox.png",
+            "press_logo": "shopify://shop_images/geox.png",
             "logo_width": 170
           }
         },
@@ -396,7 +371,7 @@
           "settings": {
             "text": "",
             "link": "",
-            "press_logo": "shopify:\/\/shop_images\/converse.png",
+            "press_logo": "shopify://shop_images/converse.png",
             "logo_width": 215
           }
         }
@@ -431,41 +406,41 @@
         "text_QAJyJB": {
           "type": "text",
           "settings": {
-            "icon_name": "truck",
+            "icon_name": "truck-custom",
             "title": "Envío gratis",
-            "text": "<p>Feugiat vitae urna ac posuere.<\/p>"
+            "text": "<p>Feugiat vitae urna ac posuere.</p>"
           }
         },
         "text_fbkDNR": {
           "type": "text",
           "settings": {
-            "icon_name": "truck",
+            "icon_name": "truck-custom",
             "title": "Envío gratis",
-            "text": "<p>Feugiat vitae urna ac posuere.<\/p>"
+            "text": "<p>Feugiat vitae urna ac posuere.</p>"
           }
         },
         "text_KCTbnj": {
           "type": "text",
           "settings": {
-            "icon_name": "truck",
+            "icon_name": "truck-custom",
             "title": "Envío gratis",
-            "text": "<p>Feugiat vitae urna ac posuere.<\/p>"
+            "text": "<p>Feugiat vitae urna ac posuere.</p>"
           }
         },
         "text_YUY9AA": {
           "type": "text",
           "settings": {
-            "icon_name": "truck",
+            "icon_name": "truck-custom",
             "title": "Envío gratis",
-            "text": "<p>Feugiat vitae urna ac posuere.<\/p>"
+            "text": "<p>Feugiat vitae urna ac posuere.</p>"
           }
         },
         "text_9GKxV3": {
           "type": "text",
           "settings": {
-            "icon_name": "truck",
+            "icon_name": "truck-custom",
             "title": "Envío gratis",
-            "text": "<p>Feugiat vitae urna ac posuere.<\/p>"
+            "text": "<p>Feugiat vitae urna ac posuere.</p>"
           }
         }
       },
@@ -487,7 +462,7 @@
         "heading_size": 120,
         "text_size": 100,
         "bg_color": "",
-        "text_color": "#333333",
+        "text_color": "#ffffff",
         "box_color": "",
         "color_border": "#333333",
         "button_text": "",
@@ -507,7 +482,7 @@
         "flex_align": "align--middle-center",
         "text_color": "text-dark",
         "title": "",
-        "text": "<p>Suscríbete a la newsletter para conseguir descuentos y ofertas exclusivas<\/p>",
+        "text": "<p>Suscríbete a la newsletter para conseguir descuentos y ofertas exclusivas</p>",
         "extra_fields": "",
         "button_text": "Vamos!",
         "bg_color": "#d3cee5",
