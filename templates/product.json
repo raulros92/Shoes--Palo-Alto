@@ -11,7 +11,57 @@
   "sections": {
     "main": {
       "type": "product",
-      "settings": {}
+      "blocks": {
+        "title_TPMbH8": {
+          "type": "title",
+          "settings": {
+            "subheading": "breadcrumbs",
+            "padding_bottom": 20,
+            "show_sku": true
+          }
+        },
+        "cutline_hz3NQz": {
+          "type": "cutline",
+          "settings": {
+            "cutline_color": "body",
+            "padding_bottom": 20
+          }
+        },
+        "form_XKEtkg": {
+          "type": "form",
+          "settings": {
+            "show_labels": true,
+            "show_quantity": false,
+            "show_payment_button": true,
+            "enable_subscriptions_selectors": true,
+            "padding_bottom": 20
+          }
+        },
+        "description_VCc76Y": {
+          "type": "description",
+          "settings": {
+            "padding_bottom": 20
+          }
+        }
+      },
+      "block_order": [
+        "title_TPMbH8",
+        "cutline_hz3NQz",
+        "form_XKEtkg",
+        "description_VCc76Y"
+      ],
+      "settings": {
+        "product_sticky_enable": true,
+        "image_layout": "carousel",
+        "image_width": "standard",
+        "product_image_aspect_ratio": false,
+        "enable_zoom": true,
+        "enable_video_looping": false,
+        "bg_color": "",
+        "width": "wrapper",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
     }
   },
   "order": [
