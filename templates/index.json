@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "section-slideshow-0": {
@@ -15,8 +15,6 @@
         "image_TLgwmT": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Slider1.png",
-            "image_mobile": "shopify://shop_images/Slider1Mobile.png",
             "overlay_opacity": 0,
             "text_width": "normal",
             "text_position": "center",
@@ -46,8 +44,6 @@
         "image_Ffw4Rz": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Slider1.png",
-            "image_mobile": "shopify://shop_images/Slider1Mobile.png",
             "overlay_opacity": 0,
             "text_width": "normal",
             "text_position": "center",
@@ -77,8 +73,6 @@
         "image_W9Utcx": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Slider1.png",
-            "image_mobile": "shopify://shop_images/Slider1Mobile.png",
             "overlay_opacity": 0,
             "text_width": "normal",
             "text_position": "center",
@@ -130,7 +124,7 @@
     "section-collection-0": {
       "type": "section-collection",
       "settings": {
-        "collection": "novedades",
+        "collection": "frontpage",
         "products_layout": "carousel",
         "number_of_products": 48,
         "products_per_row_on_desktop": 4,
@@ -188,8 +182,6 @@
           "type": "image",
           "settings": {
             "width": "100",
-            "image": "shopify://shop_images/Grid1.png",
-            "image_mobile": "shopify://shop_images/Grid1Mobile.png",
             "overlay_opacity": 0,
             "text_position": "center",
             "subheading": "",
@@ -206,8 +198,6 @@
           "type": "image",
           "settings": {
             "width": "33.33",
-            "image": "shopify://shop_images/Grid2.png",
-            "image_mobile": "shopify://shop_images/Grid2Mobile.png",
             "overlay_opacity": 0,
             "text_position": "center",
             "subheading": "",
@@ -224,8 +214,6 @@
           "type": "image",
           "settings": {
             "width": "33.33",
-            "image": "shopify://shop_images/Grid3.png",
-            "image_mobile": "shopify://shop_images/Grid3Mobile.png",
             "overlay_opacity": 0,
             "text_position": "center",
             "subheading": "",
@@ -242,8 +230,6 @@
           "type": "image",
           "settings": {
             "width": "33.33",
-            "image": "shopify://shop_images/Grid4.png",
-            "image_mobile": "shopify://shop_images/Grid4Mobile.png",
             "overlay_opacity": 0,
             "text_position": "center",
             "subheading": "",
@@ -290,7 +276,6 @@
           "settings": {
             "text": "",
             "link": "",
-            "press_logo": "shopify://shop_images/Xti.png",
             "logo_width": 85
           }
         },
@@ -299,7 +284,6 @@
           "settings": {
             "text": "",
             "link": "",
-            "press_logo": "shopify://shop_images/Asics.png",
             "logo_width": 155
           }
         },
@@ -308,7 +292,6 @@
           "settings": {
             "text": "",
             "link": "",
-            "press_logo": "shopify://shop_images/geox.png",
             "logo_width": 170
           }
         },
@@ -317,7 +300,6 @@
           "settings": {
             "text": "",
             "link": "",
-            "press_logo": "shopify://shop_images/clarks.png",
             "logo_width": 145
           }
         },
@@ -326,7 +308,6 @@
           "settings": {
             "text": "",
             "link": "",
-            "press_logo": "shopify://shop_images/camper.png",
             "logo_width": 125
           }
         },
@@ -335,7 +316,6 @@
           "settings": {
             "text": "",
             "link": "",
-            "press_logo": "shopify://shop_images/converse.png",
             "logo_width": 215
           }
         },
@@ -344,7 +324,6 @@
           "settings": {
             "text": "",
             "link": "",
-            "press_logo": "shopify://shop_images/Xti.png",
             "logo_width": 85
           }
         },
@@ -353,7 +332,6 @@
           "settings": {
             "text": "",
             "link": "",
-            "press_logo": "shopify://shop_images/clarks.png",
             "logo_width": 145
           }
         },
@@ -362,7 +340,6 @@
           "settings": {
             "text": "",
             "link": "",
-            "press_logo": "shopify://shop_images/geox.png",
             "logo_width": 170
           }
         },
@@ -371,7 +348,6 @@
           "settings": {
             "text": "",
             "link": "",
-            "press_logo": "shopify://shop_images/converse.png",
             "logo_width": 215
           }
         }
